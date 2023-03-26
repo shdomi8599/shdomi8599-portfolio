@@ -17,16 +17,13 @@ const IntroBox = styled.div`
     left: 0;
     width: 100%;
     height: 70vh;
-    background-image: url("https://cdg-portfolio.com/images/masthead.jpg");
-    background-size: 100% auto;
+    background-image: url("https://lh3.googleusercontent.com/pw/AMWts8DrWPx4OuNSNyGkgaq46j8TNquxfNXofaEyntXELCD08jsD37UZ-P-ML921uMhzlbRS7trtdo2q8lkcaV8MmTquyG4Fm9xPYRR7vzAcIEoZaSsKbjqayEtU7UD17py2_knCTymHSi8XIgbGyrsDIZns=w1920-h590-no?authuser=0");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 1;
     @media (max-width: 980px) {
-      background-size: 100% auto;
-    }
-    @media (max-width: 680px) {
-      background-size: 680px auto;
+      background-size: 980px 100%;
     }
   }
 
