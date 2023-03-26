@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Article = styled.article`
   width: 100%;
-  padding: 25px calc((100% - 1100px) / 2);
+  padding: 60px calc((100% - 1100px) / 2);
   display: flex;
   justify-content: start;
   align-items: center;
@@ -10,7 +10,7 @@ const Article = styled.article`
 `;
 
 type ArticleProps = {
-  children: JSX.Element;
+  children: JSX.Element[];
 };
 
 const ArticleBox = ({ children }: ArticleProps) => {

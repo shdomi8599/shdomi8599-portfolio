@@ -1,8 +1,7 @@
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
-import Introduction from "@/components/section/Introduction";
+import Profile from "@/components/section/Profile";
 import styled from "styled-components";
-import { ServerStyleSheet } from 'styled-components';
 
 const Main = styled.div`
   display: flex;
@@ -18,7 +17,7 @@ export default function Home() {
       <Navbar />
       <Main>
         <Intro />
-        <Introduction />
+        <Profile />
       </Main>
     </>
   );

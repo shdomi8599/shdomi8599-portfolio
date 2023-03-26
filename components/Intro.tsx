@@ -4,12 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const IntroBox = styled.section`
   width: 100%;
-  height:655.89px;
+  height: 655.89px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-top: 70px;
+
+  @media (max-width: 170px) {
+    padding: 5px;
+    margin: 5px;
+  }
+
   &:before {
     content: "";
     z-index: -1;
@@ -26,6 +32,9 @@ const IntroBox = styled.section`
     @media (max-width: 980px) {
       background-size: 980px 100%;
     }
+    @media (max-width: 170px) {
+      height: 75vh;
+  }
   }
 
   > div {

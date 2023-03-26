@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 type NavProps = {
   togle: boolean;
+  isScrolled: boolean;
 };
 
 const Nav = styled.nav<NavProps>`
@@ -14,7 +15,9 @@ const Nav = styled.nav<NavProps>`
   flex-direction: column;
   align-items: center;
   position: fixed;
-  color: #e2dddd;
+  color: ${(props) => (props.isScrolled ? "black" : "#e2dddd")};
+  background-color: ${(props) => props.isScrolled && "white"};
+  box-shadow: ${(props) => props.isScrolled && "0 2px 4px rgba(0, 0, 0, 0.8)"};
 
   > div:first-child {
     width: 100%;
@@ -28,13 +31,16 @@ const Nav = styled.nav<NavProps>`
     @media (max-width: 768px) {
       padding: 25px 20px;
     }
+    @media (max-width: 215px) {
+      flex-direction: column;
+    }
 
     > div:first-child {
       font-size: 2.2rem;
       width: 100%;
       cursor: pointer;
       :hover {
-        color: white;
+        color: ${(props) => (props.isScrolled ? "black" : "white")};
       }
       @media (max-width: 980px) {
         :hover {
@@ -50,6 +56,9 @@ const Nav = styled.nav<NavProps>`
 
     > div:last-child {
       display: flex;
+      @media (max-width: 215px) {
+        flex-direction: column;
+      }
 
       > div:first-child {
         display: none;
@@ -71,7 +80,7 @@ const Nav = styled.nav<NavProps>`
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         > ul {
           width: 100%;
           display: flex;
@@ -84,7 +93,7 @@ const Nav = styled.nav<NavProps>`
             margin: 0px 1.4vw;
             cursor: pointer;
             :hover {
-              color: white;
+              color: ${(props) => (props.isScrolled ? "black" : "white")};
             }
             @media (max-width: 980px) {
               :hover {
@@ -154,21 +163,38 @@ const Navbar = () => {
     };
   }, []);
 
-  //네비 데이터 메모이제이션
-  const navData = useMemo(
-    () => (
-      <ul>
-        <li>Introduction</li>
-        <li>Skills</li>
-        <li>Projects</li>
-        <li>Contact</li>
-      </ul>
-    ),
-    []
+  //스크롤 높이 상태
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  //스크롤 높이 상태 핸들러
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  //스크롤이 20이상 내려오면 네비바의 배경을 입혀주기 위한 이펙트
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  //네비 데이터
+  const navData = (
+    <ul>
+      <li>Profile</li>
+      <li>Skills</li>
+      <li>Projects</li>
+      <li>Contact</li>
+    </ul>
   );
 
   return (
-    <Nav togle={togle}>
+    <Nav togle={togle} isScrolled={isScrolled}>
       <div>
         <div>Portfolio</div>
         <div>

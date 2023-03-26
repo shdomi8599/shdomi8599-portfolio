@@ -18,7 +18,6 @@ function MyDocument({ styles }: Props) {
   );
 }
 
-//미리 스타일컴포넌트의 css요소를 적용하기 위한 프리 랜더링
 MyDocument.getInitialProps = async (
   ctx: DocumentContext
 ): Promise<DocumentInitialProps & { styles: React.ReactElement[] }> => {
