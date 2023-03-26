@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SectionTitle from "./common/SectionTitle";
+import SectionTitle from "./SectionTitle";
 
 const Article = styled.article`
   width: 100%;
@@ -8,16 +8,18 @@ const Article = styled.article`
   justify-content: start;
   align-items: center;
   flex-direction: column;
+  border-bottom: 1px solid #b7c5c5;
 `;
 
-type ArticleProps = {
+type ArticleBoxProps = {
   children: JSX.Element;
   name: string;
+  addStyle?: string;
 };
 
-const ArticleBox = ({ children, name }: ArticleProps) => {
+const ArticleBox = ({ children, name, addStyle }: ArticleBoxProps) => {
   return (
-    <Article>
+    <Article className={addStyle}>
       <SectionTitle name={name} />
       {children}
     </Article>

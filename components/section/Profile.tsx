@@ -1,4 +1,4 @@
-import ArticleBox from "@/components/ArticleBox";
+import ArticleBox from "@/components/common/ArticleBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAddressCard,
@@ -9,15 +9,7 @@ import {
   faSchool,
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
-
-const Row = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-  padding-top: 60px;
-`;
+import Row from "../common/Row";
 
 const Col = styled.div`
   display: flex;
@@ -25,8 +17,8 @@ const Col = styled.div`
   align-items: center;
   margin-bottom: 3rem;
   height: 10vh;
-  width: 100%;
   padding: 0px 60px;
+  
   @media (min-width: 992px) {
     width: calc(100% / 3);
   }

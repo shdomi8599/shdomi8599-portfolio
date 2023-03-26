@@ -1,7 +1,8 @@
-import Intro from "@/components/Intro";
-import Navbar from "@/components/Navbar";
+import Intro from "@/components/section/Intro";
+import Navbar from "@/components/nav/Navbar";
 import Profile from "@/components/section/Profile";
 import styled from "styled-components";
+import Skills from "@/components/section/Skills";
 
 const Main = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ export default function Home() {
       <Main>
         <Intro />
         <Profile />
+        <Skills />
       </Main>
     </>
   );

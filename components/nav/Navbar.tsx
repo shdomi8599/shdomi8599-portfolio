@@ -17,7 +17,7 @@ const Nav = styled.nav<NavProps>`
   position: fixed;
   color: ${(props) => (props.isScrolled ? "black" : "#e2dddd")};
   background-color: ${(props) => props.isScrolled && "white"};
-  box-shadow: ${(props) => props.isScrolled && "0 2px 4px rgba(0, 0, 0, 0.8)"};
+  box-shadow: ${(props) => props.isScrolled && "0 2px 4px rgba(0, 0, 0, 0.2)"};
 
   > div:first-child {
     width: 100%;
