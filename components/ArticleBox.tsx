@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SectionTitle from "./common/SectionTitle";
 
 const Article = styled.article`
   width: 100%;
@@ -10,11 +11,17 @@ const Article = styled.article`
 `;
 
 type ArticleProps = {
-  children: JSX.Element[];
+  children: JSX.Element;
+  name: string;
 };
 
-const ArticleBox = ({ children }: ArticleProps) => {
-  return <Article>{children}</Article>;
+const ArticleBox = ({ children, name }: ArticleProps) => {
+  return (
+    <Article>
+      <SectionTitle name={name} />
+      {children}
+    </Article>
+  );
 };
 
 export default ArticleBox;

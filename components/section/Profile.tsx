@@ -1,5 +1,4 @@
 import ArticleBox from "@/components/ArticleBox";
-import SectionTitle from "@/components/common/SectionTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAddressCard,
@@ -37,13 +36,17 @@ const Col = styled.div`
   @media (max-width: 576px) {
     width: 100%;
     padding: 10px;
-    margin: 5px;
+    margin: 0px 0px 0px calc((100% - 220px) / 2);
   }
 
   > div:first-child {
     padding-right: 20px;
     font-size: 2.5rem;
-    margin-left: 50px;
+    margin-left: 18px;
+    > svg {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   > div:last-child {
@@ -90,8 +93,7 @@ const Profile = () => {
   ];
 
   return (
-    <ArticleBox>
-      <SectionTitle name="Profile" />
+    <ArticleBox name="Profile">
       <Row>
         {profileArr.map((el) => (
           <Col key={el.name}>
