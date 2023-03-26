@@ -3,22 +3,49 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 
-const Nav = styled.nav`
+type NavProps = {
+  togle: boolean;
+};
+
+const Nav = styled.nav<NavProps>`
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
-  margin: 0px calc((100% - 1100px) / 2);
+  position: fixed;
+  color: #e2dddd;
 
   > div:first-child {
     width: 100%;
     display: flex;
+    padding: 25px calc((100% - 1100px) / 2);
+    z-index: 1;
+    @media (max-width: 980px) {
+      background-color: white;
+      color: black;
+    }
+    @media (max-width: 768px) {
+      padding: 25px 20px;
+    }
 
     > div:first-child {
       font-size: 2.2rem;
       width: 100%;
+      cursor: pointer;
+      :hover {
+        color: white;
+      }
+      @media (max-width: 980px) {
+        :hover {
+          color: black;
+        }
+      }
+      @media (max-width: 768px) {
+        :hover {
+          color: black;
+        }
+      }
     }
 
     > div:last-child {
@@ -31,7 +58,6 @@ const Nav = styled.nav`
         @media (max-width: 768px) {
           display: flex;
           font-size: 1.8rem;
-          color: #4b4949;
         }
 
         > div {
@@ -51,8 +77,15 @@ const Nav = styled.nav`
 
         > li {
           margin: 0px 1.4vw;
-          opacity: 0.7;
           cursor: pointer;
+          :hover {
+            color: white;
+          }
+          @media (max-width: 980px) {
+            :hover {
+              color: black;
+            }
+          }
         }
       }
     }
@@ -62,17 +95,32 @@ const Nav = styled.nav`
     width: 100%;
 
     > ul {
-      height: 12vh;
       display: none;
+      max-height: ${(props) => (props.togle ? "20vh" : "0")};
+      padding: ${(props) =>
+        props.togle ? "20px 0px 20px 25px" : "0px 0px 0px 25px"};
+      transition: all 0.1s ease-in-out;
       @media (max-width: 768px) {
         display: block;
+        position: absolute;
+        width: 100%;
+        background-color: white;
+        color: #7a7878;
       }
 
       > li {
-        margin: 12px 0;
+        margin-bottom: 12px;
         font-size: 1.2rem;
-        opacity: 0.7;
+        display: ${(props) => (props.togle ? "block" : "none")};
         cursor: pointer;
+        :hover {
+          color: white;
+        }
+        @media (max-width: 768px) {
+          :hover {
+            color: black;
+          }
+        }
       }
     }
   }
@@ -104,16 +152,17 @@ const Navbar = () => {
   const navData = useMemo(
     () => (
       <ul>
-        <li>Itroduction</li>
+        <li>Introduction</li>
         <li>Skills</li>
         <li>Projects</li>
+        <li>Contact</li>
       </ul>
     ),
     []
   );
 
   return (
-    <Nav>
+    <Nav togle={togle}>
       <div>
         <div>Portfolio</div>
         <div>
@@ -125,7 +174,7 @@ const Navbar = () => {
           <div>{navData}</div>
         </div>
       </div>
-      {togle && <div>{navData}</div>}
+      {<div>{navData}</div>}
     </Nav>
   );
 };
