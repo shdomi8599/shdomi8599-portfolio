@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const IntroBox = styled.div`
+const IntroBox = styled.section`
   width: 100%;
+  height:655.89px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  padding-top: 70px;
   &:before {
     content: "";
     z-index: -1;
@@ -28,7 +29,6 @@ const IntroBox = styled.div`
   }
 
   > div {
-    padding-top: 170px;
     color: white;
     display: flex;
     font-size: 3rem;
@@ -63,6 +63,7 @@ const IntroBox = styled.div`
 
     > div:last-child {
       padding-top: 20px;
+
       > button {
         font-size: 1.3rem;
         padding: 10px;
@@ -71,6 +72,7 @@ const IntroBox = styled.div`
         border-radius: 10px;
         cursor: pointer;
         background-color: #353535;
+
         > span {
           padding-right: 10px;
         }

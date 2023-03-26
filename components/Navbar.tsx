@@ -71,6 +71,7 @@ const Nav = styled.nav<NavProps>`
         display: flex;
         justify-content: center;
         align-items: center;
+        
         > ul {
           width: 100%;
           display: flex;
