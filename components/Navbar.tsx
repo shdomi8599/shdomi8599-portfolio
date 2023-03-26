@@ -67,23 +67,28 @@ const Nav = styled.nav<NavProps>`
         }
       }
 
-      > div:last-child ul {
-        width: 100%;
+      > div:last-child {
         display: flex;
-        font-size: 1.3rem;
-        @media (max-width: 768px) {
-          display: none;
-        }
-
-        > li {
-          margin: 0px 1.4vw;
-          cursor: pointer;
-          :hover {
-            color: white;
+        justify-content: center;
+        align-items: center;
+        > ul {
+          width: 100%;
+          display: flex;
+          font-size: 1.3rem;
+          @media (max-width: 768px) {
+            display: none;
           }
-          @media (max-width: 980px) {
+
+          > li {
+            margin: 0px 1.4vw;
+            cursor: pointer;
             :hover {
-              color: black;
+              color: white;
+            }
+            @media (max-width: 980px) {
+              :hover {
+                color: black;
+              }
             }
           }
         }
