@@ -30,9 +30,8 @@ const Col = styled.div`
     padding: 10px;
     margin: 0px calc((100% - 280px) / 2);
   }
-
   @media (max-width: 204px) {
-    padding: 20px;
+    padding: 20px 0px;
     margin: 0px;
   }
 

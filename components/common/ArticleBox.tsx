@@ -1,3 +1,6 @@
+import { navHeightState, selectNavState } from "@/recoil/atom";
+import { useEffect, useRef } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import SectionTitle from "./SectionTitle";
 
@@ -17,8 +20,23 @@ type ArticleBoxProps = {
 };
 
 const ArticleBox = ({ children, name }: ArticleBoxProps) => {
+  //네비에 선택되면 이동하기 위한 이펙트
+  const target = useRef<HTMLDivElement>(null);
+  const selectNav = useRecoilValue(selectNavState);
+  const navHeight = useRecoilValue(navHeightState);
+
+  useEffect(() => {
+    if (name === selectNav && target.current) {
+      window.scrollTo({
+        top: target.current?.offsetTop - navHeight,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [name, navHeight, selectNav]);
+
   return (
-    <Article>
+    <Article ref={target}>
       <SectionTitle name={name} />
       {children}
     </Article>

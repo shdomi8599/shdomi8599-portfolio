@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSetRecoilState } from "recoil";
+import { selectNavState } from "@/recoil/atom";
 
 const IntroBox = styled.article`
   width: 100%;
@@ -9,7 +11,7 @@ const IntroBox = styled.article`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 70px;
+  padding-top: 40px;
 
   @media (max-width: 170px) {
     padding: 5px;
@@ -91,6 +93,7 @@ const IntroBox = styled.article`
 `;
 
 const Intro = () => {
+  const setSelectNav = useSetRecoilState(selectNavState);
   return (
     <IntroBox>
       <div>
@@ -103,7 +106,7 @@ const Intro = () => {
           끊임 없이 노력하는 프론트엔드 지망생입니다.
         </div>
         <div>
-          <button>
+          <button onClick={() => setSelectNav("Profile")}>
             <span>자세히 보기</span>
             <FontAwesomeIcon icon={faCircleArrowDown} />
           </button>

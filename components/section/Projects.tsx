@@ -10,8 +10,8 @@ const ProjectNav = styled.nav<ProjectNavProps>`
   margin-top: 48px;
   width: 100%;
   display: flex;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #babbbd;
+  border-bottom: 1px solid #babbbd;
   @media (max-width: 859px) {
     flex-direction: column;
     border: none;
@@ -34,6 +34,46 @@ const ProjectNav = styled.nav<ProjectNavProps>`
       font-size: 1.4rem;
       font-weight: bold;
       cursor: pointer;
+    }
+  }
+`;
+
+const Content = styled.div`
+  margin-top: 80px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+    0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+  > div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0px;
+    font-weight: bold;
+
+    > div:last-child {
+      font-size: 2.3rem;
+    }
+  }
+  > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+
+    > div:first-child {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    > div:last-child {
+      width: 50%;
     }
   }
 `;
@@ -63,7 +103,16 @@ const Projects = () => {
           </div>
         ))}
       </ProjectNav>
-      <div>dsa</div>
+      <Content>
+        <div>
+          <div>{projectData[pick].categori}</div>
+          <div>{projectData[pick].name}</div>
+        </div>
+        <div>
+          <div>사진 박스</div>
+          <div>컨텐츠 박스</div>
+        </div>
+      </Content>
     </ArticleBox>
   );
 };

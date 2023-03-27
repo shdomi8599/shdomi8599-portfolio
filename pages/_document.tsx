@@ -9,7 +9,20 @@ type Props = {
 function MyDocument({ styles }: Props) {
   return (
     <Html lang="en">
-      <Head>{styles}</Head>
+      <Head>
+        {styles}
+        <link rel="stylesheet" type="text/css" href="/css/slick-carousel.css" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/node_modules/slick-carousel/slick/slick.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/node_modules/slick-carousel/slick/slick-theme.css"
+        />
+      </Head>
       <body>
         <Main />
         <NextScript />

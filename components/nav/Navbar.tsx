@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
+import { useSetRecoilState } from "recoil";
+import { navHeightState, selectNavState } from "@/recoil/atom";
 
 type NavProps = {
   togle: boolean;
@@ -189,21 +191,43 @@ const Navbar = () => {
     };
   }, []);
 
+  //네비를 통한 이동 이벤트 상태
+  const setSelectNav = useSetRecoilState(selectNavState);
+
   //네비 데이터
+  const navArr = ["Profile", "Skills", "Projects", "Contact"];
   const navData = (
     <ul>
-      <li>Profile</li>
-      <li>Skills</li>
-      <li>Projects</li>
-      <li>Contact</li>
+      {navArr.map((el) => (
+        <li key={el} onClick={() => setSelectNav(el)}>
+          {el}
+        </li>
+      ))}
     </ul>
   );
 
+  //네비의 높이를 셋팅하기 위한 이펙트
+  const navHeight = useSetRecoilState(navHeightState);
+  const target = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (target.current) navHeight(target.current?.offsetHeight);
+  }, [isScrolled, navHeight]);
+
+  //최상단으로 이동하고 select 초기화
+  const moveTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    setSelectNav("");
+  };
+
   return (
-    <Nav togle={togle} isScrolled={isScrolled}>
+    <Nav togle={togle} isScrolled={isScrolled} ref={target}>
       <div>
         <div>
-          <span>Portfolio</span>
+          <span onClick={moveTop}>Portfolio</span>
         </div>
         <div>
           <div>
