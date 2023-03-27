@@ -9,20 +9,7 @@ type Props = {
 function MyDocument({ styles }: Props) {
   return (
     <Html lang="en">
-      <Head>
-        {styles}
-        <link rel="stylesheet" type="text/css" href="/css/slick-carousel.css" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="/node_modules/slick-carousel/slick/slick.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="/node_modules/slick-carousel/slick/slick-theme.css"
-        />
-      </Head>
+      <Head>{styles}</Head>
       <body>
         <Main />
         <NextScript />
@@ -43,6 +30,14 @@ MyDocument.getInitialProps = async (
       });
     const initialProps = await Document.getInitialProps(ctx);
     const styles = sheet.getStyleElement();
+    const slickArr = [
+      "/css/slick-carousel.css",
+      "/node_modules/slick-carousel/slick/slick.css",
+      "/node_modules/slick-carousel/slick/slick-theme.css",
+    ];
+    slickArr.map((src) =>
+      styles.push(<link rel="stylesheet" type="text/css" href={src} />)
+    );
     return { ...initialProps, styles };
   } finally {
     sheet.seal();

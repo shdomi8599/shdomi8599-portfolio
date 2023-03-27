@@ -148,6 +148,9 @@ const Nav = styled.nav<NavProps>`
 `;
 
 const Navbar = () => {
+  //네비를 통한 이동 이벤트 상태
+  const setSelectNav = useSetRecoilState(selectNavState);
+
   //토글 상태
   const [togle, setTogle] = useState(false);
 
@@ -177,6 +180,7 @@ const Navbar = () => {
   //스크롤 높이 상태 핸들러
   const handleScroll = () => {
     if (window.scrollY > 10) {
+      setSelectNav("");
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -190,9 +194,6 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  //네비를 통한 이동 이벤트 상태
-  const setSelectNav = useSetRecoilState(selectNavState);
 
   //네비 데이터
   const navArr = ["Profile", "Skills", "Projects", "Contact"];

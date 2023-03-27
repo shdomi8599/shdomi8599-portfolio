@@ -87,6 +87,9 @@ const IntroBox = styled.article`
         > span {
           padding-right: 10px;
         }
+        > svg {
+          height: 2.2vh;
+        }
       }
     }
   }
