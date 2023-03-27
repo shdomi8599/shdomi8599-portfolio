@@ -1,3 +1,4 @@
+import { Project } from "@/types/project";
 import styled from "styled-components";
 
 const DescriptionBox = styled.div`
@@ -38,13 +39,7 @@ const DescriptionBox = styled.div`
   }
 `;
 
-type DescriptionProps = {
-  name: string;
-  content?: string;
-  href?: string;
-};
-
-const Description = ({ name, content, href }: DescriptionProps) => {
+const Description = ({ name, content, href }: Project) => {
   return (
     <DescriptionBox>
       <div>
