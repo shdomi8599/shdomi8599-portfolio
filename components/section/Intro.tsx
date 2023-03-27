@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const IntroBox = styled.section`
+const IntroBox = styled.article`
   width: 100%;
   height: 655.89px;
   display: flex;
@@ -34,7 +34,7 @@ const IntroBox = styled.section`
     }
     @media (max-width: 170px) {
       height: 75vh;
-  }
+    }
   }
 
   > div {

@@ -15,7 +15,7 @@ const Nav = styled.nav<NavProps>`
   flex-direction: column;
   align-items: center;
   position: fixed;
-  color: ${(props) => (props.isScrolled ? "black" : "#e2dddd")};
+  color: ${(props) => (props.isScrolled ? "black" : "#cfcccc")};
   background-color: ${(props) => props.isScrolled && "white"};
   box-shadow: ${(props) => props.isScrolled && "0 2px 4px rgba(0, 0, 0, 0.2)"};
 
