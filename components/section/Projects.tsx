@@ -8,16 +8,13 @@ type ProjectNavProps = {
 
 const ProjectNav = styled.nav<ProjectNavProps>`
   margin-top: 48px;
-  height: 10vh;
   width: 100%;
   display: flex;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-
   @media (max-width: 859px) {
     flex-direction: column;
     border: none;
-    height: 36vh;
   }
 
   > div {
@@ -27,9 +24,9 @@ const ProjectNav = styled.nav<ProjectNavProps>`
     align-items: center;
     width: ${(props) => `calc(100% / ${props.length})`};
     height: 100%;
+    padding: 20px 0px;
     @media (max-width: 859px) {
       width: 100%;
-      padding: 25px 0px;
     }
 
     > div:last-child {
