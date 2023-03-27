@@ -38,18 +38,22 @@ const Nav = styled.nav<NavProps>`
     > div:first-child {
       font-size: 2.2rem;
       width: 100%;
-      cursor: pointer;
-      :hover {
-        color: ${(props) => (props.isScrolled ? "black" : "white")};
-      }
-      @media (max-width: 980px) {
+      > span {
+        cursor: pointer;
+        padding-left: 20px;
         :hover {
-          color: black;
+          color: ${(props) => (props.isScrolled ? "black" : "white")};
         }
-      }
-      @media (max-width: 768px) {
-        :hover {
-          color: black;
+        @media (max-width: 980px) {
+          :hover {
+            color: black;
+          }
+        }
+        @media (max-width: 768px) {
+          :hover {
+            color: black;
+          }
+          padding-left: 0px;
         }
       }
     }
@@ -150,13 +154,15 @@ const Navbar = () => {
     setTogle(!togle);
   };
 
+  //스크롤 넓이 상태 핸들러
+  const handleResize = () => {
+    if (window.innerWidth > 768) {
+      setTogle(false);
+    }
+  };
+
   //화면의 크기가 768보다 커지면 토글이 off되도록 해주는 이펙트
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setTogle(false);
-      }
-    };
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -196,7 +202,9 @@ const Navbar = () => {
   return (
     <Nav togle={togle} isScrolled={isScrolled}>
       <div>
-        <div>Portfolio</div>
+        <div>
+          <span>Portfolio</span>
+        </div>
         <div>
           <div>
             <div className="pointer" onClick={togleHandler}>
