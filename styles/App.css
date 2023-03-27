@@ -25,3 +25,8 @@ a {
 .pointer {
   cursor: pointer;
 }
+
+.active {
+  background-color: black;
+  color: white;
+}

@@ -14,12 +14,11 @@ const Article = styled.article`
 type ArticleBoxProps = {
   children: JSX.Element;
   name: string;
-  addStyle?: string;
 };
 
-const ArticleBox = ({ children, name, addStyle }: ArticleBoxProps) => {
+const ArticleBox = ({ children, name }: ArticleBoxProps) => {
   return (
-    <Article className={addStyle}>
+    <Article>
       <SectionTitle name={name} />
       {children}
     </Article>
