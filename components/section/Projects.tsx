@@ -57,14 +57,13 @@ const Projects = () => {
     <ArticleBox name="Projects">
       <ProjectNav length={projectData.length}>
         {projectData.map((el, i) => (
-          <>
-            <div key={el.name} className={i === pick ? "active" : ""}>
-              <div>{el.categori}</div>
-              <div onClick={() => pickHandler(i)}>{el.name}</div>
-            </div>
-          </>
+          <div key={el.name} className={i === pick ? "active" : ""}>
+            <div>{el.categori}</div>
+            <div onClick={() => pickHandler(i)}>{el.name}</div>
+          </div>
         ))}
       </ProjectNav>
+      <div>dsa</div>
     </ArticleBox>
   );
 };

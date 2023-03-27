@@ -18,7 +18,7 @@ const Col = styled.div`
   margin-bottom: 3rem;
   height: 10vh;
   padding: 0px 60px;
-  
+
   @media (min-width: 992px) {
     width: calc(100% / 3);
   }
@@ -28,7 +28,12 @@ const Col = styled.div`
   @media (max-width: 576px) {
     width: 100%;
     padding: 10px;
-    margin: 0px 0px 0px calc((100% - 220px) / 2);
+    margin: 0px calc((100% - 280px) / 2);
+  }
+
+  @media (max-width: 204px) {
+    padding: 20px;
+    margin: 0px;
   }
 
   > div:first-child {

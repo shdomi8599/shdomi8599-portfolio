@@ -12,7 +12,7 @@ const Article = styled.article`
 `;
 
 type ArticleBoxProps = {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   name: string;
 };
 
