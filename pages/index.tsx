@@ -1,5 +1,5 @@
 import Intro from "@/components/section/Intro";
-import Header from "@/components/nav/Header";
+import Header from "@/components/section/Header";
 import Profile from "@/components/section/Profile";
 import styled from "styled-components";
 import Skills from "@/components/section/Skills";

@@ -2,12 +2,17 @@
 import { RefObject } from "react";
 import styled from "styled-components";
 
-const Card = styled.div`
+type CardProps = {
+  width: number;
+};
+
+const Card = styled.div<CardProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: 20px 0px;
+  width: ${(props) => props.width}px;
   padding: 30px;
   border-radius: 25px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
@@ -35,11 +40,13 @@ type SkillCardProps = {
   skills: string[];
   name: string;
   target?: RefObject<HTMLDivElement>;
+  width: number;
 };
 
-const SkillCard = ({ skills, name, target }: SkillCardProps) => {
+const SkillCard = ({ skills, name, target, width }: SkillCardProps) => {
+  console.log(width);
   return (
-    <Card ref={target && target}>
+    <Card ref={target && target} width={width}>
       <div>{name}</div>
       <div>
         {skills.map((skill: string) => (
