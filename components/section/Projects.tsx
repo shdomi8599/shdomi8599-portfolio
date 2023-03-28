@@ -135,15 +135,10 @@ const Content = styled.div`
         display: flex;
 
         > div {
-          > svg {
-            height: 2.8vh;
-          }
-        }
-
-        > div {
           //캐러셀
           width: 100%;
           > button {
+            display: none;
             ::before {
               color: #000000;
             }
