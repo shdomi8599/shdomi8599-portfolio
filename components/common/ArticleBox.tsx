@@ -2,7 +2,6 @@ import { navHeightState, selectNavState } from "@/recoil/atom";
 import { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import SectionTitle from "./SectionTitle";
 
 const Article = styled.article`
   width: 100%;
@@ -12,6 +11,11 @@ const Article = styled.article`
   align-items: center;
   flex-direction: column;
   border-bottom: 1px solid #b7c5c5;
+`;
+
+const Title = styled.div`
+  font-size: 3rem;
+  font-weight: bold;
 `;
 
 type ArticleBoxProps = {
@@ -37,7 +41,7 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
 
   return (
     <Article ref={target}>
-      <SectionTitle name={name} />
+      <Title>{name}</Title>
       {children}
     </Article>
   );
