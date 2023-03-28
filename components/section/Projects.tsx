@@ -37,8 +37,6 @@ const ProjectNav = styled.nav<ProjectNavProps>`
     @media (max-width: 1028px) {
       border-bottom: 1px solid #babbbd;
     }
-    @media (max-width: 540px) {
-    }
   }
   > div:nth-child(3) {
     @media (max-width: 1028px) {
@@ -52,8 +50,6 @@ const ProjectNav = styled.nav<ProjectNavProps>`
   > div:nth-child(4) {
     @media (max-width: 1028px) {
       border-bottom: 1px solid #babbbd;
-    }
-    @media (max-width: 540px) {
     }
   }
   > div:nth-child(5) {

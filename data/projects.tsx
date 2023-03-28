@@ -58,9 +58,51 @@ export const projects: ProjectList[] = [
       { name: "커뮤니케이션", content: "Figma, Notion" },
     ],
   ],
-  [<div key={2}></div>, [{name:''}]],
-  [<div key={3}></div>, [{name:''}]],
-  [<div key={4}></div>, [{name:''}]],
-  [<div key={5}></div>, [{name:''}]],
-  [<div key={6}></div>, [{name:''}]],
+  [
+    <div key={2}>
+      <b>
+        서버 사이드 랜더링을 통한 정적인 페이지와 SEO의 강점을 이용하기 위해
+        Next.js로 제작하게 된 포트폴리오입니다.
+      </b>{" "}
+      평생 재사용이 가능한 포트폴리오가 될 수 있도록 모든 데이터들을 배열 또는
+      객체로 관리하고,{" "}
+      <span className="text-red">
+        전역 상태 관리를 통해 데이터의 개수가 변해도 네비게이션과 기능들이
+        반응형 웹에 적용되도록 개발
+      </span>
+      하였습니다.
+      <p />
+      <b>
+        포트폴리오를 열람하시는 인사담당자님의 시간을 아껴드리기 위해, 시간을
+        지연시키는 애니메이션과 로딩 같은 기능들을 최대한 배제
+      </b>
+      하는게 제 포트폴리오의 목표였고, 우연히{" "}
+      <a
+        className="text-blue"
+        href="https://cdg-portfolio.com/"
+        target="_blank"
+      >
+        최덕경님의 포트폴리오
+      </a>
+      를 접하게 되어 디자인을 참고하였습니다.
+    </div>,
+    [
+      {
+        name: "구현한 기능",
+        content: "반응형 웹, 프로필/기술 스택/프로젝트 정리",
+      },
+      {
+        name: "깃허브 링크",
+        href: "https://github.com/shdomi8599/shdomi8599-portfolio",
+      },
+      {
+        name: "프론트 기술 스택",
+        content: "Next.js, typescript, Recoil, Axios, Styled-Components",
+      },
+    ],
+  ],
+  [<div key={3}></div>, [{ name: "" }]],
+  [<div key={4}></div>, [{ name: "" }]],
+  [<div key={5}></div>, [{ name: "" }]],
+  [<div key={6}></div>, [{ name: "" }]],
 ];
