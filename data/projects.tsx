@@ -3,8 +3,8 @@ import { ProjectList } from "@/types/project";
 export const projects: ProjectList[] = [
   [
     <div key={1}>
-      제가 부트캠프를 수강 중인 도중, 오픈 채팅방에서 팀원 모집 글을 보고 참여한
-      첫 번째 팀 프로젝트입니다.{" "}
+      부트캠프를 수강 중인 도중, 오픈 채팅방에서 팀원 모집 글을 보고 참여한 첫
+      번째 팀 프로젝트입니다.{" "}
       <b>
         마쉴랭 프로젝트는 칵테일을 좋아하는 사람들을 위한 웹 커뮤니티로,
         게시판을 활용하여 레시피와 맛집 정보를 공유하는 것이 주 컨텐츠입니다.
@@ -58,8 +58,8 @@ export const projects: ProjectList[] = [
       { name: "커뮤니케이션", content: "Figma, Notion" },
     ],
   ],
-  [<div key={1}></div>, [{}]],
-  [<div key={1}></div>, [{}]],
-  [<div key={1}></div>, [{}]],
-  [<div key={1}></div>, [{}]],
+  [<div key={2}></div>, [{}]],
+  [<div key={3}></div>, [{}]],
+  [<div key={4}></div>, [{}]],
+  [<div key={5}></div>, [{}]],
 ];

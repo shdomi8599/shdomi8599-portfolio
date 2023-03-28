@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSetRecoilState } from "recoil";
-import { selectNavState } from "@/recoil/atom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { gitDataState, selectNavState } from "@/recoil/atom";
+import { useEffect } from "react";
+import axios from "axios";
 
 const IntroBox = styled.article`
   width: 100%;
@@ -97,6 +99,13 @@ const IntroBox = styled.article`
 
 const Intro = () => {
   const setSelectNav = useSetRecoilState(selectNavState);
+
+  const [git, setGit] = useRecoilState(gitDataState);
+  useEffect(() => {
+    axios.get("https://api.github.com/users/shdomi8599").then((res) => {
+      setGit(res.data);
+    });
+  }, [setGit]);
   return (
     <IntroBox>
       <div>
@@ -105,8 +114,12 @@ const Intro = () => {
         <hr />
         <div>
           안녕하세요.
-          <br /> 모든 사람에게 실력 있는 개발자로 인정받기 위해 <br />
-          끊임 없이 노력하는 프론트엔드 지망생입니다.
+          {git.bio && (
+            <>
+              <br /> {git.bio.slice(0, 27)} <br />
+              {git.bio.slice(27)}
+            </>
+          )}
         </div>
         <div>
           <button onClick={() => setSelectNav("Profile")}>

@@ -5,12 +5,6 @@ export interface Project {
   content?: string;
 }
 
-export interface ProjectSection {
-  name?: string;
-  href?: string;
-  content?: string;
-}
-
-export type ProjectItem = Project | ProjectSection;
+export type ProjectItem = Project;
 
 export type ProjectList = [JSX.Element, ProjectItem[]];

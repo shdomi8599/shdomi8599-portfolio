@@ -190,16 +190,14 @@ const Projects = () => {
           </div>
           <div>
             {projects[pick][0]}
-            {projects[pick][1].map(
-              (data) => (
-                <Description
-                  key={data.name}
-                  name={data.name}
-                  content={data.content}
-                  href={data.href}
-                />
-              )
-            )}
+            {projects[pick][1].map((data) => (
+              <Description
+                key={data.name}
+                name={data.name}
+                content={data.content}
+                href={data.href}
+              />
+            ))}
           </div>
         </div>
       </Content>
