@@ -4,7 +4,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
 import Description from "../projects/Description";
-import { projects } from "@/data/projects";
+import { navProject, projects } from "@/data/projects";
 import Carousel from "../common/Carousel";
 
 type ProjectNavProps = {
@@ -120,7 +120,7 @@ const Content = styled.div`
     }
 
     > div:first-child {
-      width: 50%;
+      width: 40%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -131,7 +131,7 @@ const Content = styled.div`
       }
 
       > div:first-child {
-        width: 100%;
+        width: 90%;
         display: flex;
 
         > div {
@@ -140,16 +140,14 @@ const Content = styled.div`
           }
         }
 
-        > div:nth-child(1) {
-          width: 15%;
-          display: flex;
-          justify-content: end;
-          align-items: center;
-        }
-
-        > div:nth-child(2) {
+        > div {
           //캐러셀
-          width: 70%;
+          width: 100%;
+          > button {
+            ::before {
+              color: #000000;
+            }
+          }
           > div {
             height: 100%;
             > div {
@@ -170,22 +168,15 @@ const Content = styled.div`
             }
           }
         }
-
-        > div:nth-child(3) {
-          width: 15%;
-          display: flex;
-          justify-content: start;
-          align-items: center;
-        }
       }
 
       > div:last-child {
-        padding: 20px 0px;
+        padding: 30px 0px;
       }
     }
 
     > div:last-child {
-      width: 50%;
+      width: 60%;
       display: flex;
       flex-direction: column;
       justify-content: start;
@@ -203,15 +194,6 @@ const Content = styled.div`
 `;
 
 const Projects = () => {
-  const projectData = [
-    { categori: "TEAM", name: "마쉴랭", create: "2023.04" },
-    { categori: "SOLO", name: "포트폴리오", create: "2023.04" },
-    { categori: "SOLO", name: "취준생의 하루", create: "2023.03" },
-    { categori: "SOLO", name: "모두시스템 개편", create: "2023.02" },
-    { categori: "SOLO", name: "LOL 나만의 피드백", create: "2023.01" },
-    { categori: "SOLO", name: "실시간 코인 가격", create: "2022.12" },
-  ];
-
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
   const [pick, setPick] = useState(0);
   const pickHandler = (idx: number) => {
@@ -220,8 +202,8 @@ const Projects = () => {
 
   return (
     <ArticleBox name="Projects">
-      <ProjectNav length={projectData.length}>
-        {projectData.map((el, i) => (
+      <ProjectNav length={navProject.length}>
+        {navProject.map((el, i) => (
           <div
             key={el.name}
             className={i === pick ? "active" : ""}
@@ -235,21 +217,15 @@ const Projects = () => {
       </ProjectNav>
       <Content>
         <div>
-          <div>{projectData[pick].categori}</div>
-          <div>{projectData[pick].name}</div>
+          <div>{navProject[pick].categori}</div>
+          <div>{navProject[pick].name}</div>
         </div>
         <div>
           <div>
             <div>
-              <div>
-                <FontAwesomeIcon icon={faArrowLeft} />
-              </div>
               <Carousel />
-              <div>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </div>
             </div>
-            <div>1/8</div>
+            <div>{"< 1 / 8 >"}</div>
           </div>
           <div>
             {projects[pick][0]}

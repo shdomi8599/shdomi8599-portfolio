@@ -2,6 +2,15 @@ import FocusSpan from "@/components/common/FocusSpan";
 import LinkSpan from "@/components/common/LinkSpan";
 import { ProjectList } from "@/types/project";
 
+export const navProject = [
+  { categori: "TEAM", name: "마쉴랭", create: "2023.04" },
+  { categori: "SOLO", name: "포트폴리오", create: "2023.04" },
+  { categori: "SOLO", name: "취준생의 하루", create: "2023.03" },
+  { categori: "SOLO", name: "모두시스템 개편", create: "2023.02" },
+  { categori: "SOLO", name: "LOL 나만의 피드백", create: "2023.01" },
+  { categori: "SOLO", name: "실시간 코인 가격", create: "2022.12" },
+];
+
 export const projects: ProjectList[] = [
   [
     <div key={"마쉴랭"}>
