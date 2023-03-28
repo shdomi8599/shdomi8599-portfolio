@@ -1,5 +1,5 @@
 import Intro from "@/components/section/Intro";
-import Navbar from "@/components/nav/Navbar";
+import Header from "@/components/nav/Header";
 import Profile from "@/components/section/Profile";
 import styled from "styled-components";
 import Skills from "@/components/section/Skills";
@@ -16,7 +16,7 @@ const Main = styled.main`
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Header />
       <Main>
         <Intro />
         <Profile />

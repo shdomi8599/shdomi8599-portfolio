@@ -5,12 +5,12 @@ import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 import { navHeightState, selectNavState } from "@/recoil/atom";
 
-type NavProps = {
+type HeaderBoxProps = {
   togle: boolean;
   isScrolled: boolean;
 };
 
-const Nav = styled.nav<NavProps>`
+const HeaderBox = styled.header<HeaderBoxProps>`
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -82,7 +82,7 @@ const Nav = styled.nav<NavProps>`
         }
       }
 
-      > div:last-child {
+      > nav {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -112,7 +112,7 @@ const Nav = styled.nav<NavProps>`
     }
   }
 
-  > div:last-child {
+  > nav {
     width: 100%;
 
     > ul {
@@ -148,7 +148,7 @@ const Nav = styled.nav<NavProps>`
   }
 `;
 
-const Navbar = () => {
+const Header = () => {
   //네비를 통한 이동 이벤트 상태
   const setSelectNav = useSetRecoilState(selectNavState);
 
@@ -233,7 +233,7 @@ const Navbar = () => {
   };
 
   return (
-    <Nav togle={togle} isScrolled={isScrolled} ref={target}>
+    <HeaderBox togle={togle} isScrolled={isScrolled} ref={target}>
       <div>
         <div>
           <span onClick={moveTop}>Portfolio</span>
@@ -244,12 +244,12 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faBars} />
             </div>
           </div>
-          <div>{navData}</div>
+          <nav>{navData}</nav>
         </div>
       </div>
-      {<div>{navData}</div>}
-    </Nav>
+      {<nav>{navData}</nav>}
+    </HeaderBox>
   );
 };
 
-export default Navbar;
+export default Header;

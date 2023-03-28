@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { RefObject } from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -18,18 +19,32 @@ const Card = styled.div`
     font-weight: 600;
     padding-bottom: 12px;
   }
+
+  > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    > img {
+      margin: 4px 0px;
+    }
+  }
 `;
 
 type SkillCardProps = {
-  skill: { name: string; img: string };
+  skills: string[];
+  name: string;
+  target?: RefObject<HTMLDivElement>;
 };
 
-const SkillCard = ({ skill }: SkillCardProps) => {
+const SkillCard = ({ skills, name, target }: SkillCardProps) => {
   return (
-    <Card>
-      <div>{skill.name}</div>
+    <Card ref={target && target}>
+      <div>{name}</div>
       <div>
-        <img src={skill.img} alt="skills" />
+        {skills.map((skill: string) => (
+          <img key={skill} src={skill} alt={skill} />
+        ))}
       </div>
     </Card>
   );
