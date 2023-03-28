@@ -16,6 +16,8 @@ const ProjectNav = styled.nav<ProjectNavProps>`
   display: flex;
   border-top: 1px solid #babbbd;
   border-bottom: 1px solid #babbbd;
+  cursor: pointer;
+
   @media (max-width: 1028px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -78,7 +80,6 @@ const ProjectNav = styled.nav<ProjectNavProps>`
       padding: 4px 0px;
       font-size: 1.4rem;
       font-weight: bold;
-      cursor: pointer;
     }
   }
 `;
@@ -199,9 +200,13 @@ const Projects = () => {
     <ArticleBox name="Projects">
       <ProjectNav length={projectData.length}>
         {projectData.map((el, i) => (
-          <div key={el.name} className={i === pick ? "active" : ""}>
+          <div
+            key={el.name}
+            className={i === pick ? "active" : ""}
+            onClick={() => pickHandler(i)}
+          >
             <div>{el.categori}</div>
-            <div onClick={() => pickHandler(i)}>{el.name}</div>
+            <div>{el.name}</div>
           </div>
         ))}
       </ProjectNav>
