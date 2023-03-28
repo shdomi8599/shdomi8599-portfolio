@@ -127,6 +127,7 @@ const Nav = styled.nav<NavProps>`
         width: 100%;
         background-color: white;
         color: #7a7878;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       }
 
       > li {
@@ -200,7 +201,13 @@ const Navbar = () => {
   const navData = (
     <ul>
       {navArr.map((el) => (
-        <li key={el} onClick={() => setSelectNav(el)}>
+        <li
+          key={el}
+          onClick={() => {
+            setSelectNav(el);
+            setTogle(false);
+          }}
+        >
           {el}
         </li>
       ))}
@@ -222,6 +229,7 @@ const Navbar = () => {
       behavior: "smooth",
     });
     setSelectNav("");
+    setTogle(false);
   };
 
   return (
