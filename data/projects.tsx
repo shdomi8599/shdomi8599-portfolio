@@ -58,8 +58,9 @@ export const projects: ProjectList[] = [
       { name: "커뮤니케이션", content: "Figma, Notion" },
     ],
   ],
-  [<div key={2}></div>, [{}]],
-  [<div key={3}></div>, [{}]],
-  [<div key={4}></div>, [{}]],
-  [<div key={5}></div>, [{}]],
+  [<div key={2}></div>, [{name:''}]],
+  [<div key={3}></div>, [{name:''}]],
+  [<div key={4}></div>, [{name:''}]],
+  [<div key={5}></div>, [{name:''}]],
+  [<div key={6}></div>, [{name:''}]],
 ];

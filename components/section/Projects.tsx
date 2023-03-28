@@ -16,9 +16,54 @@ const ProjectNav = styled.nav<ProjectNavProps>`
   display: flex;
   border-top: 1px solid #babbbd;
   border-bottom: 1px solid #babbbd;
-  @media (max-width: 859px) {
-    flex-direction: column;
-    border: none;
+  @media (max-width: 1028px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 540px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  > div:nth-child(1) {
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+      border-right: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+      border-right: none;
+    }
+  }
+  > div:nth-child(2) {
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+    }
+  }
+  > div:nth-child(3) {
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+      border-right: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+      border-right: none;
+    }
+  }
+  > div:nth-child(4) {
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+    }
+  }
+  > div:nth-child(5) {
+    @media (max-width: 1028px) {
+      border-right: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+      border-right: none;
+      border-bottom: 1px solid #babbbd;
+    }
   }
 
   > div {
@@ -29,7 +74,7 @@ const ProjectNav = styled.nav<ProjectNavProps>`
     width: ${(props) => `calc(100% / ${props.length})`};
     height: 100%;
     padding: 20px 0px;
-    @media (max-width: 859px) {
+    @media (max-width: 1028px) {
       width: 100%;
     }
 
@@ -141,6 +186,7 @@ const Content = styled.div`
 const Projects = () => {
   const projectData = [
     { categori: "TEAM", name: "마쉴랭" },
+    { categori: "SOLO", name: "포트폴리오" },
     { categori: "SOLO", name: "취준생의 하루" },
     { categori: "SOLO", name: "모두시스템 개편" },
     { categori: "SOLO", name: "LOL 나만의 피드백" },
@@ -152,8 +198,6 @@ const Projects = () => {
   const pickHandler = (idx: number) => {
     setPick(idx);
   };
-
-  console.log(projects[pick]);
 
   return (
     <ArticleBox name="Projects">
