@@ -1,4 +1,3 @@
-import axios from "axios";
 import { atom } from "recoil";
 
 //선택된 네비 상태

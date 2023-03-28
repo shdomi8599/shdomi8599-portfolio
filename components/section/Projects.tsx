@@ -76,6 +76,10 @@ const ProjectNav = styled.nav<ProjectNavProps>`
       width: 100%;
     }
 
+    > div:nth-child(2) {
+      font-size: 0.83rem;
+    }
+
     > div:last-child {
       padding: 4px 0px;
       font-size: 1.4rem;
@@ -182,12 +186,12 @@ const Content = styled.div`
 
 const Projects = () => {
   const projectData = [
-    { categori: "TEAM", name: "마쉴랭" },
-    { categori: "SOLO", name: "포트폴리오" },
-    { categori: "SOLO", name: "취준생의 하루" },
-    { categori: "SOLO", name: "모두시스템 개편" },
-    { categori: "SOLO", name: "LOL 나만의 피드백" },
-    { categori: "SOLO", name: "실시간 코인 가격" },
+    { categori: "TEAM", name: "마쉴랭", create: "2023.04" },
+    { categori: "SOLO", name: "포트폴리오", create: "2023.04" },
+    { categori: "SOLO", name: "취준생의 하루", create: "2023.03" },
+    { categori: "SOLO", name: "모두시스템 개편", create: "2023.02" },
+    { categori: "SOLO", name: "LOL 나만의 피드백", create: "2023.01" },
+    { categori: "SOLO", name: "실시간 코인 가격", create: "2022.12" },
   ];
 
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
@@ -206,6 +210,7 @@ const Projects = () => {
             onClick={() => pickHandler(i)}
           >
             <div>{el.categori}</div>
+            <div>{"<" + el.create + ">"}</div>
             <div>{el.name}</div>
           </div>
         ))}
