@@ -55,7 +55,6 @@ const IntroBox = styled.article`
     > div:first-child {
       font-size: 4rem;
       font-weight: bold;
-      letter-spacing: 20px;
       @media (max-width: 980px) {
         font-size: 2.8rem;
       }
@@ -110,7 +109,7 @@ const Intro = () => {
   return (
     <IntroBox>
       <div>
-        <div>{git.name}</div>
+        <div>신 동 민</div>
         <div>프론트엔드 포트폴리오</div>
         <hr />
         <div>

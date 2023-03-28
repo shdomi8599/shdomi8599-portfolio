@@ -35,8 +35,8 @@ MyDocument.getInitialProps = async (
       "/node_modules/slick-carousel/slick/slick.css",
       "/node_modules/slick-carousel/slick/slick-theme.css",
     ];
-    slickArr.map((src) =>
-      styles.push(<link rel="stylesheet" type="text/css" href={src} />)
+    slickArr.map((src, i) =>
+      styles.push(<link key={i} rel="stylesheet" type="text/css" href={src} />)
     );
     return { ...initialProps, styles };
   } finally {

@@ -105,7 +105,7 @@ export const projects: ProjectList[] = [
       <b>
         이 프로젝트를 만들면서 처음으로 TailwindCSS를 사용해보았는데,
         Bootstrap과는 달리 더 세밀한 수치 조절이 가능했지만, 고정된 수치를 가진
-        CSS 라이브러리의 한계를 깨닫게 되었습니다.
+        CSS 라이브러리의 한계를 몸소 느끼게 되었습니다.
       </b>
     </div>,
     [

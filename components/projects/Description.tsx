@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { stacks } from "@/data/stacks";
 import { Project } from "@/types/project";
 import styled from "styled-components";
-import Skills from "../section/Skills";
 
 const DescriptionBox = styled.div`
   width: 100%;
