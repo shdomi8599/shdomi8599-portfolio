@@ -1,5 +1,7 @@
+import { stacks } from "@/data/stacks";
 import { Project } from "@/types/project";
 import styled from "styled-components";
+import Skills from "../section/Skills";
 
 const DescriptionBox = styled.div`
   width: 100%;
@@ -25,21 +27,24 @@ const DescriptionBox = styled.div`
       width: 100%;
       margin-top: 10px;
     }
-
-    > button {
-      border: none;
-      padding: 8px;
-      border-radius: 12px;
-      background-color: black;
-
+    @media (max-width: 280px) {
+      flex-direction: column;
+    }
+    > div {
       > a {
         color: white;
+        > img {
+          margin-right: 10px;
+          border-radius: 12px;
+        }
       }
     }
   }
 `;
 
 const Description = ({ name, content, href }: Project) => {
+  //href[0]=== 깃허브 주소, href[1] === 티스토리 주소
+  const { github, tistory } = stacks;
   return (
     <DescriptionBox>
       <div>
@@ -47,11 +52,22 @@ const Description = ({ name, content, href }: Project) => {
       </div>
       <div>
         {href ? (
-          <button>
-            <a href={href} target="_blank">
-              자세히 보기
-            </a>
-          </button>
+          <>
+            {href[0] && (
+              <div>
+                <a href={href[0]} target="_blank">
+                  <img src={github} alt="github" />
+                </a>
+              </div>
+            )}
+            {href[1] && (
+              <div>
+                <a href={href[1]} target="_blank">
+                  <img src={tistory} alt="tistory" />
+                </a>
+              </div>
+            )}
+          </>
         ) : (
           content
         )}

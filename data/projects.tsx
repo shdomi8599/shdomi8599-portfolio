@@ -16,9 +16,9 @@ export const projects: ProjectList[] = [
       작업하게 되었습니다.
       <p />
       <b>
-      처음에는 혼자 맡게 된 상황이 당황스러웠지만, 둘이서 할 일을 혼자서
-      처리하면 제 실력이 많이 향상될 것이라 믿어서 도전하게 되었습니다. 덕분에
-      모든 클라이언트 작업을 혼자 해내면서 실력 향상에 큰 도움이 되었습니다.
+        처음에는 혼자 맡게 된 상황이 당황스러웠지만, 둘이서 할 일을 혼자서
+        처리하면 제 실력이 많이 향상될 것이라 믿어서 도전하게 되었습니다. 덕분에
+        모든 클라이언트 작업을 혼자 해내면서 실력 향상에 큰 도움이 되었습니다.
       </b>
       <p />
       서버와 클라이언트를 연동하는 부분에서는 백엔드 분들이 클라이언트에 대해 잘
@@ -39,8 +39,11 @@ export const projects: ProjectList[] = [
           "반응형 웹, 회원기능, 실시간 유효성 검사(디바운싱), 실시간 1:1 채팅, 게시판/댓글/대댓글 CRUD, 게시글 검색, 무한스크롤(IO-API), 스켈레톤UI, 해쉬태그, 캐러셀, 좋아요/싫어요/구독",
       },
       {
-        name: "깃허브 링크",
-        href: "https://github.com/Maswillaeng/MSL-frontend-full",
+        name: "자세히 보기",
+        href: [
+          "https://github.com/Maswillaeng/MSL-frontend-full",
+          "https://web-beginner.tistory.com/category/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B9%B5%ED%85%8C%EC%9D%BC%20%EB%A0%88%EC%8B%9C%ED%94%BC%20-%20%EB%A7%88%EC%89%B4%EB%9E%AD",
+        ],
       },
       {
         name: "프론트 기술 스택",
@@ -81,8 +84,8 @@ export const projects: ProjectList[] = [
         content: "반응형 웹, 프로필/기술 스택/프로젝트 정리",
       },
       {
-        name: "깃허브 링크",
-        href: "https://github.com/shdomi8599/shdomi8599-portfolio",
+        name: "자세히 보기",
+        href: ["https://github.com/shdomi8599/shdomi8599-portfolio"],
       },
       {
         name: "프론트 기술 스택",
@@ -112,8 +115,11 @@ export const projects: ProjectList[] = [
           "그저께/어제/오늘 스케줄 관리, 사용자 간 스케줄 공유, 기상시간 체크, 목표 설정, 스케줄 설정, 알람 설정, 스케줄 성공 여부 달력 관리, 과거 스케줄 조회",
       },
       {
-        name: "깃허브 링크",
-        href: "https://github.com/shdomi8599/mobile-to-do-app",
+        name: "자세히 보기",
+        href: [
+          "https://github.com/shdomi8599/mobile-to-do-app",
+          "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%98%20%ED%95%98%EB%A3%A8%20%28%EC%9B%B9%EC%95%B1%29",
+        ],
       },
       {
         name: "프론트 기술 스택",
@@ -156,8 +162,11 @@ export const projects: ProjectList[] = [
           "메인 카테고리 캐러셀, 상담신청 이메일 연동, 게시판 CRUD, 게시글 검색, 카카오 맵",
       },
       {
-        name: "깃허브 링크",
-        href: "https://github.com/shdomi8599/p3-modusystem",
+        name: "자세히 보기",
+        href: [
+          "https://github.com/shdomi8599/p3-modusystem",
+          "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EB%AA%A8%EB%91%90%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%ED%8E%B8",
+        ],
       },
       {
         name: "프론트 기술 스택",
@@ -194,8 +203,11 @@ export const projects: ProjectList[] = [
           "회원기능, 실시간 유효성 검사, 피드백 CRUD, 피드백 추천, 피드백 공유",
       },
       {
-        name: "깃허브 링크",
-        href: "https://github.com/shdomi8599/side-project-lol-feedback",
+        name: "자세히 보기",
+        href: [
+          "https://github.com/shdomi8599/side-project-lol-feedback",
+          "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/LOL%20%EB%82%98%EB%A7%8C%EC%9D%98%20%ED%94%BC%EB%93%9C%EB%B0%B1",
+        ],
       },
       {
         name: "프론트 기술 스택",
@@ -231,8 +243,11 @@ export const projects: ProjectList[] = [
           "코인 검색/필터링, 회원기능, 게시판 CRUD, 프록시 서버를 통해 CORS 우회",
       },
       {
-        name: "깃허브 링크",
-        href: "https://github.com/shdomi8599/CoinPriceComparison",
+        name: "자세히 보기",
+        href: [
+          "https://github.com/shdomi8599/CoinPriceComparison",
+          "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%8B%A4%EC%8B%9C%EA%B0%84%20%EC%BD%94%EC%9D%B8%20%EA%B0%80%EA%B2%A9%20%EB%B9%84%EA%B5%90",
+        ],
       },
       {
         name: "프론트 기술 스택",

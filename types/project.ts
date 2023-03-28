@@ -1,6 +1,6 @@
 export interface Project {
   name: string;
-  href?: string;
+  href?: string[];
   content?: string;
 }
 
