@@ -31,7 +31,7 @@ const ContactBox = styled.div`
         justify-content: center;
         width: 80%;
         padding: 60px 0px;
-        margin: 40px 0px;
+        margin: 38px 0px;
         border-radius: 15px;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
           0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
@@ -68,6 +68,7 @@ const Contact = () => {
           <div>
             <div>G메일</div>
             <div>카톡</div>
+            <div>dsa</div>
           </div>
           <div>방명록</div>
         </Row>

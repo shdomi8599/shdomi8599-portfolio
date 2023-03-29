@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
 import Description from "../projects/Description";
 import { navProject, projects } from "@/data/projects";
 import Carousel from "../common/Carousel";
+import { useRecoilValue } from "recoil";
+import { navHeightState } from "@/recoil/atom";
 
 type ProjectNavProps = {
   length: number;
@@ -93,6 +95,8 @@ const Content = styled.div`
   border-radius: 15px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
     0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 80px;
+
   @media (max-width: 859px) {
     width: 90%;
   }
@@ -116,6 +120,7 @@ const Content = styled.div`
     justify-content: start;
     align-items: center;
     padding: 0px 0px 40px;
+
     @media (max-width: 859px) {
       flex-direction: column;
     }
@@ -190,11 +195,21 @@ const Content = styled.div`
 `;
 
 const Projects = () => {
+  const navHeight = useRecoilValue(navHeightState);
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
   const [pick, setPick] = useState(0);
   const pickHandler = (idx: number) => {
     setPick(idx);
+    if (target.current) {
+      window.scrollTo({
+        top: target.current.offsetTop - navHeight - 20,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
   };
+
+  const target = useRef<HTMLDivElement>(null);
 
   return (
     <ArticleBox name="Projects">
@@ -211,7 +226,7 @@ const Projects = () => {
           </div>
         ))}
       </ProjectNav>
-      <Content>
+      <Content ref={target}>
         <div>
           <div>{navProject[pick].categori}</div>
           <div>{navProject[pick].name}</div>
