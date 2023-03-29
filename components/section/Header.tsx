@@ -17,6 +17,7 @@ const HeaderBox = styled.header<HeaderBoxProps>`
   flex-direction: column;
   align-items: center;
   position: fixed;
+  z-index: 100;
   color: ${(props) => (props.isScrolled ? "black" : "#cfcccc")};
   background-color: ${(props) => props.isScrolled && "white"};
   box-shadow: ${(props) => props.isScrolled && "0 2px 4px rgba(0, 0, 0, 0.2)"};
@@ -25,7 +26,6 @@ const HeaderBox = styled.header<HeaderBoxProps>`
     width: 100%;
     display: flex;
     padding: 25px calc((100% - 1100px) / 2);
-    z-index: 1;
     @media (max-width: 980px) {
       background-color: white;
       color: black;
@@ -117,9 +117,8 @@ const HeaderBox = styled.header<HeaderBoxProps>`
 
     > ul {
       display: none;
-      max-height: ${(props) => (props.togle ? "20vh" : "0")};
-      padding: ${(props) =>
-        props.togle ? "20px 0px 20px 25px" : "0px 0px 0px 25px"};
+      max-height: ${(props) => (props.togle ? "30vh" : "0")};
+      padding: ${(props) => (props.togle ? "20px 25px" : "0px 0px 0px 25px")};
       transition: all 0.1s ease-in-out;
       @media (max-width: 768px) {
         display: block;
