@@ -93,6 +93,9 @@ const Content = styled.div`
   border-radius: 15px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
     0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+  @media (max-width: 859px) {
+    width: 90%;
+  }
 
   > div:first-child {
     width: 100%;
