@@ -1,0 +1,64 @@
+import styled from "styled-components";
+import ArticleBox from "../common/ArticleBox";
+import Row from "../common/Row";
+
+const ContactBox = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+
+  > div {
+    align-items: center;
+    justify-content: center;
+
+    > div:first-child {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        padding: 60px 0px;
+        margin: 40px 0px;
+        border-radius: 15px;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+          0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    > div:last-child {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+        0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+      padding: 280px 0px;
+    }
+  }
+`;
+
+const Contact = () => {
+  return (
+    <ArticleBox name={"Contact"}>
+      <ContactBox>
+        <Row>
+          <div>
+            <div>g메일</div>
+            <div>카톡</div>
+          </div>
+          <div>방명록</div>
+        </Row>
+      </ContactBox>
+    </ArticleBox>
+  );
+};
+
+export default Contact;

@@ -20,7 +20,7 @@ const Title = styled.div`
 
 type ArticleBoxProps = {
   children: JSX.Element | JSX.Element[];
-  name: string;
+  name?: string;
 };
 
 const ArticleBox = ({ children, name }: ArticleBoxProps) => {
@@ -41,7 +41,7 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
 
   return (
     <Article ref={target}>
-      <Title>{name}</Title>
+      {name && <Title>{name}</Title>}
       {children}
     </Article>
   );

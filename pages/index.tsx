@@ -4,6 +4,8 @@ import Profile from "@/components/section/Profile";
 import styled from "styled-components";
 import Skills from "@/components/section/Skills";
 import Projects from "@/components/section/Projects";
+import Contact from "@/components/section/Contact";
+import Footer from "@/components/section/Footer";
 
 const Main = styled.main`
   display: flex;
@@ -22,6 +24,8 @@ export default function Home() {
         <Profile />
         <Skills />
         <Projects />
+        <Contact />
+        <Footer />
       </Main>
     </>
   );

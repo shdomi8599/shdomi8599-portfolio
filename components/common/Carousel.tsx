@@ -1,11 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
 
 const Carousel = () => {
-  const [auto, setAuto] = useState(false);
-
   //캐러셀 옵션
   const settings = {
     dots: true,
