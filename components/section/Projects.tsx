@@ -119,25 +119,25 @@ const Content = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 0px 0px 40px;
+    padding: 0px 10px 40px 10px;
 
     @media (max-width: 859px) {
       flex-direction: column;
     }
 
     > div:first-child {
-      width: 40%;
+      width: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       margin: 0px 40px;
       @media (max-width: 859px) {
-        width: 70%;
+        width: 86%;
       }
 
       > div:first-child {
-        width: 90%;
+        width: 100%;
         display: flex;
 
         > div {
@@ -145,6 +145,7 @@ const Content = styled.div`
           width: 100%;
           > button {
             display: none;
+            padding-bottom: 90px;
             ::before {
               color: #000000;
             }
@@ -160,7 +161,8 @@ const Content = styled.div`
                   > div {
                     height: 100%;
                     > img {
-                      height: 100%;
+                      border: 1px solid #ebeaea; //사진 테두리
+                      height: 80%;
                       width: 100%;
                     }
                   }
@@ -177,7 +179,7 @@ const Content = styled.div`
     }
 
     > div:last-child {
-      width: 60%;
+      width: 50%;
       display: flex;
       flex-direction: column;
       justify-content: start;
@@ -234,9 +236,8 @@ const Projects = () => {
         <div>
           <div>
             <div>
-              <Carousel />
+              <Carousel img={projects[pick][2]} />
             </div>
-            <div>{"< 1 / 8 >"}</div>
           </div>
           <div>
             {projects[pick][0]}

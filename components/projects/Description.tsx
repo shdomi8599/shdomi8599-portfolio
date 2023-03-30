@@ -12,7 +12,7 @@ const DescriptionBox = styled.div`
   }
 
   > div:first-child {
-    width: 35%;
+    width: 40%;
     font-size: 1.2rem;
     @media (max-width: 1040px) {
       width: 100%;
@@ -20,7 +20,7 @@ const DescriptionBox = styled.div`
   }
 
   > div:last-child {
-    width: 65%;
+    width: 60%;
     display: flex;
     align-items: center;
     @media (max-width: 1040px) {

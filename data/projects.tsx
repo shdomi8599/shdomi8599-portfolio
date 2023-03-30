@@ -61,6 +61,13 @@ export const projects: ProjectList[] = [
       { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
       { name: "커뮤니케이션", content: "Figma, Notion" },
     ],
+    [
+      "https://user-images.githubusercontent.com/117655658/228716968-45a20d52-05d7-4960-812d-d4bbb606ccbb.png",
+      "https://user-images.githubusercontent.com/117655658/228716980-4a097f0c-bad0-4169-8e04-5342653b8a59.png",
+      "https://user-images.githubusercontent.com/117655658/228716984-403a6b47-8034-4a21-a571-efac6f568d8e.png",
+      "https://user-images.githubusercontent.com/117655658/228716976-e4a8d3bb-b7cb-4842-a385-1603a1a88ce1.png",
+      "https://user-images.githubusercontent.com/117655658/228716974-a2cdf3a9-480e-4e3d-bee4-3f6569617c03.png",
+    ],
   ],
   [
     <div key={"포트폴리오"}>
@@ -101,6 +108,13 @@ export const projects: ProjectList[] = [
         content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
+    [
+      "https://user-images.githubusercontent.com/117655658/228716968-45a20d52-05d7-4960-812d-d4bbb606ccbb.png",
+      "https://user-images.githubusercontent.com/117655658/228716980-4a097f0c-bad0-4169-8e04-5342653b8a59.png",
+      "https://user-images.githubusercontent.com/117655658/228716984-403a6b47-8034-4a21-a571-efac6f568d8e.png",
+      "https://user-images.githubusercontent.com/117655658/228716976-e4a8d3bb-b7cb-4842-a385-1603a1a88ce1.png",
+      "https://user-images.githubusercontent.com/117655658/228716974-a2cdf3a9-480e-4e3d-bee4-3f6569617c03.png",
+    ],
   ],
   [
     <div key={"취준생의 하루"}>
@@ -134,6 +148,13 @@ export const projects: ProjectList[] = [
         name: "프론트 기술 스택",
         content: "React, Typescript, Recoil, TailwindCSS, Styled-Components",
       },
+    ],
+    [
+      "https://user-images.githubusercontent.com/117655658/228716968-45a20d52-05d7-4960-812d-d4bbb606ccbb.png",
+      "https://user-images.githubusercontent.com/117655658/228716980-4a097f0c-bad0-4169-8e04-5342653b8a59.png",
+      "https://user-images.githubusercontent.com/117655658/228716984-403a6b47-8034-4a21-a571-efac6f568d8e.png",
+      "https://user-images.githubusercontent.com/117655658/228716976-e4a8d3bb-b7cb-4842-a385-1603a1a88ce1.png",
+      "https://user-images.githubusercontent.com/117655658/228716974-a2cdf3a9-480e-4e3d-bee4-3f6569617c03.png",
     ],
   ],
   [
@@ -184,6 +205,16 @@ export const projects: ProjectList[] = [
       { name: "백엔드 기술 스택", content: "Node, Express" },
       { name: "디자인", content: "figma, Photoshop" },
     ],
+    [
+      "https://user-images.githubusercontent.com/117655658/228727719-abbe4ee5-1be5-49b0-a999-0a8e47e0f27e.png",
+      "https://user-images.githubusercontent.com/117655658/228727724-5b9bcdd4-0db1-41b4-b555-e5f636b2707d.png",
+      "https://user-images.githubusercontent.com/117655658/228727726-afb0a0b1-20ad-438f-b2c6-799ff4cb511e.png",
+      "https://user-images.githubusercontent.com/117655658/228727739-d72d41ea-335c-4a7f-9b03-1f0d86b019c8.png",
+      "https://user-images.githubusercontent.com/117655658/228727748-12b4a866-e5ba-4f4a-9d43-bf6b3103e18d.png",
+      "https://user-images.githubusercontent.com/117655658/228727756-1cc955c6-c805-415b-bca4-d3874c7cc8fd.png",
+      "https://user-images.githubusercontent.com/117655658/228727758-552af3d6-b10a-4a1d-b453-e84892ae01ec.png",
+      "https://user-images.githubusercontent.com/117655658/228727763-2afb2e38-b086-4da5-8e6c-c68c3e8ad354.png",
+    ],
   ],
   [
     <div key={"LOL 나만의 피드백"}>
@@ -222,6 +253,15 @@ export const projects: ProjectList[] = [
         name: "프론트 기술 스택",
         content: "React",
       },
+    ],
+    [
+      "https://user-images.githubusercontent.com/117655658/228722784-9ec41e40-156c-401f-bb6c-38093529f303.png",
+      "https://user-images.githubusercontent.com/117655658/228722814-ac14d840-4699-4876-a988-16aed3845af0.png",
+      "https://user-images.githubusercontent.com/117655658/228722819-da9c6501-6588-4edd-91fd-49fb7bc63894.png",
+      "https://user-images.githubusercontent.com/117655658/228722853-aabdbf24-68a1-439b-b3b1-1d00feb79d48.png",
+      "https://user-images.githubusercontent.com/117655658/228722861-f2dd6031-ea06-40b9-902e-32db5c296582.png",
+      "https://user-images.githubusercontent.com/117655658/228722866-3d1b4b1b-665f-4e96-8997-be0c7a81378a.png",
+      "https://user-images.githubusercontent.com/117655658/228722873-fb4074bf-d48f-44db-a852-9c7db1e1d9ee.png",
     ],
   ],
   [
@@ -263,6 +303,13 @@ export const projects: ProjectList[] = [
         content: "JavaScript",
       },
       { name: "백엔드 기술 스택", content: "Node, EJS" },
+    ],
+    [
+      "https://user-images.githubusercontent.com/117655658/228716968-45a20d52-05d7-4960-812d-d4bbb606ccbb.png",
+      "https://user-images.githubusercontent.com/117655658/228716980-4a097f0c-bad0-4169-8e04-5342653b8a59.png",
+      "https://user-images.githubusercontent.com/117655658/228716984-403a6b47-8034-4a21-a571-efac6f568d8e.png",
+      "https://user-images.githubusercontent.com/117655658/228716976-e4a8d3bb-b7cb-4842-a385-1603a1a88ce1.png",
+      "https://user-images.githubusercontent.com/117655658/228716974-a2cdf3a9-480e-4e3d-bee4-3f6569617c03.png",
     ],
   ],
 ];

@@ -78,10 +78,18 @@ const Skills = () => {
     <ArticleBox name="Skills">
       <Row>
         <Col checkFront="checkFront">
-          <SkillCard width={width} name="Frontend" skills={skillData["frontend"]} />
+          <SkillCard
+            width={width}
+            name="Frontend"
+            skills={skillData["frontend"]}
+          />
         </Col>
         <Col>
-          <SkillCard width={width} name="Backend" skills={skillData["backend"]} />
+          <SkillCard
+            width={width}
+            name="Backend"
+            skills={skillData["backend"]}
+          />
           <SkillCard
             target={target}
             name="Experienced"

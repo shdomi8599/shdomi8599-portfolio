@@ -4,4 +4,4 @@ export interface Project {
   content?: string;
 }
 
-export type ProjectList = [JSX.Element, Project[]];
+export type ProjectList = [JSX.Element, Project[], string[]];
