@@ -200,6 +200,10 @@ const Projects = () => {
   const navHeight = useRecoilValue(navHeightState);
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
   const [pick, setPick] = useState(0);
+  /**
+   * 함수가 실행되면 Content에 맞는 스크롤로 이동하기 위한 이벤트
+   * @param idx 선택된 인덱스
+   */
   const pickHandler = (idx: number) => {
     setPick(idx);
     if (target.current) {
@@ -236,7 +240,7 @@ const Projects = () => {
         <div>
           <div>
             <div>
-              <Carousel img={projects[pick][2]} />
+              <Carousel name={navProject[pick].name} img={projects[pick][2]} />
             </div>
           </div>
           <div>

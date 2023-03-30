@@ -28,7 +28,7 @@ const IntroBox = styled.article`
     left: 0;
     width: 100%;
     height: 70vh;
-    background-image: url("https://lh3.googleusercontent.com/pw/AMWts8DrWPx4OuNSNyGkgaq46j8TNquxfNXofaEyntXELCD08jsD37UZ-P-ML921uMhzlbRS7trtdo2q8lkcaV8MmTquyG4Fm9xPYRR7vzAcIEoZaSsKbjqayEtU7UD17py2_knCTymHSi8XIgbGyrsDIZns=w1920-h590-no?authuser=0");
+    background-image: url("https://user-images.githubusercontent.com/117655658/228740534-67c29ce1-0863-404c-acba-cffc0f9d1f54.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;

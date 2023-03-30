@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,7 +11,12 @@ const HideDiv = styled.div`
   display: hidden;
 `;
 
-const Carousel = ({ img }: { img: string[] }) => {
+type CarouselProps = {
+  img: string[];
+  name: string;
+};
+
+const Carousel = ({ img, name }: CarouselProps) => {
   const slider = useRef<Slider>(null);
   const target = useRef<HTMLDivElement>(null);
   const navHeight = useRecoilValue(navHeightState);
@@ -74,7 +80,7 @@ const Carousel = ({ img }: { img: string[] }) => {
       <Slider ref={slider} {...settings}>
         {img.map((x, i) => (
           <div onClick={play} key={i}>
-            <img src={x} alt="" />
+            <img src={x} alt={name + (i + 1)} />
           </div>
         ))}
       </Slider>
