@@ -10,8 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import Row from "../common/Row";
-import { useRecoilValue } from "recoil";
-import { gitDataState } from "@/recoil/atom";
 
 const Col = styled.div`
   display: flex;

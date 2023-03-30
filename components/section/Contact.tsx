@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { tags } from "@/data/tags";
+import useInputs from "@/function/hooks/useInput";
 import emailjs from "@emailjs/browser";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
@@ -48,8 +49,6 @@ const ContactBox = styled.div<ContactBoxProps>`
         > img {
           width: 100%;
           border-radius: 10px;
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
-            0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
         }
       }
     }
@@ -140,7 +139,13 @@ const ContactBox = styled.div<ContactBoxProps>`
 const Contact = () => {
   const { google, kakao } = tags;
 
-  const form = useRef<HTMLFormElement>(null);
+  const [form, onChange, reset] = useInputs({
+    from_name: "",
+    phone: "",
+    text: "",
+  });
+
+  const formRef = useRef<HTMLFormElement>(null);
   /**
    * 메일을 보내는 이벤트
    */
@@ -150,10 +155,11 @@ const Contact = () => {
       .sendForm(
         "service_5nsvxgn",
         "template_yaafa1f",
-        form.current!,
+        formRef.current!,
         "2CaRWheYoSv_3pGdY"
       )
-      .then(() => alert("감사합니다."))
+      .then(() => alert("메일이 발송되었습니다."))
+      .then(() => reset())
       .catch(() => alert("잠시 후에 다시 시도해주세요."));
   };
 
@@ -180,23 +186,34 @@ const Contact = () => {
             </a>
           </div>
           <div>
-            <form onSubmit={sendMail} ref={form}>
+            <form onSubmit={sendMail} ref={formRef}>
               <div>간편 메일</div>
               <div>
                 <div>
                   <label>이름</label>
-                  <input name="from_name" type="text" />
+                  <input
+                    onChange={onChange}
+                    value={form["from_name"]}
+                    name="from_name"
+                    type="text"
+                  />
                 </div>
                 <div>
                   <label>연락처</label>
-                  <input name="phone" id="phone" type="text" />
+                  <input
+                    onChange={onChange}
+                    value={form.phone}
+                    name="phone"
+                    type="text"
+                  />
                 </div>
                 <div>
                   <label>내용</label>
                   <textarea
                     spellCheck="false"
+                    onChange={onChange}
+                    value={form.text}
                     name="text"
-                    id="content"
                     rows={5}
                   ></textarea>
                 </div>
