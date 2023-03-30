@@ -40,13 +40,24 @@ const DescriptionBox = styled.div`
         margin-right: 20px;
       }
     }
-    > div:last-child {
+    > div:nth-child(2) {
       margin-bottom: 5px;
       > a {
         display: block;
         width: 102px;
         height: 28px;
         background: url("css_sprites.png") -10px -321px;
+        margin-right: 20px;
+        border-radius: 12px;
+      }
+    }
+    > div:nth-child(3) {
+      margin-bottom: 5px;
+      > a {
+        display: block;
+        width: 107px;
+        height: 28px;
+        background: url("android.png") -10px -10px;
         border-radius: 12px;
       }
     }
@@ -71,6 +82,11 @@ const Description = ({ name, content, href }: Project) => {
             {href[1] && (
               <div>
                 <a href={href[1]} target="_blank"></a>
+              </div>
+            )}
+            {href[2] && (
+              <div>
+                <a href={href[2]} target="_blank"></a>
               </div>
             )}
           </>

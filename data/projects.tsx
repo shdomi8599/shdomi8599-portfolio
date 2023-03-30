@@ -5,7 +5,7 @@ import { ProjectList } from "@/types/project";
 export const navProject = [
   { categori: "TEAM", name: "마쉴랭", create: "2023.04" },
   { categori: "SOLO", name: "포트폴리오", create: "2023.04" },
-  { categori: "SOLO", name: "취준생의 하루", create: "2023.03" },
+  { categori: "SOLO", name: "취준생의 하루(앱)", create: "2023.03" },
   { categori: "SOLO", name: "모두시스템 개편", create: "2023.02" },
   { categori: "SOLO", name: "LOL 나만의 피드백", create: "2023.01" },
   { categori: "SOLO", name: "실시간 코인 가격", create: "2022.12" },
@@ -108,11 +108,11 @@ export const projects: ProjectList[] = [
   ],
   [
     <div key={"취준생의 하루"}>
-      <b>취준생들을 위한 웹앱</b>으로, 사용자가 자신의 스케줄을 등록하고 알람을
+      <b>취준생들을 위한 앱</b>으로, 사용자가 자신의 스케줄을 등록하고 알람을
       설정하여 스케줄을 잊지 않고 이행할 수 있도록 도와줍니다. 또한, 목표 설정
       기능을 통해 하루 중 집중적으로 수행해야 하는 목표를 설정하고 달성 여부를
       달력에 체크할 수 있습니다.{" "}
-      <FocusSpan content="웹앱에 접근할 때마다 데이터의 기록 날짜를 체크하여 데이터가 정리" />
+      <FocusSpan content="앱에 접근할 때마다 데이터의 기록 날짜를 체크하여 데이터가 정리" />
       되도록 구현했습니다.
       <p />
       <b>
@@ -132,11 +132,13 @@ export const projects: ProjectList[] = [
         href: [
           "https://github.com/shdomi8599/mobile-to-do-app",
           "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%98%20%ED%95%98%EB%A3%A8%20%28%EC%9B%B9%EC%95%B1%29",
+          "https://expo.dev/artifacts/eas/dzhuTwErANgnFyJkN5MWZY.apk",
         ],
       },
       {
         name: "프론트 기술 스택",
-        content: "React, Typescript, Recoil, TailwindCSS, Styled-Components",
+        content:
+          "React, Expo, Typescript, Recoil, TailwindCSS, Styled-Components",
       },
     ],
     [
