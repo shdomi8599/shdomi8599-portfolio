@@ -1,9 +1,7 @@
-import { stacks } from "@/data/stacks";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
 import Row from "../common/Row";
-import SkillCard from "../common/SkillCard";
 
 type ColProps = {
   checkFront?: string;
@@ -17,7 +15,6 @@ const Col = styled.div<ColProps>`
   margin-bottom: 3rem;
   padding-left: ${(props) => props.checkFront && "calc((100% - 950px) / 2)"};
   padding-right: ${(props) => !props.checkFront && "calc((100% - 950px) / 2)"};
-
   @media (min-width: 768px) {
     width: calc(100% / 2);
   }
@@ -26,46 +23,47 @@ const Col = styled.div<ColProps>`
     margin-bottom: ${(props) => props.checkFront && "0"};
   }
 `;
+type CardProps = {
+  width?: number;
+};
+
+const Card = styled.div<CardProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0px;
+  width: ${(props) => props.width}px;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+    0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+  > div:first-child {
+    font-size: 2.4rem;
+    color: #5c5c5c;
+    font-weight: 600;
+    padding-bottom: 12px;
+  }
+
+  > .frontend {
+    width: 204px;
+    height: 366px;
+    background: url("stacks.png") -10px -10px;
+  }
+  > .backend {
+    width: 117px;
+    height: 76px;
+    background: url("stacks.png") -234px -215px;
+  }
+  > .experienced {
+    width: 138px;
+    height: 185px;
+    background: url("stacks.png") -234px -10px;
+  }
+`;
 
 const Skills = () => {
-  const {
-    html,
-    css,
-    javascript,
-    react,
-    typescript,
-    recoil,
-    redux,
-    bootstrap,
-    tailwind,
-    styledComponents,
-    node,
-    express,
-    figma,
-    next,
-    graphQL,
-    storyBook,
-    ejs,
-  } = stacks;
-
-  //스킬 데이터 관리
-  const skillData = {
-    frontend: [
-      html,
-      css,
-      javascript,
-      react,
-      typescript,
-      recoil,
-      redux,
-      bootstrap,
-      tailwind,
-      styledComponents,
-    ],
-    backend: [node, express],
-    experienced: [next, figma, graphQL, storyBook, ejs],
-  };
-
   const target = useRef<HTMLDivElement>(null);
 
   const [width, setWidth] = useState(0);
@@ -78,23 +76,20 @@ const Skills = () => {
     <ArticleBox name="Skills">
       <Row>
         <Col checkFront="checkFront">
-          <SkillCard
-            width={width}
-            name="Frontend"
-            skills={skillData["frontend"]}
-          />
+          <Card width={width}>
+            <div>{"Frontend"}</div>
+            <div className="frontend"></div>
+          </Card>
         </Col>
         <Col>
-          <SkillCard
-            width={width}
-            name="Backend"
-            skills={skillData["backend"]}
-          />
-          <SkillCard
-            target={target}
-            name="Experienced"
-            skills={skillData["experienced"]}
-          />
+          <Card width={width}>
+            <div>{"Backend"}</div>
+            <div className="backend"></div>
+          </Card>
+          <Card ref={target}>
+            <div>{"Experienced"}</div>
+            <div className="experienced"></div>
+          </Card>
         </Col>
       </Row>
     </ArticleBox>

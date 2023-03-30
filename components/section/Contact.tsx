@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-import { tags } from "@/data/tags";
 import useInputs from "@/function/hooks/useInput";
 import emailjs from "@emailjs/browser";
 import { FormEvent, useEffect, useRef, useState } from "react";
@@ -19,10 +17,11 @@ const ContactBox = styled.div<ContactBoxProps>`
   padding-bottom: 80px;
 
   > div {
-    align-items: center;
+    align-items: start;
     justify-content: center;
     @media (max-width: 859px) {
       flex-direction: column;
+      align-items: center;
     }
 
     > div:first-child {
@@ -35,21 +34,18 @@ const ContactBox = styled.div<ContactBoxProps>`
       @media (max-width: 859px) {
         margin-bottom: 10px;
       }
-      > a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 70%;
+      > a:first-child {
+        display: block;
+        width: 250px;
+        height: 57px;
+        background: url("css_sprites.png") -10px -10px;
+      }
+      > a:last-child {
+        display: block;
         margin: 40px 0px;
-        @media (max-width: 859px) {
-          width: 100%;
-          margin: 0px;
-          padding: 20px 0px;
-        }
-        > img {
-          width: 100%;
-          border-radius: 10px;
-        }
+        width: 250px;
+        height: 50px;
+        background: url("css_sprites.png") -10px -87px;
       }
     }
 
@@ -91,13 +87,14 @@ const ContactBox = styled.div<ContactBoxProps>`
               flex-direction: column;
             }
             > label {
-              width: 40%;
+              width: 30%;
               @media (max-width: 582px) {
                 width: 100%;
               }
             }
             > input,
             textarea {
+              width: 70%;
               background-color: #eee;
               border: none;
               padding: 1rem;
@@ -106,6 +103,7 @@ const ContactBox = styled.div<ContactBoxProps>`
               border-radius: 1rem;
               color: black;
               box-shadow: 0 0.4rem #dfd9d9;
+              resize: none;
               :focus {
                 outline-color: #7a7979;
               }
@@ -137,8 +135,6 @@ const ContactBox = styled.div<ContactBoxProps>`
 `;
 
 const Contact = () => {
-  const { google, kakao } = tags;
-
   const [form, onChange, reset] = useInputs({
     from_name: "",
     phone: "",
@@ -178,12 +174,8 @@ const Contact = () => {
             <a
               href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
               target="_blank"
-            >
-              <img ref={target} src={google} alt="google" />
-            </a>
-            <a>
-              <img src={kakao} alt="kakao" />
-            </a>
+            ></a>
+            <a href=""></a>
           </div>
           <div>
             <form onSubmit={sendMail} ref={formRef}>

@@ -1,8 +1,8 @@
 import { useState, useCallback, ChangeEvent } from "react";
 
-interface Form {
+type Form = {
   [key: string]: string;
-}
+};
 
 type UseInputsReturn = [
   Form,

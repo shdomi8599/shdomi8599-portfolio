@@ -79,7 +79,7 @@ const Profile = () => {
     {
       icon: <FontAwesomeIcon icon={faEnvelope} />,
       name: "EMAIL",
-      content: "shdomi@naver.com",
+      content: "shdomi8599@gmail.com",
     },
     {
       icon: <FontAwesomeIcon icon={faSchool} />,
@@ -97,7 +97,7 @@ const Profile = () => {
             <div>
               <div>{el.name}</div>
               <div>
-                {el.content === "shdomi@naver.com" ? (
+                {el.content === "shdomi8599@gmail.com" ? (
                   <a
                     target="_blank"
                     href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"

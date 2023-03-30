@@ -61,13 +61,7 @@ export const projects: ProjectList[] = [
       { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
       { name: "커뮤니케이션", content: "Figma, Notion" },
     ],
-    [
-      "https://user-images.githubusercontent.com/117655658/228716968-45a20d52-05d7-4960-812d-d4bbb606ccbb.png",
-      "https://user-images.githubusercontent.com/117655658/228716980-4a097f0c-bad0-4169-8e04-5342653b8a59.png",
-      "https://user-images.githubusercontent.com/117655658/228716984-403a6b47-8034-4a21-a571-efac6f568d8e.png",
-      "https://user-images.githubusercontent.com/117655658/228716976-e4a8d3bb-b7cb-4842-a385-1603a1a88ce1.png",
-      "https://user-images.githubusercontent.com/117655658/228716974-a2cdf3a9-480e-4e3d-bee4-3f6569617c03.png",
-    ],
+    ["/TODO/t1.png", "/TODO/t1.png"],
   ],
   [
     <div key={"포트폴리오"}>
@@ -84,10 +78,12 @@ export const projects: ProjectList[] = [
       하였습니다.
       <p />
       <b>
-        포트폴리오를 열람하시는 인사담당자님의 시간을 아껴드리기 위해, 시간을
-        지연시키는 애니메이션과 로딩 같은 기능들을 최대한 배제
-      </b>
-      하는게 제 포트폴리오의 목표였고, 우연히{" "}
+        포트폴리오를 열람하시는 인사담당자님의 시간을 아껴드리기 위해 시간을
+        지연시키는 애니메이션을 최대한 배제 하였고, 보시는 데 불편함이 없도록
+        대부분의 <FocusSpan content="이미지를 스프라이트 기법을 통해 최적화" />
+        해주었습니다.
+      </b>{" "}
+      프로젝트 디자인은 우연히{" "}
       <LinkSpan
         src="https://cdg-portfolio.com/"
         content="최덕경님의 포트폴리오"
@@ -97,7 +93,7 @@ export const projects: ProjectList[] = [
     [
       {
         name: "구현한 기능",
-        content: "반응형 웹, 프로필/기술 스택/프로젝트 정리",
+        content: "이미지 스프라이트, 반응형 웹, 프로필/기술 스택/프로젝트 정리",
       },
       {
         name: "자세히 보기",
@@ -108,11 +104,7 @@ export const projects: ProjectList[] = [
         content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
-    [
-      "https://user-images.githubusercontent.com/117655658/228861669-9c6d0f56-b0ac-4d6c-bc21-66afa2ff9610.png",
-      "https://user-images.githubusercontent.com/117655658/228861725-be377730-a838-4268-80e6-6c7ad0fda497.png",
-      "https://user-images.githubusercontent.com/117655658/228861720-3b5dd8c9-5132-476d-b72e-1978507d3994.png",
-    ],
+    ["/portfolio/p1.png", "/portfolio/p3.png", "/portfolio/p2.png"],
   ],
   [
     <div key={"취준생의 하루"}>
@@ -148,16 +140,16 @@ export const projects: ProjectList[] = [
       },
     ],
     [
-      "https://user-images.githubusercontent.com/117655658/228860308-589ab088-a173-49b1-b729-5397a3682db2.png",
-      "https://user-images.githubusercontent.com/117655658/228860316-da3ea850-5491-497e-9229-248840c4b0fd.png",
-      "https://user-images.githubusercontent.com/117655658/228860319-486eed58-183d-47dc-b97f-7c2e53a1a439.png",
-      "https://user-images.githubusercontent.com/117655658/228860320-afd811c8-8c45-4dd5-bfbd-474646427e05.png",
-      "https://user-images.githubusercontent.com/117655658/228860326-7330caf0-7ffe-4e5b-9840-0ffc0b66619d.png",
-      "https://user-images.githubusercontent.com/117655658/228860330-846b13e6-6875-4aba-9c45-0725b5ad2ccf.png",
-      "https://user-images.githubusercontent.com/117655658/228860333-54bdb626-8f9d-4a94-9397-8a988e25f46c.png",
-      "https://user-images.githubusercontent.com/117655658/228860339-8a17547f-d486-4f3e-abc0-6e13fbea4a57.png",
-      "https://user-images.githubusercontent.com/117655658/228860343-01a61d91-0e20-4b6f-b58f-b67bbb8d4428.png",
-      "https://user-images.githubusercontent.com/117655658/228860345-1b8f7e21-274a-4932-bc17-844309c4d4ea.png",
+      "/TODO/t1.png",
+      "/TODO/t2.png",
+      "/TODO/t3.png",
+      "/TODO/t4.png",
+      "/TODO/t5.png",
+      "/TODO/t6.png",
+      "/TODO/t7.png",
+      "/TODO/t8.png",
+      "/TODO/t9.png",
+      "/TODO/t10.png",
     ],
   ],
   [
@@ -209,14 +201,14 @@ export const projects: ProjectList[] = [
       { name: "디자인", content: "figma, Photoshop" },
     ],
     [
-      "https://user-images.githubusercontent.com/117655658/228850124-74fb72fe-3d95-40f4-a741-cccad37900b8.png",
-      "https://user-images.githubusercontent.com/117655658/228850137-7bcea98a-8278-4e4d-9b3e-2aede8b90ad9.png",
-      "https://user-images.githubusercontent.com/117655658/228850154-f190e2fa-4390-48d0-b060-a4e2c09ca046.png",
-      "https://user-images.githubusercontent.com/117655658/228850163-84e20a0e-4d8b-42c5-b467-ac4f702d9762.png",
-      "https://user-images.githubusercontent.com/117655658/228850172-7505d316-b86a-4e92-9944-21ab4a9c2857.png",
-      "https://user-images.githubusercontent.com/117655658/228850180-5d89180d-d148-4300-a51b-5ce83f03b313.png",
-      "https://user-images.githubusercontent.com/117655658/228850193-8abb3589-cf1c-4127-a852-5cda6e650547.png",
-      "https://user-images.githubusercontent.com/117655658/228850210-ee20e40b-5190-4f7e-8e7f-7290f14f1229.png",
+      "/modusystem/m1.png",
+      "/modusystem/m2.png",
+      "/modusystem/m3.png",
+      "/modusystem/m4.png",
+      "/modusystem/m5.png",
+      "/modusystem/m6.png",
+      "/modusystem/m7.png",
+      "/modusystem/m8.png",
     ],
   ],
   [
@@ -258,12 +250,12 @@ export const projects: ProjectList[] = [
       },
     ],
     [
-      "https://user-images.githubusercontent.com/117655658/228850070-f4542172-ba4a-4ee8-abbf-5f020d76619d.png",
-      "https://user-images.githubusercontent.com/117655658/228850081-28748e03-e11d-4142-bdd6-252db41e5019.png",
-      "https://user-images.githubusercontent.com/117655658/228850095-0406f79d-4ed9-4915-9853-fd317b66ba9e.png",
-      "https://user-images.githubusercontent.com/117655658/228850041-d6379c2f-a849-4fbe-b919-06ac834c8c68.png",
-      "https://user-images.githubusercontent.com/117655658/228850028-c8978386-c8eb-4b02-9bc0-4be06fd846f0.png",
-      "https://user-images.githubusercontent.com/117655658/228850009-027f5cc3-07eb-4efe-b859-86a77b2a417a.png",
+      "/LOLfeedback/l4.png",
+      "/LOLfeedback/l6.png",
+      "/LOLfeedback/l5.png",
+      "/LOLfeedback/l3.png",
+      "/LOLfeedback/l2.png",
+      "/LOLfeedback/l1.png",
     ],
   ],
   [
@@ -307,10 +299,10 @@ export const projects: ProjectList[] = [
       { name: "백엔드 기술 스택", content: "Node, EJS" },
     ],
     [
-      "https://user-images.githubusercontent.com/117655658/228849948-36ed866e-b447-47ca-a1da-785f8ccf5d56.png",
-      "https://user-images.githubusercontent.com/117655658/228849929-b72595ab-b9b1-4f7c-9a4a-a691eb764d4d.png",
-      "https://user-images.githubusercontent.com/117655658/228849956-35b94d23-e41c-4d62-9e6e-20e69e13496c.png",
-      "https://user-images.githubusercontent.com/117655658/228849902-9286a45b-5d28-45e5-bd6d-b6d30a9e3a34.png",
+      "/CoinPriceComparison/c3.png",
+      "/CoinPriceComparison/c2.png",
+      "/CoinPriceComparison/c4.png",
+      "/CoinPriceComparison/c1.png",
     ],
   ],
 ];

@@ -28,7 +28,7 @@ const IntroBox = styled.article`
     left: 0;
     width: 100%;
     height: 70vh;
-    background-image: url("https://user-images.githubusercontent.com/117655658/228740534-67c29ce1-0863-404c-acba-cffc0f9d1f54.jpg");
+    background-image: url("/mainImg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
