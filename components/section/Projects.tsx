@@ -119,14 +119,11 @@ const Content = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
+    flex-direction: column;
     padding: 0px 10px 40px 10px;
 
-    @media (max-width: 859px) {
-      flex-direction: column;
-    }
-
     > div:first-child {
-      width: 50%;
+      width: 80%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -143,6 +140,7 @@ const Content = styled.div`
         > div {
           //캐러셀
           width: 100%;
+          height: 100%;
           > button {
             display: none;
             padding-bottom: 90px;
@@ -162,7 +160,7 @@ const Content = styled.div`
                     height: 100%;
                     > img {
                       border: 1px solid #ebeaea; //사진 테두리
-                      height: 80%;
+                      height: 100%;
                       width: 100%;
                     }
                   }
@@ -179,11 +177,12 @@ const Content = styled.div`
     }
 
     > div:last-child {
-      width: 50%;
+      width: 60%;
       display: flex;
       flex-direction: column;
       justify-content: start;
       margin: 0px 40px;
+      padding-top: 40px;
       @media (max-width: 859px) {
         width: 70%;
       }
@@ -198,6 +197,8 @@ const Content = styled.div`
 
 const Projects = () => {
   const navHeight = useRecoilValue(navHeightState);
+
+  const [check, setCheck] = useState(false);
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
   const [pick, setPick] = useState(0);
   /**
@@ -206,6 +207,7 @@ const Projects = () => {
    */
   const pickHandler = (idx: number) => {
     setPick(idx);
+    setCheck(!check);
     if (target.current) {
       window.scrollTo({
         top: target.current.offsetTop - navHeight - 20,
@@ -240,7 +242,11 @@ const Projects = () => {
         <div>
           <div>
             <div>
-              <Carousel name={navProject[pick].name} img={projects[pick][2]} />
+              <Carousel
+                check={check}
+                name={navProject[pick].name}
+                img={projects[pick][2]}
+              />
             </div>
           </div>
           <div>

@@ -1,12 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { tags } from "@/data/tags";
 import emailjs from "@emailjs/browser";
-import { FormEvent, useRef } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
 import Row from "../common/Row";
 
-const ContactBox = styled.div`
+type ContactBoxProps = {
+  imgHeight?: number;
+};
+
+const ContactBox = styled.div<ContactBoxProps>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -26,6 +30,7 @@ const ContactBox = styled.div`
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
       @media (max-width: 859px) {
         margin-bottom: 10px;
       }
@@ -34,7 +39,7 @@ const ContactBox = styled.div`
         align-items: center;
         justify-content: center;
         width: 70%;
-        margin: 60px 0px;
+        margin: 40px 0px;
         @media (max-width: 859px) {
           width: 100%;
           margin: 0px;
@@ -94,10 +99,17 @@ const ContactBox = styled.div`
             }
             > input,
             textarea {
-              border-color: #eeeeee;
-              width: 60%;
-              resize: none;
-              padding: 8px;
+              background-color: #eee;
+              border: none;
+              padding: 1rem;
+              font-size: 1rem;
+              width: 13em;
+              border-radius: 1rem;
+              color: black;
+              box-shadow: 0 0.4rem #dfd9d9;
+              :focus {
+                outline-color: #7a7979;
+              }
               @media (max-width: 582px) {
                 width: 100%;
               }
@@ -141,26 +153,27 @@ const Contact = () => {
         form.current!,
         "2CaRWheYoSv_3pGdY"
       )
-      .then(
-        () => {
-          return alert("감사합니다.");
-        },
-        () => {
-          return alert("잠시 후에 다시 시도해주세요.");
-        }
-      );
+      .then(() => alert("감사합니다."))
+      .catch(() => alert("잠시 후에 다시 시도해주세요."));
   };
+
+  //두 개의 이미지의 높이를 맞춰주기 위한 ref
+  const target = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (target.current) setImgHeight(target.current?.height);
+  }, []);
+  const [imgHeight, setImgHeight] = useState(target.current?.height);
 
   return (
     <ArticleBox name={"Contact"}>
-      <ContactBox>
+      <ContactBox imgHeight={imgHeight}>
         <Row>
           <div>
             <a
               href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
               target="_blank"
             >
-              <img src={google} alt="google" />
+              <img ref={target} src={google} alt="google" />
             </a>
             <a>
               <img src={kakao} alt="kakao" />

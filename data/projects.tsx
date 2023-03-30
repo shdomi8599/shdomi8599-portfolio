@@ -160,9 +160,9 @@ export const projects: ProjectList[] = [
   [
     <div key={"모두시스템 개편"}>
       <b>
-        웹 개발 공부를 시작하기 전에는 몰랐지만, 우연히 아버지가 운영하시는 사업
-        사이트를 들어가봤는데, 사이트 곳곳에 Adobe Flash Player가 떠다니는 것을
-        보고 경악을 금치 못해서 시작하게 된 프로젝트입니다.
+        웹 공부를 시작하고나서, 우연히 아버지가 운영하시는 사업 사이트를
+        들어가봤는데, 사이트 곳곳에 Adobe Flash Player가 떠다니는 것을 보고
+        경악을 금치 못해서 시작하게 된 프로젝트입니다.
       </b>{" "}
       현재 운영 중인{" "}
       <LinkSpan
@@ -206,14 +206,14 @@ export const projects: ProjectList[] = [
       { name: "디자인", content: "figma, Photoshop" },
     ],
     [
-      "https://user-images.githubusercontent.com/117655658/228727719-abbe4ee5-1be5-49b0-a999-0a8e47e0f27e.png",
-      "https://user-images.githubusercontent.com/117655658/228727724-5b9bcdd4-0db1-41b4-b555-e5f636b2707d.png",
-      "https://user-images.githubusercontent.com/117655658/228727726-afb0a0b1-20ad-438f-b2c6-799ff4cb511e.png",
-      "https://user-images.githubusercontent.com/117655658/228727739-d72d41ea-335c-4a7f-9b03-1f0d86b019c8.png",
-      "https://user-images.githubusercontent.com/117655658/228727748-12b4a866-e5ba-4f4a-9d43-bf6b3103e18d.png",
-      "https://user-images.githubusercontent.com/117655658/228727756-1cc955c6-c805-415b-bca4-d3874c7cc8fd.png",
-      "https://user-images.githubusercontent.com/117655658/228727758-552af3d6-b10a-4a1d-b453-e84892ae01ec.png",
-      "https://user-images.githubusercontent.com/117655658/228727763-2afb2e38-b086-4da5-8e6c-c68c3e8ad354.png",
+      "https://user-images.githubusercontent.com/117655658/228850124-74fb72fe-3d95-40f4-a741-cccad37900b8.png",
+      "https://user-images.githubusercontent.com/117655658/228850137-7bcea98a-8278-4e4d-9b3e-2aede8b90ad9.png",
+      "https://user-images.githubusercontent.com/117655658/228850154-f190e2fa-4390-48d0-b060-a4e2c09ca046.png",
+      "https://user-images.githubusercontent.com/117655658/228850163-84e20a0e-4d8b-42c5-b467-ac4f702d9762.png",
+      "https://user-images.githubusercontent.com/117655658/228850172-7505d316-b86a-4e92-9944-21ab4a9c2857.png",
+      "https://user-images.githubusercontent.com/117655658/228850180-5d89180d-d148-4300-a51b-5ce83f03b313.png",
+      "https://user-images.githubusercontent.com/117655658/228850193-8abb3589-cf1c-4127-a852-5cda6e650547.png",
+      "https://user-images.githubusercontent.com/117655658/228850210-ee20e40b-5190-4f7e-8e7f-7290f14f1229.png",
     ],
   ],
   [
@@ -255,13 +255,12 @@ export const projects: ProjectList[] = [
       },
     ],
     [
-      "https://user-images.githubusercontent.com/117655658/228722784-9ec41e40-156c-401f-bb6c-38093529f303.png",
-      "https://user-images.githubusercontent.com/117655658/228722814-ac14d840-4699-4876-a988-16aed3845af0.png",
-      "https://user-images.githubusercontent.com/117655658/228722819-da9c6501-6588-4edd-91fd-49fb7bc63894.png",
-      "https://user-images.githubusercontent.com/117655658/228722853-aabdbf24-68a1-439b-b3b1-1d00feb79d48.png",
-      "https://user-images.githubusercontent.com/117655658/228722861-f2dd6031-ea06-40b9-902e-32db5c296582.png",
-      "https://user-images.githubusercontent.com/117655658/228722866-3d1b4b1b-665f-4e96-8997-be0c7a81378a.png",
-      "https://user-images.githubusercontent.com/117655658/228722873-fb4074bf-d48f-44db-a852-9c7db1e1d9ee.png",
+      "https://user-images.githubusercontent.com/117655658/228850070-f4542172-ba4a-4ee8-abbf-5f020d76619d.png",
+      "https://user-images.githubusercontent.com/117655658/228850081-28748e03-e11d-4142-bdd6-252db41e5019.png",
+      "https://user-images.githubusercontent.com/117655658/228850095-0406f79d-4ed9-4915-9853-fd317b66ba9e.png",
+      "https://user-images.githubusercontent.com/117655658/228850041-d6379c2f-a849-4fbe-b919-06ac834c8c68.png",
+      "https://user-images.githubusercontent.com/117655658/228850028-c8978386-c8eb-4b02-9bc0-4be06fd846f0.png",
+      "https://user-images.githubusercontent.com/117655658/228850009-027f5cc3-07eb-4efe-b859-86a77b2a417a.png",
     ],
   ],
   [
@@ -305,11 +304,10 @@ export const projects: ProjectList[] = [
       { name: "백엔드 기술 스택", content: "Node, EJS" },
     ],
     [
-      "https://user-images.githubusercontent.com/117655658/228716968-45a20d52-05d7-4960-812d-d4bbb606ccbb.png",
-      "https://user-images.githubusercontent.com/117655658/228716980-4a097f0c-bad0-4169-8e04-5342653b8a59.png",
-      "https://user-images.githubusercontent.com/117655658/228716984-403a6b47-8034-4a21-a571-efac6f568d8e.png",
-      "https://user-images.githubusercontent.com/117655658/228716976-e4a8d3bb-b7cb-4842-a385-1603a1a88ce1.png",
-      "https://user-images.githubusercontent.com/117655658/228716974-a2cdf3a9-480e-4e3d-bee4-3f6569617c03.png",
+      "https://user-images.githubusercontent.com/117655658/228849948-36ed866e-b447-47ca-a1da-785f8ccf5d56.png",
+      "https://user-images.githubusercontent.com/117655658/228849929-b72595ab-b9b1-4f7c-9a4a-a691eb764d4d.png",
+      "https://user-images.githubusercontent.com/117655658/228849956-35b94d23-e41c-4d62-9e6e-20e69e13496c.png",
+      "https://user-images.githubusercontent.com/117655658/228849902-9286a45b-5d28-45e5-bd6d-b6d30a9e3a34.png",
     ],
   ],
 ];

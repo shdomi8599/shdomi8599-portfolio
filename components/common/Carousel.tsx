@@ -14,9 +14,10 @@ const HideDiv = styled.div`
 type CarouselProps = {
   img: string[];
   name: string;
+  check: boolean;
 };
 
-const Carousel = ({ img, name }: CarouselProps) => {
+const Carousel = ({ img, name, check }: CarouselProps) => {
   const slider = useRef<Slider>(null);
   const target = useRef<HTMLDivElement>(null);
   const navHeight = useRecoilValue(navHeightState);
@@ -74,6 +75,10 @@ const Carousel = ({ img, name }: CarouselProps) => {
     autoplay: false,
   };
 
+  //체크의 변화가 감지되면 슬릭을 0번째 이미지로 돌려주는 이펙트
+  useEffect(() => {
+    if (slider.current) slider.current.slickGoTo(0);
+  }, [check]);
   return (
     <>
       <HideDiv onClick={play} ref={target}></HideDiv>
