@@ -117,7 +117,7 @@ const HeaderBox = styled.header<HeaderBoxProps>`
 
     > ul {
       display: none;
-      max-height: ${(props) => (props.togle ? "30vh" : "0")};
+      max-height: ${(props) => (props.togle ? "21vh" : "0")};
       padding: ${(props) => (props.togle ? "20px 25px" : "0px 0px 0px 25px")};
       transition: all 0.1s ease-in-out;
       @media (max-width: 768px) {

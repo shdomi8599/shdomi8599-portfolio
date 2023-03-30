@@ -27,8 +27,9 @@ const DescriptionBox = styled.div`
       width: 100%;
       margin-top: 10px;
     }
-    @media (max-width: 280px) {
+    @media (max-width: 320px) {
       flex-direction: column;
+      align-items: start;
     }
     > div {
       > a {
