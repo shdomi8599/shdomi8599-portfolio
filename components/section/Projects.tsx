@@ -197,8 +197,11 @@ const Content = styled.div`
 
 const Projects = () => {
   const navHeight = useRecoilValue(navHeightState);
+  const target = useRef<HTMLDivElement>(null);
 
+  //슬릭에게 변화를 감지할 수 있게 도와주는 상태
   const [check, setCheck] = useState(false);
+
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
   const [pick, setPick] = useState(0);
   /**
@@ -216,8 +219,6 @@ const Projects = () => {
       });
     }
   };
-
-  const target = useRef<HTMLDivElement>(null);
 
   return (
     <ArticleBox name="Projects">

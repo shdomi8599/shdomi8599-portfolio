@@ -98,7 +98,18 @@ const Profile = () => {
             <div>{el.icon}</div>
             <div>
               <div>{el.name}</div>
-              <div>{el.content}</div>
+              <div>
+                {el.content === "shdomi@naver.com" ? (
+                  <a
+                    target="_blank"
+                    href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
+                  >
+                    {el.content}
+                  </a>
+                ) : (
+                  el.content
+                )}
+              </div>
             </div>
           </Col>
         ))}
