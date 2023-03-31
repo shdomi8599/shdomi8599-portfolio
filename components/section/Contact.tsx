@@ -149,10 +149,10 @@ const Contact = () => {
   //메일 메세지 상태
   const [message, setMessage] = useState("");
 
-  const formRef = useRef<HTMLFormElement>(null);
   /**
    * 메일을 보내는 이벤트
    */
+  const formRef = useRef<HTMLFormElement>(null);
   const sendMail = (e: FormEvent) => {
     e.preventDefault();
     if (form.from_name === "") {
@@ -176,11 +176,12 @@ const Contact = () => {
       .catch(() => setMessage("잠시 후에 다시 시도해주세요."));
   };
 
-  //메세지를 띄우고 3초뒤 없애주는 이펙트
+  //메세지를 띄우고 2초뒤 없애주는 이펙트
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setMessage("");
     }, 2000);
+    return () => clearTimeout(timer);
   }, [message]);
 
   //두 개의 이미지의 높이를 맞춰주기 위한 ref
