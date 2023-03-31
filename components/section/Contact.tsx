@@ -72,12 +72,15 @@ const ContactBox = styled.div<ContactBoxProps>`
           padding-top: 20px;
         }
         > div:nth-child(2) {
+          padding-top: 8px;
+          height: 3vh;
+        }
+        > div:nth-child(3) {
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          padding: 4px 0px;
           > div {
             width: 60%;
             display: flex;
@@ -141,6 +144,9 @@ const Contact = () => {
     text: "",
   });
 
+  //메일 메세지 상태
+  const [message, setMessage] = useState("");
+
   const formRef = useRef<HTMLFormElement>(null);
   /**
    * 메일을 보내는 이벤트
@@ -154,10 +160,17 @@ const Contact = () => {
         formRef.current!,
         "2CaRWheYoSv_3pGdY"
       )
-      .then(() => alert("메일이 발송되었습니다."))
+      .then(() => setMessage("메일이 발송되었습니다."))
       .then(() => reset())
-      .catch(() => alert("잠시 후에 다시 시도해주세요."));
+      .catch(() => setMessage("잠시 후에 다시 시도해주세요."));
   };
+
+  //메세지를 띄우고 3초뒤 없애주는 이펙트
+  useEffect(() => {
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
+  }, [message]);
 
   //두 개의 이미지의 높이를 맞춰주기 위한 ref
   const target = useRef<HTMLImageElement>(null);
@@ -180,6 +193,9 @@ const Contact = () => {
           <div>
             <form onSubmit={sendMail} ref={formRef}>
               <div>간편 메일</div>
+              <div className={message[0] === "메" ? "text-green" : "text-red"}>
+                {message}
+              </div>
               <div>
                 <div>
                   <label>이름</label>

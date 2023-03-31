@@ -237,6 +237,7 @@ const Projects = () => {
       </ProjectNav>
       <Content ref={target}>
         <div>
+          <div>{`< 개발 기간 : ${navProject[pick].period}일 >`}</div>
           <div>{navProject[pick].categori}</div>
           <div>{navProject[pick].name}</div>
         </div>
