@@ -121,7 +121,7 @@ export const projects: ProjectList[] = [
         content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
-    ["/portfolio/p1.", "/portfolio/p4.", "/portfolio/p3.", "/portfolio/p2."],
+    ["/portfolio/p4.", "/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
   ],
   [
     <div key={"취준생의 하루"}>
