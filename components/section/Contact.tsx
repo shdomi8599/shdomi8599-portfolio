@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
 import Row from "../common/Row";
+import { validationPhone } from "@/function/utility/validation";
 
 type ContactBoxProps = {
   imgHeight?: number;
@@ -81,6 +82,7 @@ const ContactBox = styled.div<ContactBoxProps>`
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          padding-bottom: 20px;
           > div {
             width: 60%;
             display: flex;
@@ -153,6 +155,15 @@ const Contact = () => {
    */
   const sendMail = (e: FormEvent) => {
     e.preventDefault();
+    if (form.from_name === "") {
+      return setMessage("이름을 작성해주세요.");
+    }
+    if (!validationPhone.test(form.phone)) {
+      return setMessage("연락처를 확인해주세요.");
+    }
+    if (form.text === "") {
+      return setMessage("내용을 작성해주세요.");
+    }
     emailjs
       .sendForm(
         "service_5nsvxgn",
