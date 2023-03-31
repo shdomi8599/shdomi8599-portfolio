@@ -40,26 +40,28 @@ const Card = styled.div<CardProps>`
     0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
 
   > div:first-child {
+    text-decoration: underline;
+    text-decoration-thickness: 1.1rem;
+    padding-bottom: 12px;
     font-size: 2.4rem;
     color: #5c5c5c;
     font-weight: 600;
-    padding-bottom: 12px;
   }
 
   .frontend {
-    width: 204px;
-    height: 366px;
+    width: 250px;
+    height: 430px;
     background: url("stacks.png") -10px -10px;
   }
   .backend {
-    width: 117px;
-    height: 76px;
-    background: url("stacks.png") -234px -215px;
+    width: 250px;
+    height: 395px;
+    background: url("stacks.png") -280px -10px;
   }
   .experienced {
-    width: 138px;
-    height: 185px;
-    background: url("stacks.png") -234px -10px;
+    width: 250px;
+    height: 179px;
+    background: url("stacks.png") -550px -10px;
   }
 `;
 
