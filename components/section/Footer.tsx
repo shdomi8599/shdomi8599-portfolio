@@ -57,10 +57,18 @@ const Footer = () => {
     <FooterBox>
       <div>
         <div>
-          <a href="https://github.com/shdomi8599" target="_blank"></a>
+          <a
+            href="https://github.com/shdomi8599"
+            target="_blank"
+            aria-label="github"
+          ></a>
         </div>
         <div>
-          <a href="https://web-beginner.tistory.com/" target="_blank"></a>
+          <a
+            href="https://web-beginner.tistory.com/"
+            target="_blank"
+            aria-label="tistory"
+          ></a>
         </div>
       </div>
       <div>© 2023. Shin Dong Min. All rights reserved.</div>

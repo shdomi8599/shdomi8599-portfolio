@@ -83,17 +83,17 @@ const Description = ({ name, content, href }: Project) => {
           <>
             {href[0] && (
               <div>
-                <a href={href[0]} target="_blank"></a>
+                <a href={href[0]} target="_blank" aria-label="github"></a>
               </div>
             )}
             {href[1] && (
               <div>
-                <a href={href[1]} target="_blank"></a>
+                <a href={href[1]} target="_blank" aria-label="tistory"></a>
               </div>
             )}
             {href[2] && (
               <div>
-                <a href={href[2]} target="_blank"></a>
+                <a href={href[2]} target="_blank" aria-label="android"></a>
               </div>
             )}
           </>

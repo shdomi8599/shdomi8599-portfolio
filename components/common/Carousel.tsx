@@ -85,7 +85,11 @@ const Carousel = ({ img, name, check }: CarouselProps) => {
       <Slider ref={slider} {...settings}>
         {img.map((x, i) => (
           <div onClick={play} key={i}>
-            <img src={x} alt={name + (i + 1)} />
+            <picture>
+              <source srcSet={`${x}avif`} type="image/avif" />
+              <source srcSet={`${x}webp`} type="image/webp" />
+              <img src={`${x}jpg`} alt={name + (i + 1)} />
+            </picture>
           </div>
         ))}
       </Slider>

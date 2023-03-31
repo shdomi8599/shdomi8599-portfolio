@@ -158,10 +158,13 @@ const Content = styled.div`
                   height: 100%;
                   > div {
                     height: 100%;
-                    > img {
-                      border: 1px solid #ebeaea; //사진 테두리
+                    > picture {
                       height: 100%;
-                      width: 100%;
+                      > img {
+                        border: 1px solid #ebeaea; //사진 테두리
+                        height: 100%;
+                        width: 100%;
+                      }
                     }
                   }
                 }

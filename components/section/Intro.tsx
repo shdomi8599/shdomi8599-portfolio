@@ -28,7 +28,8 @@ const IntroBox = styled.article`
     left: 0;
     width: 100%;
     height: 70vh;
-    background-image: url("/mainImg.jpg");
+    background-image: url("/mainImg/mainImg.avif"), url("/mainImg/mainImg.webp"),
+      url("/mainImg/mainImg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;

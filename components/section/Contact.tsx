@@ -199,8 +199,13 @@ const Contact = () => {
             <a
               href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
               target="_blank"
+              aria-label="gmail"
             ></a>
-            <a href="https://open.kakao.com/o/sKDqdJcf" target="_blank"></a>
+            <a
+              href="https://open.kakao.com/o/sKDqdJcf"
+              target="_blank"
+              aria-label="kakaotalk"
+            ></a>
           </div>
           <div>
             <form onSubmit={sendMail} ref={formRef}>
@@ -210,8 +215,9 @@ const Contact = () => {
               </div>
               <div>
                 <div>
-                  <label>이름</label>
+                  <label htmlFor="from_name">이름</label>
                   <input
+                    id="from_name"
                     onChange={onChange}
                     value={form["from_name"]}
                     name="from_name"
@@ -219,8 +225,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label>연락처</label>
+                  <label htmlFor="phone">연락처</label>
                   <input
+                    id="phone"
                     onChange={onChange}
                     value={form.phone}
                     name="phone"
@@ -228,8 +235,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label>내용</label>
+                  <label htmlFor="text">내용</label>
                   <textarea
+                    id="text"
                     spellCheck="false"
                     onChange={onChange}
                     value={form.text}

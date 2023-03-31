@@ -101,6 +101,7 @@ const Profile = () => {
                   <a
                     target="_blank"
                     href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
+                    aria-label="gmail"
                   >
                     {el.content}
                   </a>
