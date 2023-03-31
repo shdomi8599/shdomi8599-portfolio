@@ -55,13 +55,13 @@ const Card = styled.div<CardProps>`
   }
   .backend {
     width: 250px;
-    height: 395px;
-    background: url("stacks.png") -280px -10px;
+    height: 179px;
+    background: url("stacks.png") -550px -10px;
   }
   .experienced {
     width: 250px;
-    height: 179px;
-    background: url("stacks.png") -550px -10px;
+    height: 395px;
+    background: url("stacks.png") -280px -10px;
   }
 `;
 
