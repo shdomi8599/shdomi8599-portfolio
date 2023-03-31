@@ -46,17 +46,17 @@ const Card = styled.div<CardProps>`
     padding-bottom: 12px;
   }
 
-  > .frontend {
+  .frontend {
     width: 204px;
     height: 366px;
     background: url("stacks.png") -10px -10px;
   }
-  > .backend {
+  .backend {
     width: 117px;
     height: 76px;
     background: url("stacks.png") -234px -215px;
   }
-  > .experienced {
+  .experienced {
     width: 138px;
     height: 185px;
     background: url("stacks.png") -234px -10px;

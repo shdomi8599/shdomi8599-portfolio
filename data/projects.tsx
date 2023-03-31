@@ -95,7 +95,8 @@ export const projects: ProjectList[] = [
       <b>
         포트폴리오를 열람하시는 인사담당자님의 시간을 아껴드리기 위해 시간을
         지연시키는 애니메이션을 최대한 배제 하였고, 보시는 데 불편함이 없도록
-        대부분의 <FocusSpan content="이미지를 스프라이트 기법을 통해 최적화" />
+        대부분의{" "}
+        <FocusSpan content="이미지들을 스프라이트 기법과 차세대 이미지 형식을 통해 최적화" />
         해주었습니다.
       </b>{" "}
       프로젝트 디자인은 우연히{" "}
@@ -109,7 +110,7 @@ export const projects: ProjectList[] = [
       {
         name: "구현한 기능",
         content:
-          "검색 엔진 만점, 이미지 스프라이트, 반응형 웹, 프로필/기술 스택/프로젝트 정리",
+          "검색 엔진 최적화, 이미지 스프라이트, 차세대 이미지 형식, 반응형 웹, 프로필/기술 스택/프로젝트 정리",
       },
       {
         name: "자세히 보기",
@@ -120,12 +121,7 @@ export const projects: ProjectList[] = [
         content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
-    [
-      "/portfolio/p1.",
-      "/portfolio/p4.",
-      "/portfolio/p3.",
-      "/portfolio/p2.",
-    ],
+    ["/portfolio/p1.", "/portfolio/p4.", "/portfolio/p3.", "/portfolio/p2."],
   ],
   [
     <div key={"취준생의 하루"}>
