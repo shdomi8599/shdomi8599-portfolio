@@ -50,7 +50,7 @@ const Card = styled.div<CardProps>`
 
   .frontend {
     width: 250px;
-    height: 430px;
+    height: 508px;
     background: url("stacks.png") -10px -10px;
   }
   .backend {
