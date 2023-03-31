@@ -175,7 +175,7 @@ const Contact = () => {
               href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
               target="_blank"
             ></a>
-            <a href=""></a>
+            <a href="https://open.kakao.com/o/sKDqdJcf" target="_blank"></a>
           </div>
           <div>
             <form onSubmit={sendMail} ref={formRef}>

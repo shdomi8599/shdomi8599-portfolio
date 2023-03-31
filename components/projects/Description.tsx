@@ -25,9 +25,16 @@ const DescriptionBox = styled.div`
       width: 100%;
       margin-top: 10px;
     }
-    @media (max-width: 320px) {
+    @media (max-width: 500px) {
       flex-direction: column;
       align-items: start;
+    }
+    > div {
+      > a {
+        @media (max-width: 500px) {
+          margin-bottom: 5px;
+        }
+      }
     }
     > div:first-child {
       margin-bottom: 5px;

@@ -9,7 +9,26 @@ type Props = {
 function MyDocument({ styles }: Props) {
   return (
     <Html lang="ko">
-      <Head>{styles}</Head>
+      <Head>
+        <meta name="description" content="shdomi8599의 포트폴리오입니다." />
+        <meta property="og:title" content="shdomi8599의 포트폴리오" />
+        <meta
+          property="og:description"
+          content="shdomi8599의 포트폴리오입니다."
+        />
+        <meta property="og:image" content="/portfolio/p1.png" />
+        <meta property="og:url" content="http://localhost:3000/" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="shdomi8599의 포트폴리오" />
+        <meta
+          name="twitter:description"
+          content="shdomi8599의 포트폴리오입니다."
+        />
+        <meta name="twitter:image" content="/portfolio/p1.png" />
+        <link rel="canonical" href="http://localhost:3000/" />
+        <link rel="icon" href="/favicon.png" />
+        {styles}
+      </Head>
       <body>
         <Main />
         <NextScript />

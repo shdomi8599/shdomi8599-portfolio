@@ -93,7 +93,8 @@ export const projects: ProjectList[] = [
     [
       {
         name: "구현한 기능",
-        content: "이미지 스프라이트, 반응형 웹, 프로필/기술 스택/프로젝트 정리",
+        content:
+          "검색 엔진 만점, 이미지 스프라이트, 반응형 웹, 프로필/기술 스택/프로젝트 정리",
       },
       {
         name: "자세히 보기",
@@ -104,7 +105,12 @@ export const projects: ProjectList[] = [
         content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
-    ["/portfolio/p1.png", "/portfolio/p3.png", "/portfolio/p2.png"],
+    [
+      "/portfolio/p1.png",
+      "/portfolio/p4.png",
+      "/portfolio/p3.png",
+      "/portfolio/p2.png",
+    ],
   ],
   [
     <div key={"취준생의 하루"}>
