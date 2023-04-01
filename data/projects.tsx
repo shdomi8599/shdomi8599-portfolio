@@ -149,7 +149,7 @@ export const projects: ProjectList[] = [
         href: [
           "https://github.com/shdomi8599/mobile-to-do-app",
           "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%98%20%ED%95%98%EB%A3%A8%20%28%EC%9B%B9%EC%95%B1%29",
-          "https://expo.dev/artifacts/eas/kiEaw8LQSMRzqSbVWn4woi.apk",
+          "https://expo.dev/artifacts/eas/dp4XMRoLYeVm4cq14MqrSg.apk",
         ],
       },
       {
