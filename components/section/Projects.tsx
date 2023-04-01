@@ -142,8 +142,6 @@ const Content = styled.div`
           width: 100%;
           height: 100%;
           > button {
-            display: none;
-            padding-bottom: 90px;
             ::before {
               color: #000000;
             }
