@@ -10,22 +10,34 @@ function MyDocument({ styles }: Props) {
   return (
     <Html lang="ko">
       <Head>
-        <meta name="description" content="shdomi8599의 포트폴리오입니다." />
-        <meta property="og:title" content="shdomi8599의 포트폴리오" />
+        <meta
+          name="description"
+          content="프론트엔드 지망생 shdomi8599의 포트폴리오입니다."
+        />
+        <meta
+          property="og:title"
+          content="프론트엔드 지망생 shdomi8599의 포트폴리오"
+        />
         <meta
           property="og:description"
-          content="shdomi8599의 포트폴리오입니다."
+          content="프론트엔드 지망생 shdomi8599의 포트폴리오입니다."
         />
-        <meta property="og:image" content="/portfolio/p1.png" />
-        <meta property="og:url" content="http://localhost:3000/" />
+        <meta property="og:image" content="/mainImg/mainImg.jpg" />
+        <meta
+          property="og:url"
+          content="https://www.shdomi8599-portfolio.com"
+        />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="shdomi8599의 포트폴리오" />
+        <meta
+          name="twitter:title"
+          content="프론트엔드 지망생 shdomi8599의 포트폴리오"
+        />
         <meta
           name="twitter:description"
-          content="shdomi8599의 포트폴리오입니다."
+          content="프론트엔드 지망생 shdomi8599의 포트폴리오입니다."
         />
-        <meta name="twitter:image" content="/portfolio/p1.png" />
-        <link rel="canonical" href="http://localhost:3000/" />
+        <meta name="twitter:image" content="/mainImg/mainImg.jpg" />
+        <link rel="canonical" href="https://www.shdomi8599-portfolio.com" />
         <link rel="icon" href="/favicon.png" />
         {styles}
       </Head>
