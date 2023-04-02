@@ -29,3 +29,9 @@ export const paddingState = atom({
   key: "paddingState",
   default: 0,
 });
+
+//project 컨텐츠의 높이
+export const projectHeightState = atom({
+  key: "projectHeightState",
+  default: 0,
+});

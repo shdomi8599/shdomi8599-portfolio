@@ -91,7 +91,8 @@ const ProjectNav = styled.nav<ProjectNavProps>`
 const ProjectsContainer = styled.div`
   display: flex;
   width: 100%;
-  overflow-x: hidden; /* 가로 스크롤 */
+  overflow-x: hidden;
+  overflow-y: hidden;
 `;
 
 const Projects = () => {
@@ -146,11 +147,7 @@ const Projects = () => {
       </ProjectNav>
       <ProjectsContainer ref={container}>
         {contentArr.map((x, idx) => (
-          <ProjectsContent
-            key={idx}
-            idx={idx}
-            setLeft={setLeft}
-          />
+          <ProjectsContent key={idx} idx={idx} setLeft={setLeft} />
         ))}
       </ProjectsContainer>
     </ArticleBox>

@@ -3,16 +3,17 @@ import Carousel from "../common/Carousel";
 import Description from "./Description";
 import styled from "styled-components";
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
-import { useRecoilValue } from "recoil";
-import { pickState } from "@/recoil/atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { pickState, projectHeightState } from "@/recoil/atom";
 
-const Content = styled.div`
+type ContentProps = {
+  height: number;
+};
+
+const Content = styled.div<ContentProps>`
   margin-top: 80px;
   width: 100%;
-
-  @media (max-width: 859px) {
-    width: 100%;
-  }
+  max-height: ${(props) => `${props.height + 10}px`};
 
   > div:first-child {
     width: 100%;
@@ -139,20 +140,29 @@ const ProjectsContent = ({
     }
   }, [idx, pick, setLeft]);
 
+  //높이 계산식
+  const [height, setHeight] = useRecoilState(projectHeightState);
+  const top = useRef<HTMLDivElement>(null);
+  const bottom = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (target.current && pick === idx) {
+      const topHeight = top.current?.offsetHeight;
+      const bottomHeight = bottom.current?.offsetHeight;
+      if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
+    }
+  }, [pick]);
+
   return (
-    <Content ref={target}>
-      <div>
+    <Content ref={target} height={height}>
+      <div ref={top}>
         <div>{`< 개발 기간 : ${navProject[idx].period}일 >`}</div>
         <div>{navProject[idx].categori}</div>
         <div>{navProject[idx].name}</div>
       </div>
-      <div>
+      <div ref={bottom}>
         <div>
           <div>
-            <Carousel
-              name={navProject[idx].name}
-              img={projects[idx][2]}
-            />
+            <Carousel name={navProject[idx].name} img={projects[idx][2]} />
           </div>
         </div>
         <div>
