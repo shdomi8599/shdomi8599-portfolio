@@ -29,26 +29,12 @@ export const navProject = [
 export const projects: ProjectList[] = [
   [
     <div key={"마쉴랭"}>
-      부트캠프를 수강 중인 도중, 오픈 채팅방에서 팀원 모집 글을 보고 참여한 첫
-      번째 팀 프로젝트입니다.{" "}
       <b>
         마쉴랭 프로젝트는 칵테일을 좋아하는 사람들을 위한 웹 커뮤니티로,
         게시판을 활용하여 레시피와 맛집 정보를 공유하는 것이 주 컨텐츠입니다.
       </b>{" "}
-      원래는 프론트엔드 2명, 백엔드 2명으로 구성될 예정이었으나, 인원 구성이
-      되지 않아 저 혼자 프론트엔드를 맡게 되었고, 두 분의 백엔드 분들과 함께
-      작업하게 되었습니다.
-      <p />
-      <b>
-        처음에는 혼자 맡게 된 상황이 당황스러웠지만, 둘이서 할 일을 혼자서
-        처리하면 제 실력이 많이 향상될 것이라 믿어서 도전하게 되었습니다. 덕분에
-        모든 클라이언트 작업을 혼자 해내면서 실력 향상에 큰 도움이 되었습니다.
-      </b>
-      <p />
-      서버와 클라이언트를 연동하는 부분에서는 백엔드 분들이 클라이언트에 대해 잘
-      모르셔서, 서버를 알고 있는 제가 나서서 작업을 진행했습니다. 백엔드
-      분들에게 <FocusSpan content="스프링 부트를 해석하는 방법" />과{" "}
-      <FocusSpan content="H2 데이터베이스를 활용하는 방법" />을 여쭤보고,{" "}
+      <p /> 백엔드 분들에게 <FocusSpan content="스프링 부트를 해석하는 방법" />
+      과 <FocusSpan content="H2 데이터베이스를 활용하는 방법" />을 여쭤보고,{" "}
       <FocusSpan
         content="제 로컬 환경에서 서버와 클라이언트를 모두 실행시켜 데이터들을 연동하는
           작업을 했습니다."
@@ -74,7 +60,7 @@ export const projects: ProjectList[] = [
         content: "React, Recoil, Axios, Styled-Components, Bootstrap",
       },
       { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
-      { name: "커뮤니케이션", content: "Figma, Notion" },
+      { name: "팀원", content: "프론트엔드 1명, 백엔드 2명" },
     ],
     ["/TODO/t1.", "/TODO/t1."],
   ],

@@ -13,7 +13,19 @@ export const navHeightState = atom({
 });
 
 //나의 깃허브 데이터
-export const gitDataState = atom<{[key:string]:string}>({
+export const gitDataState = atom<{ [key: string]: string }>({
   key: "gitDataState",
   default: {},
+});
+
+//선택된 프로젝트 인덱스
+export const pickState = atom({
+  key: "pickState",
+  default: 0,
+});
+
+//ArticleBox의 패딩 상태
+export const paddingState = atom({
+  key: "paddingState",
+  default: 0,
 });

@@ -1,6 +1,6 @@
-import { navHeightState, selectNavState } from "@/recoil/atom";
+import { navHeightState, paddingState, selectNavState } from "@/recoil/atom";
 import { useEffect, useRef } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 const Article = styled.article`
@@ -28,7 +28,9 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
   const target = useRef<HTMLDivElement>(null);
   const selectNav = useRecoilValue(selectNavState);
   const navHeight = useRecoilValue(navHeightState);
+  const [, setPadding] = useRecoilState(paddingState);
 
+  //선택값이 같다면 이동하는 이펙트
   useEffect(() => {
     if (name === selectNav && target.current) {
       window.scrollTo({
@@ -38,6 +40,32 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
       });
     }
   }, [name, navHeight, selectNav]);
+
+  /**
+   * 패딩 값을 셋팅하기 위한 함수
+   */
+  const paddingHandler = () => {
+    if (target.current) {
+      const computedStyle = window.getComputedStyle(target.current);
+      const paddingLeft = parseInt(
+        computedStyle.getPropertyValue("padding-left")
+      );
+      setPadding(paddingLeft);
+    }
+  };
+
+  //최초 padding 값 셋팅
+  useEffect(() => {
+    paddingHandler();
+  }, []);
+
+  //화면의 크기가 변하면 padding값을 다시 셋팅
+  useEffect(() => {
+    window.addEventListener("resize", paddingHandler);
+    return () => {
+      window.removeEventListener("resize", paddingHandler);
+    };
+  }, []);
 
   return (
     <Article ref={target}>

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
-import { navProject, projects } from "@/data/projects";
-import { useRecoilValue } from "recoil";
-import { navHeightState } from "@/recoil/atom";
+import { navProject } from "@/data/projects";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { paddingState, pickState } from "@/recoil/atom";
 import ProjectsContent from "../projects/ProjectsContent";
 
 type ProjectNavProps = {
@@ -88,15 +88,22 @@ const ProjectNav = styled.nav<ProjectNavProps>`
   }
 `;
 
+const ProjectsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  overflow-x: hidden; /* 가로 스크롤 */
+`;
+
 const Projects = () => {
-  const navHeight = useRecoilValue(navHeightState);
-  const target = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
+  const padding = useRecoilValue(paddingState);
 
   //슬릭에게 변화를 감지할 수 있게 도와주는 상태
   const [check, setCheck] = useState(false);
 
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
-  const [pick, setPick] = useState(0);
+  const [pick, setPick] = useRecoilState(pickState);
+
   /**
    * 함수가 실행되면 Content에 맞는 스크롤로 이동하기 위한 이벤트
    * @param idx 선택된 인덱스
@@ -104,14 +111,23 @@ const Projects = () => {
   const pickHandler = (idx: number) => {
     setPick(idx);
     setCheck(!check);
-    if (target.current) {
-      window.scrollTo({
-        top: target.current.offsetTop - navHeight - 20,
-        left: 0,
+  };
+
+  //프로젝트 콘텐츠를 나열하기 위한 배열
+  const contentArr = Array(6).fill(0);
+
+  //좌표 값 상태
+  const [left, setLeft] = useState(0);
+
+  //좌표 값이 변하면 이동하는 이펙트
+  useEffect(() => {
+    if (container.current) {
+      container.current.scrollTo({
+        left: left - padding,
         behavior: "smooth",
       });
     }
-  };
+  }, [left, padding]);
 
   return (
     <ArticleBox name="Projects">
@@ -128,7 +144,15 @@ const Projects = () => {
           </div>
         ))}
       </ProjectNav>
-      <ProjectsContent target={target} pick={pick} check={check} />
+      <ProjectsContainer ref={container}>
+        {contentArr.map((x, idx) => (
+          <ProjectsContent
+            key={idx}
+            idx={idx}
+            setLeft={setLeft}
+          />
+        ))}
+      </ProjectsContainer>
     </ArticleBox>
   );
 };

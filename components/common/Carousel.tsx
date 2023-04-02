@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
-import { navHeightState } from "@/recoil/atom";
+import { navHeightState, pickState } from "@/recoil/atom";
 
 const HideDiv = styled.div`
   display: hidden;
@@ -13,10 +13,9 @@ const HideDiv = styled.div`
 type CarouselProps = {
   img: string[];
   name: string;
-  check: boolean;
 };
 
-const Carousel = ({ img, name, check }: CarouselProps) => {
+const Carousel = ({ img, name }: CarouselProps) => {
   const slider = useRef<Slider>(null);
   const target = useRef<HTMLDivElement>(null);
   const navHeight = useRecoilValue(navHeightState);
@@ -74,10 +73,12 @@ const Carousel = ({ img, name, check }: CarouselProps) => {
     autoplay: false,
   };
 
-  //체크의 변화가 감지되면 슬릭을 0번째 이미지로 돌려주는 이펙트
+  //선택된 프로젝트의 변화가 감지되면 슬릭을 0번째 이미지로 돌려주는 이펙트
+  const pick = useRecoilValue(pickState);
   useEffect(() => {
     if (slider.current) slider.current.slickGoTo(0);
-  }, [check]);
+  }, [pick]);
+
   return (
     <>
       <HideDiv onClick={play} ref={target}></HideDiv>

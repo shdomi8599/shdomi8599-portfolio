@@ -37,7 +37,6 @@ function MyDocument({ styles }: Props) {
           content="프론트엔드 지망생 shdomi8599의 포트폴리오입니다."
         />
         <meta name="twitter:image" content="/mainImg/mainImg.jpg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://www.shdomi8599-portfolio.com" />
         <link rel="icon" href="/favicon.png" />
         {styles}

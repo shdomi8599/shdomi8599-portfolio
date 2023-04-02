@@ -2,18 +2,16 @@ import { navProject, projects } from "@/data/projects";
 import Carousel from "../common/Carousel";
 import Description from "./Description";
 import styled from "styled-components";
-import React, { RefObject } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { useRecoilValue } from "recoil";
+import { pickState } from "@/recoil/atom";
 
 const Content = styled.div`
   margin-top: 80px;
   width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
-    0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
-  margin-bottom: 80px;
 
   @media (max-width: 859px) {
-    width: 90%;
+    width: 100%;
   }
 
   > div:first-child {
@@ -22,7 +20,7 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 40px 0px;
+    padding-bottom: 40px;
     font-weight: bold;
 
     > div:last-child {
@@ -35,7 +33,7 @@ const Content = styled.div`
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    padding: 0px 10px 40px 10px;
+    padding: 0px 10px;
 
     > div:first-child {
       width: 80%;
@@ -112,34 +110,54 @@ const Content = styled.div`
 `;
 
 const ProjectsContent = ({
-  pick,
-  check,
-  target,
+  idx,
+  setLeft,
 }: {
-  pick: number;
-  check: boolean;
-  target: RefObject<HTMLDivElement>;
+  idx: number;
+  setLeft: Dispatch<SetStateAction<number>>;
 }) => {
+  const target = useRef<HTMLDivElement>(null);
+  const pick = useRecoilValue(pickState);
+
+  //화면의 크기가 변하면 first값을 다시 셋팅, 리사이징이 일어날땐 pick이 기본값을 참조하고 leftHandler 함수는 고정되버린 바람에 이전의 값이 선택되고있는데 어떻게 해결해야할까???
+  useEffect(() => {
+    const leftHandler = () => {
+      if (target.current && pick === idx) {
+        setLeft(target.current.offsetLeft);
+      }
+    };
+    window.addEventListener("resize", leftHandler);
+    return () => {
+      window.removeEventListener("resize", leftHandler);
+    };
+  }, [pick]);
+
+  //left좌표를 초기 값을 뺀 것으로 설정
+  useEffect(() => {
+    if (target.current && pick === idx) {
+      setLeft(target.current.offsetLeft);
+    }
+  }, [idx, pick, setLeft]);
+
   return (
     <Content ref={target}>
       <div>
-        <div>{`< 개발 기간 : ${navProject[pick].period}일 >`}</div>
-        <div>{navProject[pick].categori}</div>
-        <div>{navProject[pick].name}</div>
+        <div>{`< 개발 기간 : ${navProject[idx].period}일 >`}</div>
+        <div>{navProject[idx].categori}</div>
+        <div>{navProject[idx].name}</div>
       </div>
       <div>
         <div>
           <div>
             <Carousel
-              check={check}
-              name={navProject[pick].name}
-              img={projects[pick][2]}
+              name={navProject[idx].name}
+              img={projects[idx][2]}
             />
           </div>
         </div>
         <div>
-          {projects[pick][0]}
-          {projects[pick][1].map((data) => (
+          {projects[idx][0]}
+          {projects[idx][1].map((data) => (
             <Description
               key={data.name}
               name={data.name}
