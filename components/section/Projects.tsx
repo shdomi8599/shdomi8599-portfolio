@@ -3,17 +3,23 @@ import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
 import { navProject } from "@/data/projects";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { paddingState, pickState } from "@/recoil/atom";
+import { paddingState, pickState, projectDisplayState } from "@/recoil/atom";
 import ProjectsContent from "../projects/ProjectsContent";
 
 type ProjectNavProps = {
   length: number;
 };
 
+const ChangeBox = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+`;
+
 const ProjectNav = styled.nav<ProjectNavProps>`
-  margin-top: 48px;
   width: 100%;
   display: flex;
+  margin-top: 10px;
   border-top: 1px solid #babbbd;
   border-bottom: 1px solid #babbbd;
   cursor: pointer;
@@ -88,8 +94,13 @@ const ProjectNav = styled.nav<ProjectNavProps>`
   }
 `;
 
-const ProjectsContainer = styled.div`
+type ProjectsContainerProps = {
+  display: boolean;
+};
+
+const ProjectsContainer = styled.div<ProjectsContainerProps>`
   display: flex;
+  flex-direction: ${(props) => (props.display ? "column" : "row")};
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -98,6 +109,12 @@ const ProjectsContainer = styled.div`
 const Projects = () => {
   const container = useRef<HTMLDivElement>(null);
   const padding = useRecoilValue(paddingState);
+  const [projectDisplay, setProjectDisplay] =
+    useRecoilState(projectDisplayState);
+
+  const displayHandler = () => {
+    setProjectDisplay(!projectDisplay);
+  };
 
   //슬릭에게 변화를 감지할 수 있게 도와주는 상태
   const [check, setCheck] = useState(false);
@@ -132,6 +149,15 @@ const Projects = () => {
 
   return (
     <ArticleBox name="Projects">
+      <ChangeBox>
+        <label className="switch">
+          <input type="checkbox" />
+          <div className="slider" onClick={displayHandler}>
+            <span>가로</span>
+            <span>세로</span>
+          </div>
+        </label>
+      </ChangeBox>
       <ProjectNav length={navProject.length}>
         {navProject.map((el, i) => (
           <div
@@ -145,7 +171,7 @@ const Projects = () => {
           </div>
         ))}
       </ProjectNav>
-      <ProjectsContainer ref={container}>
+      <ProjectsContainer display={projectDisplay} ref={container}>
         {contentArr.map((x, idx) => (
           <ProjectsContent key={idx} idx={idx} setLeft={setLeft} />
         ))}

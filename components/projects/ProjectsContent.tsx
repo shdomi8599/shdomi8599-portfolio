@@ -10,16 +10,21 @@ import React, {
   useState,
 } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { pickState, projectHeightState } from "@/recoil/atom";
+import {
+  pickState,
+  projectDisplayState,
+  projectHeightState,
+} from "@/recoil/atom";
 
 type ContentProps = {
   height: number;
+  display: boolean;
 };
 
 const Content = styled.div<ContentProps>`
   margin-top: 80px;
   width: 100%;
-  height: ${(props) => `${props.height + 10}px`};
+  height: ${(props) => (props.display ? "100%" : `${props.height + 10}px`)};
 
   > div:first-child {
     width: 100%;
@@ -127,13 +132,7 @@ const ProjectsContent = ({
   const pick = useRecoilValue(pickState);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useRecoilState(projectHeightState);
-
-  //이동 이펙트를 중첩시켜서 스크롤 이벤트가 확실하게 일어나도록
-  useEffect(() => {
-    if (target.current && pick === idx) {
-      setLeft(target.current.offsetLeft);
-    }
-  }, [height]);
+  const projectDisplay = useRecoilValue(projectDisplayState);
 
   //화면의 크기가 변하면 left값을 다시 셋팅
   useEffect(() => {
@@ -142,31 +141,25 @@ const ProjectsContent = ({
         setLeft(target.current.offsetLeft);
       }
     };
+    leftHandler();
     window.addEventListener("resize", leftHandler);
     return () => {
       window.removeEventListener("resize", leftHandler);
     };
-  }, [height]);
-
-  //left좌표를 초기 값을 뺀 것으로 설정
-  useEffect(() => {
-    if (target.current && pick === idx) {
-      setLeft(target.current.offsetLeft);
-    }
-  }, [idx, pick, setLeft]);
+  }, [idx, pick, setLeft, height]);
 
   //높이 계산식
   const top = useRef<HTMLDivElement>(null);
   const bottom = useRef<HTMLDivElement>(null);
 
-  //넓이,pick이 변하면 높이 다시 조정
+  //넓이, pick이 변하면 높이 다시 조정
   useEffect(() => {
     if (target.current && pick === idx) {
       const topHeight = top.current?.offsetHeight;
       const bottomHeight = bottom.current?.offsetHeight;
       if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
     }
-  }, [width, pick]);
+  }, [width, pick, idx, setHeight]);
 
   //넓이의 변화를 디바운싱으로 1번만 실행되도록 해주는 이펙트와 함수
   let timer: number;
@@ -176,8 +169,8 @@ const ProjectsContent = ({
       setWidth(window.innerWidth);
     }, 300);
   };
-  
-  //캐러셀로 인해 틀어지는 0번 인덱스가 의도적 지연을 통해 제대로 된 높이를 갖도록,
+
+  //캐러셀로 인해 틀어지는 0번 인덱스가 의도적 지연을 통해 제대로 된 높이를 갖도록하고, 높이를 디바운싱으로 측정하는 이펙트
   useEffect(() => {
     setTimeout(() => {
       if (target.current && pick === idx) {
@@ -191,7 +184,7 @@ const ProjectsContent = ({
   }, []);
 
   return (
-    <Content ref={target} height={height}>
+    <Content display={projectDisplay} ref={target} height={height}>
       <div ref={top}>
         <div>{`< 개발 기간 : ${navProject[idx].period}일 >`}</div>
         <div>{navProject[idx].categori}</div>

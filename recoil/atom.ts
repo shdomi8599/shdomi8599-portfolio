@@ -35,3 +35,9 @@ export const projectHeightState = atom({
   key: "projectHeightState",
   default: 0,
 });
+
+//Projects 섹션 display 상태
+export const projectDisplayState = atom({
+  key: "projectDisplayState",
+  default: false,
+});
