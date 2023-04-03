@@ -53,6 +53,7 @@ export const projects: ProjectList[] = [
         href: [
           "https://github.com/Maswillaeng/MSL-frontend-full",
           "https://web-beginner.tistory.com/category/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B9%B5%ED%85%8C%EC%9D%BC%20%EB%A0%88%EC%8B%9C%ED%94%BC%20-%20%EB%A7%88%EC%89%B4%EB%9E%AD",
+          "https://github.com/Maswillaeng/MSL-frontend-full",
         ],
       },
       {
