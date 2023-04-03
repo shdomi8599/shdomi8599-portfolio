@@ -45,17 +45,17 @@ const Card = styled.div<CardProps>`
 
   .frontend {
     width: 250px;
-    height: 508px;
+    height: 952px;
     background: url("stacks.png") -10px -10px;
   }
   .backend {
     width: 250px;
-    height: 179px;
-    background: url("stacks.png") -550px -10px;
+    height: 221px;
+    background: url("stacks.png") -280px -466px;
   }
   .experienced {
     width: 250px;
-    height: 395px;
+    height: 436px;
     background: url("stacks.png") -280px -10px;
   }
 `;
