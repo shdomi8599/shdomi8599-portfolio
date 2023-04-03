@@ -98,13 +98,13 @@ const ProjectNav = styled.nav<ProjectNavProps>`
 `;
 
 type ProjectsContainerProps = {
-  display: boolean;
+  projectDisplay: boolean;
 };
 
 const ProjectsContainer = styled.div<ProjectsContainerProps>`
   display: flex;
-  flex-direction: ${(props) => (props.display ? "column" : "row")};
-  margin-top: ${(props) => props.display && "-40px"};
+  flex-direction: ${(props) => (props.projectDisplay ? "column" : "row")};
+  margin-top: ${(props) => props.projectDisplay && "-40px"};
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -179,7 +179,7 @@ const Projects = () => {
           </ProjectNav>
         )}
       </>
-      <ProjectsContainer display={projectDisplay} ref={container}>
+      <ProjectsContainer ref={container} projectDisplay={projectDisplay}>
         {contentArr.map((x, idx) => (
           <ProjectsContent key={idx} idx={idx} setLeft={setLeft} />
         ))}

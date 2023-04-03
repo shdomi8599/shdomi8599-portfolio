@@ -18,13 +18,14 @@ import {
 
 type ContentProps = {
   height: number;
-  display: boolean;
+  projectDisplay: boolean;
 };
 
 const Content = styled.div<ContentProps>`
   margin-top: 80px;
   width: 100%;
-  height: ${(props) => (props.display ? "100%" : `${props.height + 10}px`)};
+  height: ${(props) =>
+    props.projectDisplay ? "100%" : `${props.height + 10}px`};
 
   > div:first-child {
     width: 100%;
@@ -184,7 +185,7 @@ const ProjectsContent = ({
   }, []);
 
   return (
-    <Content display={projectDisplay} ref={target} height={height}>
+    <Content projectDisplay={projectDisplay} ref={target} height={height}>
       <div ref={top}>
         <div>{`< 개발 기간 : ${navProject[idx].period}일 >`}</div>
         <div>{navProject[idx].categori}</div>

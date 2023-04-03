@@ -76,9 +76,17 @@ const HeaderBox = styled.header<HeaderBoxProps>`
         }
 
         > div {
-          border: 1px solid #b6b4b4;
+          width: 100%;
+          height: 80%;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #cfcccc;
           border-radius: 8px;
           padding: 0px 8px;
+          cursor: pointer;
+          @media (max-width: 215px) {
+            width: 45px;
+          }
         }
       }
 
@@ -117,8 +125,7 @@ const HeaderBox = styled.header<HeaderBoxProps>`
 
     > ul {
       display: none;
-      max-height: ${(props) => (props.togle ? "21vh" : "0")};
-      padding: ${(props) => (props.togle ? "20px 25px" : "0px 0px 0px 25px")};
+      padding: ${(props) => (props.togle ? "10px 25px" : "0px 0px 0px 25px")};
       transition: all 0.1s ease-in-out;
       @media (max-width: 768px) {
         display: block;
@@ -130,8 +137,9 @@ const HeaderBox = styled.header<HeaderBoxProps>`
       }
 
       > li {
-        margin-bottom: 12px;
+        margin-bottom: 8px;
         font-size: 1.2rem;
+        height: 3vh;
         display: ${(props) => (props.togle ? "block" : "none")};
         cursor: pointer;
         :hover {
@@ -239,7 +247,7 @@ const Header = () => {
         </div>
         <div>
           <div>
-            <div className="pointer" onClick={togleHandler}>
+            <div className="togle" onClick={togleHandler}>
               <FontAwesomeIcon icon={faBars} />
             </div>
           </div>
