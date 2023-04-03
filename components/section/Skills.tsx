@@ -1,27 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
-import Row from "../common/Row";
 
-type ColProps = {
-  checkFront?: string;
-};
+const Container = styled.div`
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  @media (max-width: 968px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
-const Col = styled.div<ColProps>`
+const Col = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
   margin-bottom: 3rem;
-  padding-left: ${(props) => props.checkFront && "calc((100% - 950px) / 2)"};
-  padding-right: ${(props) => !props.checkFront && "calc((100% - 950px) / 2)"};
-  @media (min-width: 768px) {
-    width: calc(100% / 2);
-  }
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: ${(props) => props.checkFront && "0"};
-  }
+  width: calc(100% / 3);
 `;
 type CardProps = {
   width?: number;
@@ -40,8 +37,6 @@ const Card = styled.div<CardProps>`
     0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
 
   > div:first-child {
-    text-decoration: underline;
-    text-decoration-thickness: 1.1rem;
     padding-bottom: 12px;
     font-size: 2.4rem;
     color: #5c5c5c;
@@ -66,18 +61,17 @@ const Card = styled.div<CardProps>`
 `;
 
 const Skills = () => {
+  //제일 넓이가 큰 것에 맞춰서 넓이를 설정해주기 위한 작업
   const target = useRef<HTMLDivElement>(null);
-
   const [width, setWidth] = useState(0);
-
   useEffect(() => {
     if (target.current) setWidth(target.current?.offsetWidth);
   }, []);
 
   return (
     <ArticleBox name="Skills">
-      <Row>
-        <Col checkFront="checkFront">
+      <Container>
+        <Col>
           <Card width={width}>
             <div>{"Frontend"}</div>
             <div className="frontend"></div>
@@ -88,12 +82,14 @@ const Skills = () => {
             <div>{"Backend"}</div>
             <div className="backend"></div>
           </Card>
+        </Col>
+        <Col>
           <Card ref={target}>
             <div>{"Experienced"}</div>
             <div className="experienced"></div>
           </Card>
         </Col>
-      </Row>
+      </Container>
     </ArticleBox>
   );
 };
