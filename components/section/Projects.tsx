@@ -101,6 +101,7 @@ type ProjectsContainerProps = {
 const ProjectsContainer = styled.div<ProjectsContainerProps>`
   display: flex;
   flex-direction: ${(props) => (props.display ? "column" : "row")};
+  margin-top: ${(props) => props.display && "-40px"};
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -158,19 +159,23 @@ const Projects = () => {
           </div>
         </label>
       </ChangeBox>
-      <ProjectNav length={navProject.length}>
-        {navProject.map((el, i) => (
-          <div
-            key={el.name}
-            className={i === pick ? "active" : ""}
-            onClick={() => pickHandler(i)}
-          >
-            <div>{el.categori}</div>
-            <div>{"<" + el.create + ">"}</div>
-            <div>{el.name}</div>
-          </div>
-        ))}
-      </ProjectNav>
+      <>
+        {!projectDisplay && (
+          <ProjectNav length={navProject.length}>
+            {navProject.map((el, i) => (
+              <div
+                key={el.name}
+                className={i === pick ? "active" : ""}
+                onClick={() => pickHandler(i)}
+              >
+                <div>{el.categori}</div>
+                <div>{"<" + el.create + ">"}</div>
+                <div>{el.name}</div>
+              </div>
+            ))}
+          </ProjectNav>
+        )}
+      </>
       <ProjectsContainer display={projectDisplay} ref={container}>
         {contentArr.map((x, idx) => (
           <ProjectsContent key={idx} idx={idx} setLeft={setLeft} />
