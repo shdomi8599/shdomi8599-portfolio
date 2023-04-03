@@ -14,6 +14,9 @@ const ChangeBox = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  @media (max-width: 1130px) {
+    padding-right: 10px;
+  }
 `;
 
 const ProjectNav = styled.nav<ProjectNavProps>`
