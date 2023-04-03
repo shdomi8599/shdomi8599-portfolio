@@ -176,7 +176,16 @@ const ProjectsContent = ({
       setWidth(window.innerWidth);
     }, 300);
   };
+  
+  //캐러셀로 인해 틀어지는 0번 인덱스가 의도적 지연을 통해 제대로 된 높이를 갖도록,
   useEffect(() => {
+    setTimeout(() => {
+      if (target.current && pick === idx) {
+        const topHeight = top.current?.offsetHeight;
+        const bottomHeight = bottom.current?.offsetHeight;
+        if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
+      }
+    }, 500);
     window.addEventListener("resize", widthResize);
     return () => window.removeEventListener("resize", widthResize);
   }, []);
