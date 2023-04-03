@@ -28,7 +28,7 @@ const Col = styled.div`
   @media (max-width: 576px) {
     width: 100%;
     padding: 10px;
-    margin: 0px calc((100% - 280px) / 2);
+    margin: 0px calc((100% - 316px) / 2);
   }
   @media (max-width: 204px) {
     padding: 20px 0px;
