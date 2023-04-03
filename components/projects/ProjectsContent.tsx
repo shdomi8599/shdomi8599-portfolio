@@ -2,7 +2,13 @@ import { navProject, projects } from "@/data/projects";
 import Carousel from "../common/Carousel";
 import Description from "./Description";
 import styled from "styled-components";
-import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { pickState, projectHeightState } from "@/recoil/atom";
 
@@ -13,7 +19,7 @@ type ContentProps = {
 const Content = styled.div<ContentProps>`
   margin-top: 80px;
   width: 100%;
-  max-height: ${(props) => `${props.height + 10}px`};
+  height: ${(props) => `${props.height + 10}px`};
 
   > div:first-child {
     width: 100%;
@@ -119,8 +125,17 @@ const ProjectsContent = ({
 }) => {
   const target = useRef<HTMLDivElement>(null);
   const pick = useRecoilValue(pickState);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useRecoilState(projectHeightState);
 
-  //화면의 크기가 변하면 first값을 다시 셋팅, 리사이징이 일어날땐 pick이 기본값을 참조하고 leftHandler 함수는 고정되버린 바람에 이전의 값이 선택되고있는데 어떻게 해결해야할까???
+  //이동 이펙트를 중첩시켜서 스크롤 이벤트가 확실하게 일어나도록
+  useEffect(() => {
+    if (target.current && pick === idx) {
+      setLeft(target.current.offsetLeft);
+    }
+  }, [height]);
+
+  //화면의 크기가 변하면 left값을 다시 셋팅
   useEffect(() => {
     const leftHandler = () => {
       if (target.current && pick === idx) {
@@ -131,7 +146,7 @@ const ProjectsContent = ({
     return () => {
       window.removeEventListener("resize", leftHandler);
     };
-  }, [pick]);
+  }, [height]);
 
   //left좌표를 초기 값을 뺀 것으로 설정
   useEffect(() => {
@@ -141,16 +156,30 @@ const ProjectsContent = ({
   }, [idx, pick, setLeft]);
 
   //높이 계산식
-  const [height, setHeight] = useRecoilState(projectHeightState);
   const top = useRef<HTMLDivElement>(null);
   const bottom = useRef<HTMLDivElement>(null);
+
+  //넓이,pick이 변하면 높이 다시 조정
   useEffect(() => {
     if (target.current && pick === idx) {
       const topHeight = top.current?.offsetHeight;
       const bottomHeight = bottom.current?.offsetHeight;
       if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
     }
-  }, [pick]);
+  }, [width, pick]);
+
+  //넓이의 변화를 디바운싱으로 1번만 실행되도록 해주는 이펙트와 함수
+  let timer: number;
+  const widthResize = () => {
+    clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      setWidth(window.innerWidth);
+    }, 300);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", widthResize);
+    return () => window.removeEventListener("resize", widthResize);
+  }, []);
 
   return (
     <Content ref={target} height={height}>
