@@ -148,7 +148,9 @@ const Projects = () => {
   };
 
   //프로젝트 콘텐츠를 나열하기 위한 배열
-  const contentArr = Array(6).fill(0);
+  const contentArr: number[] = Array(6)
+    .fill(0)
+    .map((x, i) => x + i);
 
   //좌표 값 상태
   const [left, setLeft] = useState(0);
@@ -192,8 +194,8 @@ const Projects = () => {
         )}
       </>
       <ProjectsContainer ref={container} projectDisplay={projectDisplay}>
-        {contentArr.map((x, idx) => (
-          <ProjectsContent key={idx} idx={idx} setLeft={setLeft} />
+        {contentArr.map((num, idx) => (
+          <ProjectsContent key={num} idx={idx} setLeft={setLeft} />
         ))}
       </ProjectsContainer>
     </ArticleBox>

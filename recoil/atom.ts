@@ -12,7 +12,7 @@ export const navHeightState = atom({
   default: 0,
 });
 
-//나의 깃허브 데이터
+//깃허브 데이터
 export const gitDataState = atom<{ [key: string]: string }>({
   key: "gitDataState",
   default: {},
