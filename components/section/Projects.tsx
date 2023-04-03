@@ -3,7 +3,12 @@ import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
 import { navProject } from "@/data/projects";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { paddingState, pickState, projectDisplayState } from "@/recoil/atom";
+import {
+  navHeightState,
+  paddingState,
+  pickState,
+  projectDisplayState,
+} from "@/recoil/atom";
 import ProjectsContent from "../projects/ProjectsContent";
 
 type ProjectNavProps = {
@@ -112,6 +117,7 @@ const ProjectsContainer = styled.div<ProjectsContainerProps>`
 
 const Projects = () => {
   const container = useRef<HTMLDivElement>(null);
+  const navHeight = useRecoilValue(navHeightState);
   const padding = useRecoilValue(paddingState);
   const [projectDisplay, setProjectDisplay] =
     useRecoilState(projectDisplayState);
@@ -133,6 +139,12 @@ const Projects = () => {
   const pickHandler = (idx: number) => {
     setPick(idx);
     setCheck(!check);
+    if (container.current) {
+      window.scrollTo({
+        top: container.current.offsetTop - navHeight,
+        behavior: "smooth",
+      });
+    }
   };
 
   //프로젝트 콘텐츠를 나열하기 위한 배열

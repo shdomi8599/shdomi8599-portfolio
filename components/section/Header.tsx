@@ -139,7 +139,7 @@ const HeaderBox = styled.header<HeaderBoxProps>`
       > li {
         margin-bottom: 8px;
         font-size: 1.2rem;
-        height: 3vh;
+        height: 4vh;
         display: ${(props) => (props.togle ? "block" : "none")};
         cursor: pointer;
         :hover {
