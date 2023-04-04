@@ -144,12 +144,12 @@ export const projects: ProjectList[] = [
       "/TODO/t1.",
       "/TODO/t2.",
       "/TODO/t3.",
+      "/TODO/t9.",
       "/TODO/t4.",
       "/TODO/t5.",
       "/TODO/t6.",
       "/TODO/t7.",
       "/TODO/t8.",
-      "/TODO/t9.",
     ],
   ],
   [
