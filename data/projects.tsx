@@ -3,13 +3,13 @@ import LinkSpan from "@/components/common/LinkSpan";
 import { ProjectList } from "@/types/project";
 
 export const navProject = [
+  { categori: "SOLO", name: "포트폴리오", create: "2023.04", period: 7 },
   { categori: "TEAM", name: "마쉴랭", create: "2023.04", period: 35 },
-  { categori: "SOLO", name: "포트폴리오", create: "2023.04", period: 5 },
   {
     categori: "SOLO",
     name: "취준생의 하루(앱)",
     create: "2023.03",
-    period: 22,
+    period: 25,
   },
   { categori: "SOLO", name: "모두시스템 개편", create: "2023.02", period: 30 },
   {
@@ -27,44 +27,6 @@ export const navProject = [
 ];
 
 export const projects: ProjectList[] = [
-  [
-    <div key={"마쉴랭"}>
-      <b>
-        마쉴랭 프로젝트는 칵테일을 좋아하는 사람들을 위한 웹 커뮤니티로,
-        게시판을 활용하여 레시피와 맛집 정보를 공유하는 것이 주 컨텐츠입니다.
-      </b>{" "}
-      <p /> 백엔드 분들에게 <FocusSpan content="스프링 부트를 해석하는 방법" />
-      과 <FocusSpan content="H2 데이터베이스를 활용하는 방법" />을 여쭤보고,{" "}
-      <FocusSpan
-        content="제 로컬 환경에서 서버와 클라이언트를 모두 실행시켜 데이터들을 연동하는
-          작업을 했습니다."
-      />{" "}
-      이를 통해 백엔드와의 협업에 대한 두려움이 사라지면서, 좋은 경험을 쌓을 수
-      있었습니다.
-    </div>,
-    [
-      {
-        name: "구현한 기능",
-        content:
-          "반응형 웹, 회원기능, 실시간 유효성 검사(디바운싱), 게시판/댓글/대댓글 CRUD, 게시글 검색, 무한스크롤(IO-API), 스켈레톤UI, 해쉬태그, 캐러셀, 좋아요/싫어요/구독",
-      },
-      {
-        name: "자세히 보기",
-        href: [
-          "https://github.com/Maswillaeng/MSL-frontend-full",
-          "https://web-beginner.tistory.com/category/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B9%B5%ED%85%8C%EC%9D%BC%20%EB%A0%88%EC%8B%9C%ED%94%BC%20-%20%EB%A7%88%EC%89%B4%EB%9E%AD",
-          "https://github.com/Maswillaeng/MSL-frontend-full",
-        ],
-      },
-      {
-        name: "프론트 기술 스택",
-        content: "React, Recoil, Axios, Styled-Components, Bootstrap",
-      },
-      { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
-      { name: "팀원", content: "프론트엔드 1명, 백엔드 2명" },
-    ],
-    ["/TODO/t1.", "/TODO/t1."],
-  ],
   [
     <div key={"포트폴리오"}>
       <b>
@@ -103,6 +65,44 @@ export const projects: ProjectList[] = [
       },
     ],
     ["/portfolio/p4.", "/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
+  ],
+  [
+    <div key={"마쉴랭"}>
+      <b>
+        마쉴랭 프로젝트는 칵테일을 좋아하는 사람들을 위한 웹 커뮤니티로,
+        게시판을 활용하여 레시피와 맛집 정보를 공유하는 것이 주 컨텐츠입니다.
+      </b>{" "}
+      <p /> 백엔드 분들에게 <FocusSpan content="스프링 부트를 해석하는 방법" />
+      과 <FocusSpan content="H2 데이터베이스를 활용하는 방법" />을 여쭤보고,{" "}
+      <FocusSpan
+        content="제 로컬 환경에서 서버와 클라이언트를 모두 실행시켜 데이터들을 연동하는
+          작업을 했습니다."
+      />{" "}
+      이를 통해 백엔드와의 협업에 대한 두려움이 사라지면서, 좋은 경험을 쌓을 수
+      있었습니다.
+    </div>,
+    [
+      {
+        name: "구현한 기능",
+        content:
+          "반응형 웹, 회원기능, 실시간 유효성 검사(디바운싱), 게시판/댓글/대댓글 CRUD, 게시글 검색, 무한스크롤(IO-API), 스켈레톤UI, 해쉬태그, 캐러셀, 좋아요/싫어요/구독",
+      },
+      {
+        name: "자세히 보기",
+        href: [
+          "https://github.com/Maswillaeng/MSL-frontend-full",
+          "https://web-beginner.tistory.com/category/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B9%B5%ED%85%8C%EC%9D%BC%20%EB%A0%88%EC%8B%9C%ED%94%BC%20-%20%EB%A7%88%EC%89%B4%EB%9E%AD",
+          "https://github.com/Maswillaeng/MSL-frontend-full",
+        ],
+      },
+      {
+        name: "프론트 기술 스택",
+        content: "React, Recoil, Axios, Styled-Components, Bootstrap",
+      },
+      { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
+      { name: "팀원", content: "프론트엔드 1명, 백엔드 2명" },
+    ],
+    ["/TODO/t1.", "/TODO/t1."],
   ],
   [
     <div key={"취준생의 하루"}>
