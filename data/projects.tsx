@@ -150,7 +150,6 @@ export const projects: ProjectList[] = [
       "/TODO/t7.",
       "/TODO/t8.",
       "/TODO/t9.",
-      "/TODO/t10.",
     ],
   ],
   [
