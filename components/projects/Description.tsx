@@ -15,6 +15,15 @@ const DescriptionBox = styled.div`
     @media (max-width: 1040px) {
       width: 100%;
     }
+    > span {
+      margin-left: 8px;
+      font-size: 0.8rem;
+      background-color: black;
+      padding: 4px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
   }
 
   > div:last-child {
@@ -76,7 +85,14 @@ const Description = ({ name, content, href }: Project) => {
   return (
     <DescriptionBox>
       <div>
-        <b>{name}</b>
+        {name === "구현한 기능" ? (
+          <>
+            <b>{name}</b>
+            <span>핵심코드</span>
+          </>
+        ) : (
+          <b>{name}</b>
+        )}
       </div>
       <div>
         {href

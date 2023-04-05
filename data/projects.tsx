@@ -64,7 +64,7 @@ export const projects: ProjectList[] = [
         content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
-    [ "/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
+    ["/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
   ],
   [
     <div key={"마쉴랭"}>
@@ -92,7 +92,6 @@ export const projects: ProjectList[] = [
         href: [
           "https://github.com/Maswillaeng/MSL-frontend-full",
           "https://web-beginner.tistory.com/category/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B9%B5%ED%85%8C%EC%9D%BC%20%EB%A0%88%EC%8B%9C%ED%94%BC%20-%20%EB%A7%88%EC%89%B4%EB%9E%AD",
-          "https://github.com/Maswillaeng/MSL-frontend-full",
         ],
       },
       {
@@ -115,9 +114,9 @@ export const projects: ProjectList[] = [
       <p />
       <b>
         처음부터 웹앱을 배포하는 목적을 갖고 개발을 진행했기 때문에 다른
-        프로젝트들에 비해 UX에 굉장히 많은 고민을 했습니다. 사용자 입장에서
-        접근하기 편하고 사용하기 쉽도록 할 수 있을까에 대한 고민과 함께 수많은
-        테스트를 거쳐서 개발한 앱입니다.
+        프로젝트들에 비해 UX에 굉장히 많은 고민을 했습니다. 어떻게 하면 사용자
+        입장에서 접근하기 편하고 사용하기 쉽도록 할 수 있을까에 대한 고민과 함께
+        수많은 테스트를 거쳐서 개발한 앱입니다.
       </b>
     </div>,
     [
@@ -131,7 +130,7 @@ export const projects: ProjectList[] = [
         href: [
           "https://github.com/shdomi8599/mobile-to-do-app",
           "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%98%20%ED%95%98%EB%A3%A8%20%28%EC%9B%B9%EC%95%B1%29",
-          "https://expo.dev/artifacts/eas/dp4XMRoLYeVm4cq14MqrSg.apk",
+          "https://play.google.com/store/apps/details?id=com.JobSeekerDiary.app",
         ],
       },
       {
@@ -214,8 +213,8 @@ export const projects: ProjectList[] = [
   [
     <div key={"LOL 나만의 피드백"}>
       <b>처음으로 React를 활용하여 개발한 프로젝트입니다.</b> React에 대해
-      학습하기 전까지는 &apos;JS와 달라봐야 얼마나 다르겠어&apos; 라는
-      생각을 가지고 있었는데, 그 생각이 완전히 잘못되었다는 것을 알게 해준
+      학습하기 전까지는 &apos;JS와 달라봐야 얼마나 다르겠어&apos; 라는 생각을
+      가지고 있었는데, 그 생각이 완전히 잘못되었다는 것을 알게 해준
       프로젝트입니다.
       <p />
       현재는 코딩에 밀려서 재미가 없어진{" "}
