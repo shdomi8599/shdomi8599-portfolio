@@ -31,7 +31,7 @@ const Card = styled.div<CardProps>`
   flex-direction: column;
   margin: 20px 0px;
   width: ${(props) => props.width}px;
-  padding: 30px;
+  padding: 20px 30px;
   border-radius: 25px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
     0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
