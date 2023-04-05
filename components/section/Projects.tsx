@@ -122,15 +122,19 @@ const Projects = () => {
   const [projectDisplay, setProjectDisplay] =
     useRecoilState(projectDisplayState);
 
-  const displayHandler = () => {
-    setProjectDisplay(!projectDisplay);
-  };
-
   //슬릭에게 변화를 감지할 수 있게 도와주는 상태
   const [check, setCheck] = useState(false);
 
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
   const [pick, setPick] = useRecoilState(pickState);
+
+  /**
+   * 세로모드를 위한 함수, 디스플레이가 변하게되면 0번째 인덱스로 되돌리는 방식
+   */
+  const displayHandler = () => {
+    setProjectDisplay(!projectDisplay);
+    setPick(0);
+  };
 
   /**
    * 함수가 실행되면 Content에 맞는 스크롤로 이동하기 위한 이벤트
