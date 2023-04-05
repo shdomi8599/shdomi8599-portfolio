@@ -12,15 +12,15 @@ function MyDocument({ styles }: Props) {
       <Head>
         <meta
           name="description"
-          content="프론트엔드 지망생 shdomi8599의 포트폴리오입니다."
+          content="프론트엔드 지망생 신동민의 포트폴리오입니다."
         />
         <meta
           property="og:title"
-          content="프론트엔드 지망생 shdomi8599의 포트폴리오"
+          content="프론트엔드 지망생 신동민의 포트폴리오"
         />
         <meta
           property="og:description"
-          content="프론트엔드 지망생 shdomi8599의 포트폴리오입니다."
+          content="프론트엔드 지망생 신동민의 포트폴리오입니다."
         />
         <meta property="og:image" content="/mainImg/mainImg.jpg" />
         <meta
@@ -30,11 +30,11 @@ function MyDocument({ styles }: Props) {
         <meta name="twitter:card" content="summary" />
         <meta
           name="twitter:title"
-          content="프론트엔드 지망생 shdomi8599의 포트폴리오"
+          content="프론트엔드 지망생 신동민의 포트폴리오"
         />
         <meta
           name="twitter:description"
-          content="프론트엔드 지망생 shdomi8599의 포트폴리오입니다."
+          content="프론트엔드 지망생 신동민의 포트폴리오입니다."
         />
         <meta name="twitter:image" content="/mainImg/mainImg.jpg" />
         <link rel="canonical" href="https://www.shdomi8599-portfolio.com" />
