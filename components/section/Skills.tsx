@@ -51,11 +51,11 @@ const Card = styled.div<CardProps>`
   .backend {
     width: 250px;
     height: 221px;
-    background: url("stacks.png") -280px -466px;
+    background: url("stacks.png") -280px -551px;
   }
   .experienced {
     width: 250px;
-    height: 436px;
+    height: 521px;
     background: url("stacks.png") -280px -10px;
   }
 `;
