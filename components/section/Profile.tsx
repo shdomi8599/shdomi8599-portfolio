@@ -83,8 +83,8 @@ const Profile = () => {
     },
     {
       icon: <FontAwesomeIcon icon={faSchool} />,
-      name: "EDUCATION",
-      content: "강릉원주대학교 중퇴",
+      name: "BootCamp",
+      content: "코드스테이츠 43기",
     },
   ];
 
