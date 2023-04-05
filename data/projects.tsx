@@ -64,7 +64,7 @@ export const projects: ProjectList[] = [
         content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
-    ["/portfolio/p4.", "/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
+    [ "/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
   ],
   [
     <div key={"마쉴랭"}>
@@ -214,8 +214,8 @@ export const projects: ProjectList[] = [
   [
     <div key={"LOL 나만의 피드백"}>
       <b>처음으로 React를 활용하여 개발한 프로젝트입니다.</b> React에 대해
-      학습하기 전까지는 &quot;JS와 달라봐야 얼마나 다르겠어&quot; 라는 생각을
-      가지고 있었는데, 그 생각이 완전히 잘못되었다는 것을 알게 해준
+      학습하기 전까지는 &apos;JS와 달라봐야 얼마나 다르겠어&apos; 라는
+      생각을 가지고 있었는데, 그 생각이 완전히 잘못되었다는 것을 알게 해준
       프로젝트입니다.
       <p />
       현재는 코딩에 밀려서 재미가 없어진{" "}
