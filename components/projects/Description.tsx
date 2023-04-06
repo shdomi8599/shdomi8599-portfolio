@@ -1,6 +1,6 @@
 import { detailSrcState, detailState, pickState } from "@/recoil/atom";
 import { Project } from "@/types/project";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const DescriptionBox = styled.div`
