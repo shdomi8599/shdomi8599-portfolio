@@ -17,17 +17,6 @@ const DetailBox = styled.article`
     align-items: center;
     width: 100%;
     height: 100%;
-    .back-btn {
-      position: absolute;
-      left: 100px;
-      top: 150px;
-      font-size: 1.4rem;
-      background-color: #d63636;
-      color: white;
-      padding: 20px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
   }
 
   .loading {
@@ -65,9 +54,6 @@ const Detail = () => {
   return (
     <DetailBox>
       <div>
-        <div className="back-btn" onClick={offDetail}>
-          포트폴리오로 돌아가기
-        </div>
         <iframe
           src={detailSrc}
           width="100%"
