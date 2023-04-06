@@ -144,9 +144,6 @@ const ProjectsContent = ({
     };
     leftHandler();
     window.addEventListener("resize", leftHandler);
-    return () => {
-      window.removeEventListener("resize", leftHandler);
-    };
   }, [idx, pick, setLeft, height]);
 
   //높이 계산식
@@ -171,7 +168,8 @@ const ProjectsContent = ({
     }, 300);
   };
 
-  //캐러셀로 인해 틀어지는 0번 인덱스가 의도적 지연을 통해 제대로 된 높이를 갖도록하고, 높이를 디바운싱으로 측정하는 이펙트
+  //캐러셀로 인해 틀어지는 0번 인덱스가 의도적 지연을 통해 제대로 된 높이를 갖도록하고,
+  // resize가 일어날때 넓이를 셋팅해주는 함수 추가
   useEffect(() => {
     setTimeout(() => {
       if (target.current && pick === idx) {
@@ -181,7 +179,6 @@ const ProjectsContent = ({
       }
     }, 500);
     window.addEventListener("resize", widthResize);
-    return () => window.removeEventListener("resize", widthResize);
   }, []);
 
   return (

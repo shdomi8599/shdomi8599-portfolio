@@ -43,6 +43,7 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
 
   /**
    * 패딩 값을 셋팅하기 위한 함수
+   *   padding: 60px calc((100% - 1100px) / 2);
    */
   const paddingHandler = () => {
     if (target.current) {
@@ -54,18 +55,12 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
     }
   };
 
-  //최초 padding 값 셋팅
+  //최초 padding 값 셋팅하고 화면의 크기가 변하면 padding값을 다시 되도록 이벤트 추가
   useEffect(() => {
     paddingHandler();
+    window.addEventListener("resize", paddingHandler);
   }, []);
 
-  //화면의 크기가 변하면 padding값을 다시 셋팅
-  useEffect(() => {
-    window.addEventListener("resize", paddingHandler);
-    return () => {
-      window.removeEventListener("resize", paddingHandler);
-    };
-  }, []);
 
   return (
     <Article ref={target}>

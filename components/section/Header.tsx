@@ -186,9 +186,6 @@ const Header = () => {
   //화면의 크기가 768보다 커지면 토글이 off되도록 해주는 이펙트
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
 
   //스크롤 높이 상태
@@ -207,9 +204,6 @@ const Header = () => {
   //스크롤이 20이상 내려오면 네비바의 배경을 입혀주기 위한 이펙트
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
 
   //네비 데이터
