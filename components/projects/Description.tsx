@@ -1,6 +1,6 @@
-import { detailState } from "@/recoil/atom";
+import { detailSrcState, detailState, pickState } from "@/recoil/atom";
 import { Project } from "@/types/project";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const DescriptionBox = styled.div`
@@ -14,17 +14,26 @@ const DescriptionBox = styled.div`
   > div:first-child {
     width: 30%;
     font-size: 1.2rem;
+    display: flex;
     @media (max-width: 1040px) {
       width: 100%;
     }
-    > span {
-      margin-left: 8px;
-      font-size: 0.8rem;
-      background-color: black;
-      padding: 4px;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
+    @media (max-width: 254px) {
+      flex-direction: column;
+    }
+    > div:last-child {
+      > span {
+        margin-left: 8px;
+        font-size: 0.8rem;
+        background-color: black;
+        padding: 4px;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        @media (max-width: 254px) {
+          margin-left: 0px;
+        }
+      }
     }
   }
 
@@ -85,20 +94,41 @@ const DescriptionBox = styled.div`
 const Description = ({ name, content, href }: Project) => {
   const hrefData = ["github", "tistory", "android"];
 
-  //디테일 페이지 관리 상태
+  //선택된 픽의 상태
+  const pick = useRecoilValue(pickState);
+
+  //디테일 페이지 상태
   const setDetail = useSetRecoilState(detailState);
 
+  //디테일 페이지 주소 상태
+  const setDetailSrc = useSetRecoilState(detailSrcState);
+
+  //디테일 페이지 주소 데이터
+  const detailSrcData = [
+    "https://web-beginner.tistory.com/category/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%ED%95%B5%EC%8B%AC%20%EC%BD%94%EB%93%9C/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4",
+    "https://web-beginner.tistory.com/category/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%ED%95%B5%EC%8B%AC%20%EC%BD%94%EB%93%9C/%EB%A7%88%EC%89%B4%EB%9E%AD",
+    "https://web-beginner.tistory.com/category/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%ED%95%B5%EC%8B%AC%20%EC%BD%94%EB%93%9C/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%98%20%ED%95%98%EB%A3%A8",
+  ];
+
   /**
-   * 디테일 페이지 on
+   * 디테일 페이지 주소를 변경하고, 디테일 페이지를 on
    */
   const onDetail = () => {
+    setDetailSrc(detailSrcData[pick]);
     setDetail(true);
   };
+
   return (
     <DescriptionBox>
       <div>
-        <b>{name}</b>
-        {name === "구현한 기능" && <span onClick={onDetail}>핵심코드</span>}
+        <div>
+          <b>{name}</b>
+        </div>
+        {name === "구현한 기능" && pick < 3 && (
+          <div onClick={onDetail}>
+            <span>핵심코드</span>
+          </div>
+        )}
       </div>
       <div>
         {href

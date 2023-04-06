@@ -47,3 +47,9 @@ export const detailState = atom({
   key: "detailState",
   default: false,
 });
+
+//디테일 페이지 주소
+export const detailSrcState = atom({
+  key: "detailSrcState",
+  default: "https://web-beginner.tistory.com/",
+});

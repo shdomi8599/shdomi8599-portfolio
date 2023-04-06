@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import { useSetRecoilState } from "recoil";
-import { detailState } from "@/recoil/atom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { detailSrcState, detailState } from "@/recoil/atom";
 
 const DetailBox = styled.article`
   z-index: 99;
@@ -27,16 +27,6 @@ const DetailBox = styled.article`
       padding: 20px;
       border-radius: 20px;
       cursor: pointer;
-      /* animation: motion 1s linear 0s infinite alternate;
-      margin-top: 0;
-      @keyframes motion {
-        0% {
-          margin-top: 0px;
-        }
-        100% {
-          margin-top: 50px;
-        }
-      } */
     }
   }
 
@@ -52,6 +42,9 @@ const DetailBox = styled.article`
 const Detail = () => {
   //디테일 페이지 상태
   const setDetail = useSetRecoilState(detailState);
+
+  //디테일 페이지 주소
+  const detailSrc = useRecoilValue(detailSrcState);
 
   /**
    * 디테일 페이지 off이벤트
@@ -76,7 +69,7 @@ const Detail = () => {
           포트폴리오로 돌아가기
         </div>
         <iframe
-          src="https://web-beginner.tistory.com/"
+          src={detailSrc}
           width="100%"
           height="100%"
           allowFullScreen
@@ -85,7 +78,7 @@ const Detail = () => {
       </div>
       {!isLoaded && (
         <div className="loading">
-          <Image src="/preview.gif" alt="loading" width={40} height={40} />
+          <Image src="/loading.gif" alt="loading" width={40} height={40} />
           로딩중입니다.
         </div>
       )}
