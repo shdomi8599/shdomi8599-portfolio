@@ -1,4 +1,6 @@
+import { detailState } from "@/recoil/atom";
 import { Project } from "@/types/project";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const DescriptionBox = styled.div`
@@ -82,17 +84,21 @@ const DescriptionBox = styled.div`
 
 const Description = ({ name, content, href }: Project) => {
   const hrefData = ["github", "tistory", "android"];
+
+  //디테일 페이지 관리 상태
+  const setDetail = useSetRecoilState(detailState);
+
+  /**
+   * 디테일 페이지 on
+   */
+  const onDetail = () => {
+    setDetail(true);
+  };
   return (
     <DescriptionBox>
       <div>
-        {name === "구현한 기능" ? (
-          <>
-            <b>{name}</b>
-            <span>핵심코드</span>
-          </>
-        ) : (
-          <b>{name}</b>
-        )}
+        <b>{name}</b>
+        {name === "구현한 기능" && <span onClick={onDetail}>핵심코드</span>}
       </div>
       <div>
         {href

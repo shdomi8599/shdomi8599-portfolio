@@ -4,12 +4,14 @@ import ArticleBox from "../common/ArticleBox";
 import { navProject } from "@/data/projects";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
+  detailState,
   navHeightState,
   paddingState,
   pickState,
   projectDisplayState,
 } from "@/recoil/atom";
 import ProjectsContent from "../projects/ProjectsContent";
+import Detail from "./Detail";
 
 type ProjectNavProps = {
   length: number;
@@ -128,6 +130,17 @@ const Projects = () => {
   //선택된 것의 스타일을 바꿔주고 데이터를 보여주기 위한 상태
   const [pick, setPick] = useRecoilState(pickState);
 
+  //디테일 페이지 관리 상태
+  const detail = useRecoilValue(detailState);
+
+  //detail 페이지가 마운트되면 스크롤을막고 닫히면 해제해주는 이펙트
+  useEffect(() => {
+    if (detail) document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [detail]);
+
   /**
    * 세로모드를 위한 함수, 디스플레이가 변하게되면 0번째 인덱스로 되돌리는 방식
    */
@@ -170,39 +183,42 @@ const Projects = () => {
   }, [left, padding]);
 
   return (
-    <ArticleBox name="Projects">
-      <ChangeBox>
-        <label className="switch">
-          <input type="checkbox" />
-          <div className="slider" onClick={displayHandler}>
-            <span>가로</span>
-            <span>세로</span>
-          </div>
-        </label>
-      </ChangeBox>
-      <>
-        {!projectDisplay && (
-          <ProjectNav length={navProject.length}>
-            {navProject.map((el, i) => (
-              <div
-                key={el.name}
-                className={i === pick ? "active" : ""}
-                onClick={() => pickHandler(i)}
-              >
-                <div>{el.categori}</div>
-                <div>{"<" + el.create + ">"}</div>
-                <div>{el.name}</div>
-              </div>
-            ))}
-          </ProjectNav>
-        )}
-      </>
-      <ProjectsContainer ref={container} projectDisplay={projectDisplay}>
-        {contentArr.map((num, idx) => (
-          <ProjectsContent key={num} idx={idx} setLeft={setLeft} />
-        ))}
-      </ProjectsContainer>
-    </ArticleBox>
+    <>
+      {detail && <Detail />}
+      <ArticleBox name="Projects">
+        <ChangeBox>
+          <label className="switch">
+            <input type="checkbox" />
+            <div className="slider" onClick={displayHandler}>
+              <span>가로</span>
+              <span>세로</span>
+            </div>
+          </label>
+        </ChangeBox>
+        <>
+          {!projectDisplay && (
+            <ProjectNav length={navProject.length}>
+              {navProject.map((el, i) => (
+                <div
+                  key={el.name}
+                  className={i === pick ? "active" : ""}
+                  onClick={() => pickHandler(i)}
+                >
+                  <div>{el.categori}</div>
+                  <div>{"<" + el.create + ">"}</div>
+                  <div>{el.name}</div>
+                </div>
+              ))}
+            </ProjectNav>
+          )}
+        </>
+        <ProjectsContainer ref={container} projectDisplay={projectDisplay}>
+          {contentArr.map((num, idx) => (
+            <ProjectsContent key={num} idx={idx} setLeft={setLeft} />
+          ))}
+        </ProjectsContainer>
+      </ArticleBox>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
-import { navHeightState, selectNavState } from "@/recoil/atom";
+import { detailState, navHeightState, selectNavState } from "@/recoil/atom";
 
 type HeaderBoxProps = {
   togle: boolean;
@@ -159,6 +159,15 @@ const Header = () => {
   //네비를 통한 이동 이벤트 상태
   const setSelectNav = useSetRecoilState(selectNavState);
 
+  //디테일 페이지 상태
+  const setDetail = useSetRecoilState(detailState);
+
+  const moveSelect = (name: string) => {
+    setSelectNav(name);
+    setDetail(false);
+    setTogle(false);
+  };
+
   //토글 상태
   const [togle, setTogle] = useState(false);
 
@@ -208,13 +217,7 @@ const Header = () => {
   const navData = (
     <ul>
       {navArr.map((el) => (
-        <li
-          key={el}
-          onClick={() => {
-            setSelectNav(el);
-            setTogle(false);
-          }}
-        >
+        <li key={el} onClick={() => moveSelect(el)}>
           {el}
         </li>
       ))}
@@ -236,6 +239,7 @@ const Header = () => {
       behavior: "smooth",
     });
     setSelectNav("");
+    setDetail(false);
     setTogle(false);
   };
 
