@@ -6,6 +6,7 @@ import Skills from "@/components/section/Skills";
 import Projects from "@/components/section/Projects";
 import Contact from "@/components/section/Contact";
 import Footer from "@/components/section/Footer";
+import Head from "next/head";
 
 const Main = styled.main`
   display: flex;
@@ -18,6 +19,11 @@ const Main = styled.main`
 export default function Home() {
   return (
     <>
+      <div>
+        <Head>
+          <title>프론트엔드 신동민 - 포트폴리오</title>
+        </Head>
+      </div>
       <Header />
       <Main>
         <Intro />
