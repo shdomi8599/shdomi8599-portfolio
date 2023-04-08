@@ -126,7 +126,7 @@ const Description = ({ name, content, href }: Project) => {
         </div>
         {name === "구현한 기능" && pick < 3 && (
           <div>
-            <span onClick={onDetail}>핵심코드</span>
+            <span role="button" onClick={onDetail}>핵심코드</span>
           </div>
         )}
       </div>
