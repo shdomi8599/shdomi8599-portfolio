@@ -131,7 +131,7 @@ export const projects: ProjectList[] = [
       {
         name: "구현한 기능",
         content:
-          "github action 배포 자동화, 그저께/어제/오늘 스케줄 관리, 사용자 간 스케줄 공유, 기상시간 체크, 목표 설정, 스케줄 설정, 알람 설정, 스케줄 성공 여부 달력 관리, 과거 스케줄 조회",
+          "github action 배포 자동화, 그저께/어제/오늘 스케줄 관리, 사용자 간 스케줄 공유, 기상시간 체크, 목표 설정, 스케줄 설정, 스케줄 성공 여부 달력 관리, 과거 스케줄 조회, 알람 설정(구현 시도 중)",
       },
       {
         name: "자세히 보기",
@@ -196,7 +196,7 @@ export const projects: ProjectList[] = [
       {
         name: "자세히 보기",
         href: [
-          "https://github.com/shdomi8599/p3-modusystem",
+          "https://github.com/shdomi8599/modoosystem-full",
           "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EB%AA%A8%EB%91%90%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%ED%8E%B8",
         ],
       },
