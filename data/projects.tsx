@@ -4,12 +4,12 @@ import { ProjectList } from "@/types/project";
 
 export const navProject = [
   { categori: "SOLO", name: "포트폴리오", create: "2023.04", period: 7 },
-  { categori: "TEAM", name: "마쉴랭", create: "2023.04", period: 35 },
+  { categori: "TEAM", name: "마쉴랭", create: "2023.04", period: 28 },
   {
     categori: "SOLO",
     name: "취준생의 하루(앱)",
     create: "2023.03",
-    period: 25,
+    period: 24,
   },
   { categori: "SOLO", name: "모두시스템 개편", create: "2023.02", period: 30 },
   {
@@ -72,7 +72,7 @@ export const projects: ProjectList[] = [
         마쉴랭 프로젝트는 칵테일을 좋아하는 사람들을 위한 웹 커뮤니티로,
         게시판을 활용하여 레시피와 맛집 정보를 공유하는 것이 주 컨텐츠입니다.
       </b>{" "}
-      <p /> 백엔드 분들에게 <FocusSpan content="스프링 부트를 해석하는 방법" />
+      <p /> 백엔드분들에게 <FocusSpan content="스프링 부트를 해석하는 방법" />
       과 <FocusSpan content="H2 데이터베이스를 활용하는 방법" />을 여쭤보고,{" "}
       <FocusSpan
         content="제 로컬 환경에서 서버와 클라이언트를 모두 실행시켜 데이터들을 연동하는
@@ -101,7 +101,15 @@ export const projects: ProjectList[] = [
       { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
       { name: "팀원", content: "프론트엔드 1명, 백엔드 2명" },
     ],
-    ["/TODO/t1.", "/TODO/t1."],
+    [
+      "/mash/g1.",
+      "/mash/g2.",
+      "/mash/g3.",
+      "/mash/g4.",
+      "/mash/g5.",
+      "/mash/g6.",
+      "/mash/g7.",
+    ],
   ],
   [
     <div key={"취준생의 하루"}>
