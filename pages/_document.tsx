@@ -10,7 +10,6 @@ function MyDocument({ styles }: Props) {
   return (
     <Html lang="ko">
       <Head>
-        <title>프론트엔드 신동민 포트폴리오입니다.</title>
         <meta
           name="description"
           content="프론트엔드 지망생 신동민의 포트폴리오입니다."
