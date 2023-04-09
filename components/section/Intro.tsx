@@ -77,6 +77,10 @@ const IntroBox = styled.article`
 
     > div:last-child {
       padding-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
       > button {
         font-size: 1.3rem;
@@ -93,6 +97,11 @@ const IntroBox = styled.article`
         > svg {
           height: 2.2vh;
         }
+      }
+      div {
+        font-size: 1.2rem;
+        margin-top: 30px;
+        margin-bottom: 20px;
       }
     }
   }
@@ -127,6 +136,7 @@ const Intro = () => {
             <span>자세히 보기</span>
             <FontAwesomeIcon icon={faCircleArrowDown} />
           </button>
+          <div>※ 이 포트폴리오는 템플릿이 아닙니다.</div>
         </div>
       </div>
     </IntroBox>
