@@ -109,6 +109,7 @@ export const projects: ProjectList[] = [
       "/mash/g5.",
       "/mash/g6.",
       "/mash/g7.",
+      "/mash/g8.",
     ],
   ],
   [
