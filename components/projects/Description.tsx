@@ -1,6 +1,6 @@
-import { detailSrcState, detailState, pickState } from "@/recoil/atom";
+import { detailSrcState, detailState } from "@/recoil/atom";
 import { Project } from "@/types/project";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const DescriptionBox = styled.div`
@@ -91,11 +91,8 @@ const DescriptionBox = styled.div`
   }
 `;
 
-const Description = ({ name, content, href }: Project) => {
+const Description = ({ name, content, href, projectIdx }: Project) => {
   const hrefData = ["github", "tistory", "android"];
-
-  //선택된 픽의 상태
-  const pick = useRecoilValue(pickState);
 
   //디테일 페이지 상태
   const setDetail = useSetRecoilState(detailState);
@@ -114,7 +111,7 @@ const Description = ({ name, content, href }: Project) => {
    * 디테일 페이지 주소를 변경하고, 디테일 페이지를 on
    */
   const onDetail = () => {
-    setDetailSrc(detailSrcData[pick]);
+    if (projectIdx !== undefined) setDetailSrc(detailSrcData[projectIdx]);
     setDetail(true);
   };
 
@@ -124,9 +121,11 @@ const Description = ({ name, content, href }: Project) => {
         <div>
           <b>{name}</b>
         </div>
-        {name === "구현한 기능" && pick < 3 && (
+        {name === "구현한 기능" && projectIdx! < 3 && (
           <div>
-            <span role="button" onClick={onDetail}>핵심코드</span>
+            <span role="button" onClick={onDetail}>
+              핵심코드
+            </span>
           </div>
         )}
       </div>
