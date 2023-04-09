@@ -198,6 +198,7 @@ const ProjectsContent = ({
           {projects[idx][0]}
           {projects[idx][1].map((data) => (
             <Description
+              projectIdx={idx}
               key={data.name}
               name={data.name}
               content={data.content}
