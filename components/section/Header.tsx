@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { detailState, navHeightState, selectNavState } from "@/recoil/atom";
+import { useSetRecoilState } from "recoil";
+import { navHeightState, selectNavState } from "@/recoil/atom";
 
 type HeaderBoxProps = {
   togle: boolean;
@@ -166,19 +166,12 @@ const Header = () => {
   //네비를 통한 이동 이벤트 상태
   const setSelectNav = useSetRecoilState(selectNavState);
 
-  //디테일 상태
-  const [detail, setDetail] = useRecoilState(detailState);
-  const offDetail = () => {
-    setDetail(false);
-  };
-
   /**
    * 선택된 네비 이름의 상태를 변경해주는 함수
    * @param name li 이름
    */
   const moveSelect = (name: string) => {
     setSelectNav(name);
-    setDetail(false);
     setTogle(false);
   };
 
@@ -247,7 +240,6 @@ const Header = () => {
       behavior: "smooth",
     });
     setSelectNav("");
-    setDetail(false);
     setTogle(false);
   };
 
@@ -255,13 +247,7 @@ const Header = () => {
     <HeaderBox togle={togle} isScrolled={isScrolled} ref={target}>
       <div>
         <div>
-          {detail ? (
-            <span className="back-btn" onClick={offDetail}>
-              Back
-            </span>
-          ) : (
-            <span onClick={moveTop}>Portfolio</span>
-          )}
+          <span onClick={moveTop}>Portfolio</span>
         </div>
         <div>
           <div>

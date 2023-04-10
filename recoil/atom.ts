@@ -41,15 +41,3 @@ export const projectDisplayState = atom({
   key: "projectDisplayState",
   default: false,
 });
-
-//디테일 페이지 관리 상태
-export const detailState = atom({
-  key: "detailState",
-  default: false,
-});
-
-//디테일 페이지 주소
-export const detailSrcState = atom({
-  key: "detailSrcState",
-  default: "https://web-beginner.tistory.com/",
-});

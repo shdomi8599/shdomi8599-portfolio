@@ -1,6 +1,4 @@
-import { detailSrcState, detailState } from "@/recoil/atom";
 import { Project } from "@/types/project";
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const DescriptionBox = styled.div`
@@ -22,7 +20,7 @@ const DescriptionBox = styled.div`
       flex-direction: column;
     }
     > div:last-child {
-      > span {
+      > a {
         margin-left: 8px;
         font-size: 0.8rem;
         background-color: black;
@@ -94,26 +92,12 @@ const DescriptionBox = styled.div`
 const Description = ({ name, content, href, projectIdx }: Project) => {
   const hrefData = ["github", "tistory", "android"];
 
-  //디테일 페이지 상태
-  const setDetail = useSetRecoilState(detailState);
-
-  //디테일 페이지 주소 상태
-  const setDetailSrc = useSetRecoilState(detailSrcState);
-
   //디테일 페이지 주소 데이터
   const detailSrcData = [
     "https://web-beginner.tistory.com/category/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%ED%95%B5%EC%8B%AC%20%EC%BD%94%EB%93%9C/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4",
     "https://web-beginner.tistory.com/category/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%ED%95%B5%EC%8B%AC%20%EC%BD%94%EB%93%9C/%EB%A7%88%EC%89%B4%EB%9E%AD",
     "https://web-beginner.tistory.com/category/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%ED%95%B5%EC%8B%AC%20%EC%BD%94%EB%93%9C/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%98%20%ED%95%98%EB%A3%A8",
   ];
-
-  /**
-   * 디테일 페이지 주소를 변경하고, 디테일 페이지를 on
-   */
-  const onDetail = () => {
-    if (projectIdx !== undefined) setDetailSrc(detailSrcData[projectIdx]);
-    setDetail(true);
-  };
 
   return (
     <DescriptionBox>
@@ -123,9 +107,11 @@ const Description = ({ name, content, href, projectIdx }: Project) => {
         </div>
         {name === "구현한 기능" && projectIdx! < 3 && (
           <div>
-            <span role="button" onClick={onDetail}>
-              핵심코드
-            </span>
+            {projectIdx !== undefined && (
+              <a href={detailSrcData[projectIdx]} role="button" target="_blank">
+                핵심코드
+              </a>
+            )}
           </div>
         )}
       </div>
