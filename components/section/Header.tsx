@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 import { navHeightState, selectNavState } from "@/recoil/atom";
+import useOffResize from "@/hooks/useOffResize";
 
 type HeaderBoxProps = {
   togle: boolean;
@@ -183,17 +184,8 @@ const Header = () => {
     setTogle(!togle);
   };
 
-  //스크롤 넓이 상태 핸들러
-  const handleResize = () => {
-    if (window.innerWidth > 768) {
-      setTogle(false);
-    }
-  };
-
-  //화면의 크기가 768보다 커지면 토글이 off되도록 해주는 이펙트
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-  }, []);
+  //커스텀 훅을 활용해서 resize off 이벤트
+  useOffResize(768, "up", setTogle);
 
   //스크롤 높이 상태
   const [isScrolled, setIsScrolled] = useState(false);
