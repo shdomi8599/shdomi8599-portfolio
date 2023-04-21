@@ -29,7 +29,7 @@ export const navProject = [
 export const projects: ProjectList[] = [
   [
     <div key={"포트폴리오"}>
-      <b>
+      <b> 
         서버 사이드 랜더링을 통한 정적인 페이지와 SEO의 강점을 이용하기 위해
         Next.js로 제작하게 된 포트폴리오입니다.
       </b>{" "}
