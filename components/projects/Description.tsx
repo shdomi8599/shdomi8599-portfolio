@@ -1,5 +1,17 @@
 import { Project } from "@/types/project";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const blink = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const DescriptionBox = styled.div`
   width: 100%;
@@ -87,6 +99,11 @@ const DescriptionBox = styled.div`
       }
     }
   }
+  .code {
+    animation: ${blink} 1s ease-in-out infinite alternate;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+      0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+  }
 `;
 
 const Description = ({ name, content, href, projectIdx }: Project) => {
@@ -108,7 +125,12 @@ const Description = ({ name, content, href, projectIdx }: Project) => {
         {name === "구현한 기능" && projectIdx! < 3 && (
           <div>
             {projectIdx !== undefined && (
-              <a href={detailSrcData[projectIdx]} role="button" target="_blank">
+              <a
+                className="code"
+                href={detailSrcData[projectIdx]}
+                role="button"
+                target="_blank"
+              >
                 핵심코드
               </a>
             )}
