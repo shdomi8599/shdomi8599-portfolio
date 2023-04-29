@@ -79,9 +79,6 @@ const Skills = () => {
       }
     };
     window.addEventListener("resize", checkWidth);
-    return () => {
-      window.removeEventListener("resize", checkWidth);
-    };
   }, []);
 
   const [frontend, setFrontend] = useState(false);
