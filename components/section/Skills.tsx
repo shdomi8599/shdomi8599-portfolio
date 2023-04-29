@@ -73,6 +73,12 @@ const Skills = () => {
   const [width, setWidth] = useState(0);
   useEffect(() => {
     if (target.current) setWidth(target.current?.offsetWidth);
+    const checkWidth = () => {
+      if (window.innerWidth < 1086) {
+        if (target.current) setWidth(target.current?.offsetWidth);
+      }
+    };
+    window.addEventListener("resize", checkWidth);
   }, []);
 
   ///////////////////////////////////
