@@ -76,6 +76,10 @@ const DescriptionBox = styled.div`
         border-radius: 12px;
         margin-right: 20px;
       }
+      #href {
+        background: none;
+        color: rgb(64, 133, 224);
+      }
     }
     > div:nth-child(2) {
       margin-bottom: 5px;
@@ -122,12 +126,12 @@ const Description = ({ name, content, href, projectIdx }: Project) => {
         <div>
           <b>{name}</b>
         </div>
-        {name === "구현한 기능" && projectIdx! < 3 && (
+        {name === "구현한 기능" && projectIdx! < 4 && projectIdx! > 0 && (
           <div>
             {projectIdx !== undefined && (
               <a
                 className="code"
-                href={detailSrcData[projectIdx]}
+                href={detailSrcData[projectIdx - 1]}
                 role="button"
                 target="_blank"
               >
@@ -138,16 +142,24 @@ const Description = ({ name, content, href, projectIdx }: Project) => {
         )}
       </div>
       <div>
-        {href
-          ? hrefData.map(
-              (label, i) =>
-                href[i] && (
-                  <div key={i}>
-                    <a href={href[i]} target="_blank" aria-label={label}></a>
-                  </div>
-                )
-            )
-          : content}
+        {Array.isArray(href) ? (
+          hrefData.map(
+            (label, i) =>
+              href[i] && (
+                <div key={i}>
+                  <a href={href[i]} target="_blank" aria-label={label}></a>
+                </div>
+              )
+          )
+        ) : href ? (
+          <div key={href}>
+            <a id="href" href={href} target="_blank">
+              {href}
+            </a>
+          </div>
+        ) : (
+          content
+        )}
       </div>
     </DescriptionBox>
   );

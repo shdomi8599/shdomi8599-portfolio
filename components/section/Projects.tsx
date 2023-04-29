@@ -11,10 +11,6 @@ import {
 } from "@/recoil/atom";
 import ProjectsContent from "../projects/ProjectsContent";
 
-type ProjectNavProps = {
-  length: number;
-};
-
 const ChangeBox = styled.div`
   display: flex;
   width: 100%;
@@ -24,66 +20,28 @@ const ChangeBox = styled.div`
   }
 `;
 
-const ProjectNav = styled.nav<ProjectNavProps>`
+const ProjectNav = styled.nav`
   width: 100%;
-  display: flex;
-  margin-top: 10px;
-  border-top: 1px solid #babbbd;
-  border-bottom: 1px solid #babbbd;
-  cursor: pointer;
+  margin-top: 30px;
+  border: 1px solid #babbbd;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
   @media (max-width: 1028px) {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 540px) {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  > div:nth-child(1) {
-    @media (max-width: 1028px) {
-      border-bottom: 1px solid #babbbd;
-      border-right: 1px solid #babbbd;
-    }
-    @media (max-width: 540px) {
-      border-right: none;
-    }
-  }
-  > div:nth-child(2) {
-    @media (max-width: 1028px) {
-      border-bottom: 1px solid #babbbd;
-    }
-  }
-  > div:nth-child(3) {
-    @media (max-width: 1028px) {
-      border-bottom: 1px solid #babbbd;
-      border-right: 1px solid #babbbd;
-    }
-    @media (max-width: 540px) {
-      border-right: none;
-    }
-  }
-  > div:nth-child(4) {
-    @media (max-width: 1028px) {
-      border-bottom: 1px solid #babbbd;
-    }
-  }
-  > div:nth-child(5) {
-    @media (max-width: 1028px) {
-      border-right: 1px solid #babbbd;
-    }
-    @media (max-width: 540px) {
-      border-right: none;
-      border-bottom: 1px solid #babbbd;
-    }
-  }
-
   > div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: ${(props) => `calc(100% / ${props.length})`};
+    cursor: pointer;
+    width: 100%;
     height: 100%;
     padding: 20px 0px;
     @media (max-width: 1028px) {
@@ -98,6 +56,70 @@ const ProjectNav = styled.nav<ProjectNavProps>`
       padding: 4px 0px;
       font-size: 1.4rem;
       font-weight: bold;
+    }
+  }
+
+  > .project0 {
+    border-bottom: 1px solid #babbbd;
+    border-right: 1px solid #babbbd;
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+      border-right: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+      border-right: none;
+    }
+  }
+  > .project1 {
+    border-bottom: 1px solid #babbbd;
+    border-right: 1px solid #babbbd;
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+      border-right: none;
+    }
+  }
+  > .project2 {
+    border-bottom: 1px solid #babbbd;
+    border-right: 1px solid #babbbd;
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+      border-right: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+      border-right: none;
+    }
+  }
+  > .project3 {
+    border-bottom: 1px solid #babbbd;
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+    }
+  }
+  > .project4 {
+    border-right: 1px solid #babbbd;
+    @media (max-width: 1028px) {
+      border-right: 1px solid #babbbd;
+      border-bottom: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+      border-right: none;
+    }
+  }
+  > .project5 {
+    border-right: 1px solid #babbbd;
+    @media (max-width: 1028px) {
+      border-bottom: 1px solid #babbbd;
+      border-right: none;
+    }
+  }
+
+  > .project6 {
+    border-right: 1px solid #babbbd;
+    @media (max-width: 1028px) {
+      border-right: 1px solid #babbbd;
+    }
+    @media (max-width: 540px) {
+      border-right: none;
     }
   }
 `;
@@ -151,11 +173,6 @@ const Projects = () => {
     }
   };
 
-  //프로젝트 콘텐츠를 나열하기 위한 배열
-  const contentArr: number[] = Array(6)
-    .fill(0)
-    .map((x, i) => x + i);
-
   //좌표 값 상태
   const [left, setLeft] = useState(0);
 
@@ -183,11 +200,11 @@ const Projects = () => {
         </ChangeBox>
         <>
           {!projectDisplay && (
-            <ProjectNav length={navProject.length}>
+            <ProjectNav>
               {navProject.map((el, i) => (
                 <div
                   key={el.name}
-                  className={i === pick ? "active" : ""}
+                  className={i === pick ? `project${i} active` : `project${i}`}
                   onClick={() => pickHandler(i)}
                 >
                   <div>{el.categori}</div>
@@ -199,8 +216,12 @@ const Projects = () => {
           )}
         </>
         <ProjectsContainer ref={container} projectDisplay={projectDisplay}>
-          {contentArr.map((num, idx) => (
-            <ProjectsContent key={num} idx={idx} setLeft={setLeft} />
+          {navProject.map((num, idx) => (
+            <ProjectsContent
+              key={`${num.name + idx}`}
+              idx={idx}
+              setLeft={setLeft}
+            />
           ))}
         </ProjectsContainer>
       </ArticleBox>

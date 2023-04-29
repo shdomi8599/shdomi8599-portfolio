@@ -3,8 +3,9 @@ import LinkSpan from "@/components/common/LinkSpan";
 import { ProjectList } from "@/types/project";
 
 export const navProject = [
+  { categori: "TEAM", name: "스택 오버 플로우", create: "2023.04", period: 14 },
   { categori: "SOLO", name: "포트폴리오", create: "2023.04", period: 7 },
-  { categori: "TEAM", name: "마쉴랭", create: "2023.04", period: 28 },
+  { categori: "TEAM", name: "마쉴랭", create: "2023.03", period: 28 },
   {
     categori: "SOLO",
     name: "취준생의 하루(앱)",
@@ -27,6 +28,54 @@ export const navProject = [
 ];
 
 export const projects: ProjectList[] = [
+  [
+    <div key={"스택오버플로우"}>
+      <b>
+        팀장으로 
+      </b>{" "}
+      항상 최신 데이터가 유지될 수 있도록 배포 자동화를 구축했고, 평생 재사용이
+      가능한 포트폴리오가 될 수 있도록 모든 데이터들을 배열 또는 객체로 관리하여{" "}
+      <FocusSpan
+        content="전역 상태 관리를 통해 데이터의 개수가 변해도 네비게이션과 기능들이
+          반응형 웹에 적용되도록 개발"
+      />
+      하였습니다.
+      <p />
+      <b>
+        포트폴리오를 열람하시는 인사담당자님의 시간을 아껴드리기 위해 시간을
+        지연시키는 애니메이션을 최대한 배제 하였고, 보시는 데 불편함이 없도록
+        대부분의{" "}
+        <FocusSpan content="이미지들을 스프라이트 기법과 차세대 이미지 형식을 통해 최적화" />
+        해주었습니다.
+      </b>{" "}
+    </div>,
+    [
+      { name: "배포링크", href: "https://stackoverflo.site/" },
+      {
+        name: "구현한 기능",
+        content:
+          "반응형 웹, 이미지 스프라이트, 커뮤니티CRUD, 회원데이터, 이미지 S3, NginX를 활용한 배포, Https 프로토콜",
+      },
+      {
+        name: "자세히 보기",
+        href: ["https://github.com/codestates-seb/seb43_pre_007"],
+      },
+      {
+        name: "프론트엔드 기술 스택",
+        content:
+          "Next.js, Typescript, React-Query, Recoil, Axios, Styled-Components, MSW, EC2, NginX",
+      },
+      {
+        name: "백엔드 기술 스택",
+        content: "Spring Boot, H2, Mysql, S3, EC2, RDS",
+      },
+      {
+        name: "팀원",
+        content: "프론트엔드 3명, 백엔드 2명",
+      },
+    ],
+    ["/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
+  ],
   [
     <div key={"포트폴리오"}>
       <b>
@@ -60,8 +109,8 @@ export const projects: ProjectList[] = [
         href: ["https://github.com/shdomi8599/shdomi8599-portfolio"],
       },
       {
-        name: "프론트 기술 스택",
-        content: "Next.js, React, Typescript, Recoil, Axios, Styled-Components",
+        name: "프론트엔드 기술 스택",
+        content: "Next.js, Typescript, Recoil, Axios, Styled-Components",
       },
     ],
     ["/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
@@ -95,7 +144,7 @@ export const projects: ProjectList[] = [
         ],
       },
       {
-        name: "프론트 기술 스택",
+        name: "프론트엔드 기술 스택",
         content: "React, Recoil, Axios, Styled-Components, Bootstrap",
       },
       { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
@@ -143,7 +192,7 @@ export const projects: ProjectList[] = [
         ],
       },
       {
-        name: "프론트 기술 스택",
+        name: "프론트엔드 기술 스택",
         content:
           "React, Expo, Typescript, Recoil, TailwindCSS, Styled-Components",
       },
@@ -202,7 +251,7 @@ export const projects: ProjectList[] = [
         ],
       },
       {
-        name: "프론트 기술 스택",
+        name: "프론트엔드 기술 스택",
         content: "React, Typescript, Axios",
       },
       { name: "백엔드 기술 스택", content: "Node, Express" },
@@ -253,7 +302,7 @@ export const projects: ProjectList[] = [
         ],
       },
       {
-        name: "프론트 기술 스택",
+        name: "프론트엔드 기술 스택",
         content: "React",
       },
     ],
@@ -301,7 +350,7 @@ export const projects: ProjectList[] = [
         ],
       },
       {
-        name: "프론트 기술 스택",
+        name: "프론트엔드 기술 스택",
         content: "JavaScript",
       },
       { name: "백엔드 기술 스택", content: "Node, EJS" },
