@@ -9,7 +9,10 @@ import "react-circular-progressbar/dist/styles.css";
 const Container = styled.div`
   width: 100%;
   justify-content: center;
-  display: flex;
+  display: none;
+  @media (max-width: 1086px) {
+    display: flex;
+  }
   @media (max-width: 968px) {
     flex-direction: column;
     align-items: center;
@@ -65,12 +68,12 @@ const Card = styled.div<CardProps>`
 `;
 
 const Skills = () => {
-  //제일 넓이가 큰 것에 맞춰서 넓이를 설정해주기 위한 작업
-  // const target = useRef<HTMLDivElement>(null);
-  // const [width, setWidth] = useState(0);
-  // useEffect(() => {
-  //   if (target.current) setWidth(target.current?.offsetWidth);
-  // }, []);
+  // 제일 넓이가 큰 것에 맞춰서 넓이를 설정해주기 위한 작업
+  const target = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    if (target.current) setWidth(target.current?.offsetWidth);
+  }, []);
 
   ///////////////////////////////////
   const [frontend, setFrontend] = useState(false);
@@ -134,6 +137,26 @@ const Skills = () => {
   }, []);
   return (
     <ArticleBox name="Skills">
+      <Container>
+        <Col>
+          <Card width={width}>
+            <div>{"Frontend"}</div>
+            <div className="frontend"></div>
+          </Card>
+        </Col>
+        <Col>
+          <Card width={width}>
+            <div>{"Backend"}</div>
+            <div className="backend"></div>
+          </Card>
+        </Col>
+        <Col>
+          <Card ref={target}>
+            <div>{"Experienced"}</div>
+            <div className="experienced"></div>
+          </Card>
+        </Col>
+      </Container>
       <MainBox modal={modal} frontend={frontend} backend={backend} etc={etc}>
         {skills.map((stack, i) => (
           <div key={i} className={stack[0]}>
@@ -162,26 +185,6 @@ const Skills = () => {
           </div>
         ))}
       </MainBox>
-      {/* <Container>
-        <Col>
-          <Card width={width}>
-            <div>{"Frontend"}</div>
-            <div className="frontend"></div>
-          </Card>
-        </Col>
-        <Col>
-          <Card width={width}>
-            <div>{"Backend"}</div>
-            <div className="backend"></div>
-          </Card>
-        </Col>
-        <Col>
-          <Card ref={target}>
-            <div>{"Experienced"}</div>
-            <div className="experienced"></div>
-          </Card>
-        </Col>
-      </Container> */}
     </ArticleBox>
   );
 };
@@ -196,6 +199,9 @@ type MainBoxProps = {
 };
 
 const MainBox = styled.div<MainBoxProps>`
+  @media (max-width: 1086px) {
+    display: none;
+  }
   width: 100%;
   display: flex;
   justify-content: center;
