@@ -30,23 +30,20 @@ export const navProject = [
 export const projects: ProjectList[] = [
   [
     <div key={"스택오버플로우"}>
-      <b>
-        팀장으로 
-      </b>{" "}
-      항상 최신 데이터가 유지될 수 있도록 배포 자동화를 구축했고, 평생 재사용이
-      가능한 포트폴리오가 될 수 있도록 모든 데이터들을 배열 또는 객체로 관리하여{" "}
+      <b>처음으로 팀장을 맡게되어 팀원들을 이끌게 된 프로젝트입니다.</b> 우리
+      팀이 만들어야할 프로젝트에 대한 사전 정보들을 통해 미리 계획을짜고
+      팀원들과 맞춰가는 식으로 기획하고 수행했고,{" "}
       <FocusSpan
-        content="전역 상태 관리를 통해 데이터의 개수가 변해도 네비게이션과 기능들이
-          반응형 웹에 적용되도록 개발"
+        content="효율적으로 Git을 사용할 수 있도록 Git
+        Flow전략, 프로젝트 이슈 및 PR을 통한 코드리뷰 등의 방법들을 적극 활용하며
+        프로젝트를 진행하였습니다."
       />
-      하였습니다.
       <p />
       <b>
-        포트폴리오를 열람하시는 인사담당자님의 시간을 아껴드리기 위해 시간을
-        지연시키는 애니메이션을 최대한 배제 하였고, 보시는 데 불편함이 없도록
-        대부분의{" "}
-        <FocusSpan content="이미지들을 스프라이트 기법과 차세대 이미지 형식을 통해 최적화" />
-        해주었습니다.
+        처음 계획한 기능들을 정해진 기간내에 모두 구현하진 못했지만 프론트와
+        백엔드 둘 다{" "}
+        <FocusSpan content="AWS의 EC2를 활용하여 성공적으로 배포" />
+        하였습니다.
       </b>{" "}
     </div>,
     [
@@ -54,7 +51,12 @@ export const projects: ProjectList[] = [
       {
         name: "구현한 기능",
         content:
-          "반응형 웹, 이미지 스프라이트, 커뮤니티CRUD, 회원데이터, 이미지 S3, NginX를 활용한 배포, Https 프로토콜",
+          "반응형 웹, 이미지 스프라이트, 커뮤니티CRUD, 데이터 캐싱, JWT, 회원데이터 관리, 스켈레톤UI, 마크다운에디터, 이미지 S3, 페이지네이션, NginX를 활용한 배포, Https 프로토콜",
+      },
+      {
+        name: "제가 구현한 부분",
+        content:
+          "Header 컴포넌트, Footer 컴포넌트, SideBar 컴포넌트, MainSection 컴포넌트, Tags 페이지, Users 페이지, UserDetail 페이지, UserEdit 페이지, 페이지네이션 기능, api 데이터 캐싱 기능, S3 이미지 업로드 기능, 전역 상태관리, 반응형 웹, 최초 개발 환경 세팅, EC2 배포",
       },
       {
         name: "자세히 보기",
@@ -74,7 +76,15 @@ export const projects: ProjectList[] = [
         content: "프론트엔드 3명, 백엔드 2명",
       },
     ],
-    ["/portfolio/p1.", "/portfolio/p3.", "/portfolio/p2."],
+    [
+      "/stackoverflow/s1.",
+      "/stackoverflow/s2.",
+      "/stackoverflow/s3.",
+      "/stackoverflow/s4.",
+      "/stackoverflow/s5.",
+      "/stackoverflow/s6.",
+      "/stackoverflow/s7.",
+    ],
   ],
   [
     <div key={"포트폴리오"}>
