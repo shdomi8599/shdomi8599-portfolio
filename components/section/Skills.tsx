@@ -169,7 +169,8 @@ const Skills = () => {
               <div key={skill.name} className="circle">
                 <CircularProgressbar value={skill.value}></CircularProgressbar>
                 <img
-                  onClick={() => onModal(skill, stack[0])}
+                  onMouseEnter={() => onModal(skill, stack[0])}
+                  onMouseLeave={offModal}
                   src={skill.src}
                   alt={skill.name}
                 />
@@ -180,9 +181,7 @@ const Skills = () => {
             </div>
             {modalVal.type === stack[0] && (
               <div className="card">
-                <div>
-                  <img onClick={offModal} src="./x-btn.png" alt="close" />
-                </div>
+                <div></div>
                 <div>{modalVal.name}</div>
                 <div>{modalVal.content}</div>
               </div>
@@ -212,7 +211,9 @@ const MainBox = styled.div<MainBoxProps>`
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 75vh;
+  transition: 1.2s;
+  height: ${(props) =>
+    props.frontend || props.backend || props.etc ? "92vh" : "22vh"};
   .CircularProgressbar .CircularProgressbar-text {
     fill: #636363;
     font-size: 1rem;
@@ -280,16 +281,14 @@ const MainBox = styled.div<MainBoxProps>`
     height: 150px;
     transition: 1.2s;
     position: absolute;
-    right: ${(props) => (props.frontend ? "600px" : "50px")};
-    top: ${(props) => (props.frontend ? "300px" : "100px")};
+    left: ${(props) => (props.frontend ? "477px" : "100px")};
+    top: ${(props) => (props.frontend ? "500px" : "50px")};
     display: flex;
     justify-content: center;
     align-items: center;
     .circle:nth-child(1) {
       transform: ${(props) =>
-        props.frontend
-          ? "rotate(0deg) translate(240px) rotate(-0deg)"
-          : "rotate(0deg) translate(0px) rotate(-0deg)"};
+        props.frontend ? " translate(240px) " : "translate(0px) "};
     }
 
     .circle:nth-child(2) {
@@ -358,16 +357,14 @@ const MainBox = styled.div<MainBoxProps>`
     height: 150px;
     transition: 1.2s;
     position: absolute;
-    right: ${(props) => (props.backend ? "600px" : "50px")};
-    top: ${(props) => (props.backend ? "300px" : "300px")};
+    right: ${(props) => (props.backend ? "477px" : "477px")};
+    top: ${(props) => (props.backend ? "500px" : "50px")};
     display: flex;
     justify-content: center;
     align-items: center;
     .circle:nth-child(1) {
       transform: ${(props) =>
-        props.backend
-          ? "rotate(0deg) translate(240px) rotate(-0deg)"
-          : "rotate(0deg) translate(0px) rotate(-0deg)"};
+        props.backend ? " translate(240px) " : " translate(0px)"};
     }
 
     .circle:nth-child(2) {
@@ -389,16 +386,14 @@ const MainBox = styled.div<MainBoxProps>`
     height: 150px;
     transition: 1.2s;
     position: absolute;
-    right: ${(props) => (props.etc ? "600px" : "50px")};
-    top: ${(props) => (props.etc ? "300px" : "500px")};
+    right: ${(props) => (props.etc ? "477px" : "100px")};
+    top: ${(props) => (props.etc ? "500px" : "50px")};
     display: flex;
     justify-content: center;
     align-items: center;
     .circle:nth-child(1) {
       transform: ${(props) =>
-        props.etc
-          ? "rotate(0deg) translate(240px) rotate(-0deg)"
-          : "rotate(0deg) translate(0px) rotate(-0deg)"};
+        props.etc ? " translate(240px) " : " translate(0px)"};
     }
 
     .circle:nth-child(2) {
