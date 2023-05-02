@@ -128,7 +128,7 @@ const Skills = () => {
       type: string;
       name: string;
       value: number;
-      src: string;
+      class: string;
       content: string;
     }[],
     () => void
@@ -137,9 +137,9 @@ const Skills = () => {
     ["Backend", BACK, moveBackend],
     ["Etc", ETC, moveEtc],
   ];
-  // useEffect(() => {
-  //   setFrontend(true);
-  // }, []);
+  useEffect(() => {
+    setFrontend(true);
+  }, []);
   return (
     <ArticleBox name="Skills">
       <Container>
@@ -168,12 +168,11 @@ const Skills = () => {
             {stack[1].map((skill) => (
               <div key={skill.name} className="circle">
                 <CircularProgressbar value={skill.value}></CircularProgressbar>
-                <img
+                <div
+                  className={`${skill.class} skills`}
                   onMouseEnter={() => onModal(skill, stack[0])}
                   onMouseLeave={offModal}
-                  src={skill.src}
-                  alt={skill.name}
-                />
+                ></div>
               </div>
             ))}
             <div onClick={stack[2]} className="circle">
@@ -220,6 +219,9 @@ const MainBox = styled.div<MainBoxProps>`
   }
   .CircularProgressbar .CircularProgressbar-path {
     stroke: #5b6a70;
+  }
+  .skills {
+    z-index: 4;
   }
   .card {
     display: ${(props) => (props.modal ? "" : "none")};

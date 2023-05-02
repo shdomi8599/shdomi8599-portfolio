@@ -126,3 +126,89 @@ p {
 .switch input {
   display: none;
 }
+
+.bg-boot {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -113px -10px;
+}
+.bg-next {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -10px -113px;
+}
+.bg-webpack {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -105px -113px;
+}
+.bg-react {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -208px -10px;
+}
+.bg-nginx {
+  width: 83px;
+  height: 83px;
+  background: url("/skill_sprites.png") -10px -10px;
+}
+.bg-express {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -208px -105px;
+}
+.bg-node {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -10px -208px;
+}
+.bg-graph {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -105px -208px;
+}
+.bg-recoil {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -200px -208px;
+}
+.bg-type {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -303px -10px;
+}
+.bg-aws {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -303px -105px;
+}
+.bg-styled {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -303px -200px;
+}
+.bg-query {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -10px -303px;
+}
+.bg-expo {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -105px -303px;
+}
+.bg-figma {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -200px -303px;
+}
+.bg-story {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -295px -303px;
+}
+.bg-tail {
+  width: 75px;
+  height: 75px;
+  background: url("/skill_sprites.png") -398px -10px;
+}
