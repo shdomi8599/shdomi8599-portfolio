@@ -222,12 +222,11 @@ const MainBox = styled.div<MainBoxProps>`
     stroke: #5b6a70;
   }
   .card {
+    display: ${(props) => (props.modal ? "" : "none")};
     position: absolute;
     width: 250px;
     height: 200px;
-    opacity: ${(props) => (props.modal ? "1" : "0")};
     background-color: white;
-    transition: 0.3s;
     z-index: 3;
     box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.05),
       0 2px 8px hsla(0, 0%, 0%, 0.05);
