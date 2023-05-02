@@ -203,6 +203,9 @@ const Header = () => {
   //스크롤이 20이상 내려오면 네비바의 배경을 입혀주기 위한 이펙트
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    if (window.scrollY > 10) {
+      setIsScrolled(true);
+    }
   }, []);
 
   //네비 데이터
