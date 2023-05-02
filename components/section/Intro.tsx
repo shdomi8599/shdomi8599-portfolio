@@ -34,18 +34,12 @@ const IntroBox = styled.article`
     background-repeat: no-repeat;
     background-position: center;
     opacity: 1;
-    /* @media (max-width: 980px) {
-      background-size: 980px 100%;
-    }
-    @media (max-width: 170px) {
-      height: 75vh;
-    } */
   }
 
   > div {
     color: white;
     display: flex;
-    font-size: 3rem;
+    font-size: 40px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -54,7 +48,7 @@ const IntroBox = styled.article`
     }
 
     > div:first-child {
-      font-size: 4rem;
+      font-size: 58px;
       font-weight: bold;
       @media (max-width: 980px) {
         font-size: 2.8rem;
@@ -95,7 +89,7 @@ const IntroBox = styled.article`
           padding-right: 10px;
         }
         > svg {
-          height: 2.2vh;
+          height: 20px;
         }
       }
       div {

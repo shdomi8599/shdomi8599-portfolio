@@ -112,7 +112,7 @@ const HeaderBox = styled.header<HeaderBoxProps>`
           }
 
           > li {
-            margin: 0px 1.4vw;
+            margin: 0px 26px;
             cursor: pointer;
             :hover {
               color: ${(props) => (props.isScrolled ? "black" : "white")};

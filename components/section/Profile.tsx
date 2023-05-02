@@ -16,8 +16,7 @@ const Col = styled.div`
   justify-content: start;
   align-items: center;
   margin-bottom: 3rem;
-  height: 10vh;
-  padding: 0px 60px;
+  padding: 24px 60px;
 
   @media (min-width: 992px) {
     width: calc(100% / 3);
