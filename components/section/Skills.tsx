@@ -213,7 +213,7 @@ const MainBox = styled.div<MainBoxProps>`
   position: relative;
   transition: 1.2s;
   height: ${(props) =>
-    props.frontend || props.backend || props.etc ? "92vh" : "22vh"};
+    props.frontend || props.backend || props.etc ? "950px" : "280px"};
   .CircularProgressbar .CircularProgressbar-text {
     fill: #636363;
     font-size: 1rem;

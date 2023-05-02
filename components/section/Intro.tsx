@@ -8,7 +8,7 @@ import axios from "axios";
 
 const IntroBox = styled.article`
   width: 100%;
-  height: 655.89px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,19 +27,19 @@ const IntroBox = styled.article`
     top: 0;
     left: 0;
     width: 100%;
-    height: 70vh;
+    height: 600px;
     background-image: url("/mainImg/mainImg.avif"), url("/mainImg/mainImg.webp"),
       url("/mainImg/mainImg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 1;
-    @media (max-width: 980px) {
+    /* @media (max-width: 980px) {
       background-size: 980px 100%;
     }
     @media (max-width: 170px) {
       height: 75vh;
-    }
+    } */
   }
 
   > div {
