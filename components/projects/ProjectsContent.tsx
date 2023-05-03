@@ -177,7 +177,7 @@ const ProjectsContent = ({
         const bottomHeight = bottom.current?.offsetHeight;
         if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
       }
-    }, 2000);
+    }, 3000);
     window.addEventListener("resize", widthResize);
   }, []);
 

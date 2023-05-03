@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ArticleBox from "../common/ArticleBox";
-import { BACK, ETC, FRONT } from "@/data/skills";
+import { BACK, ETC, FRONT, Skills } from "@/data/skills";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -122,17 +122,7 @@ const Skills = () => {
     content: "",
     type: "",
   });
-  const skills: [
-    string,
-    {
-      type: string;
-      name: string;
-      value: number;
-      class: string;
-      content: string;
-    }[],
-    () => void
-  ][] = [
+  const skills: [string, Skills, () => void][] = [
     ["Frontend", FRONT, moveFront],
     ["Backend", BACK, moveBackend],
     ["Etc", ETC, moveEtc],
