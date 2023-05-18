@@ -47,7 +47,7 @@ export const projects: ProjectList[] = [
       </b>{" "}
     </div>,
     [
-      { name: "배포링크", href: "https://stackoverflo.site/" },
+      // { name: "배포링크", href: "https://stackoverflo.site/" },
       {
         name: "구현한 기능",
         content:
