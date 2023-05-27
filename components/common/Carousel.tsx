@@ -20,6 +20,7 @@ const Carousel = ({ img, name }: CarouselProps) => {
   const target = useRef<HTMLDivElement>(null);
   const navHeight = useRecoilValue(navHeightState);
 
+  console.log(name);
   /**
    * 슬라이드 play
    */
@@ -81,18 +82,33 @@ const Carousel = ({ img, name }: CarouselProps) => {
 
   return (
     <>
-      <HideDiv onClick={play} ref={target}></HideDiv>
-      <Slider ref={slider} {...settings}>
-        {img.map((x, i) => (
-          <div onClick={play} key={i}>
-            <picture>
-              <source srcSet={`${x}avif`} type="image/avif" />
-              <source srcSet={`${x}webp`} type="image/webp" />
-              <img src={`${x}jpg`} alt={name + (i + 1)} />
-            </picture>
-          </div>
-        ))}
-      </Slider>
+      {name === "사이드 퀘스트" ? (
+        <>
+          <HideDiv onClick={play} ref={target}></HideDiv>
+          <Slider ref={slider} {...settings}>
+            {img.map((x, i) => (
+              <div onClick={play} key={i}>
+                <img className="gif-img" src={`${x}gif`} alt={name + (i + 1)} />
+              </div>
+            ))}
+          </Slider>
+        </>
+      ) : (
+        <>
+          <HideDiv onClick={play} ref={target}></HideDiv>
+          <Slider ref={slider} {...settings}>
+            {img.map((x, i) => (
+              <div onClick={play} key={i}>
+                <picture>
+                  <source srcSet={`${x}avif`} type="image/avif" />
+                  <source srcSet={`${x}webp`} type="image/webp" />
+                  <img src={`${x}jpg`} alt={name + (i + 1)} />
+                </picture>
+              </div>
+            ))}
+          </Slider>
+        </>
+      )}
     </>
   );
 };

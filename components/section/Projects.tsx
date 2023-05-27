@@ -25,7 +25,7 @@ const ProjectNav = styled.nav`
   margin-top: 30px;
   border: 1px solid #babbbd;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 
   @media (max-width: 1028px) {
     grid-template-columns: repeat(2, 1fr);
@@ -60,7 +60,6 @@ const ProjectNav = styled.nav`
   }
 
   > .project0 {
-    border-bottom: 1px solid #babbbd;
     border-right: 1px solid #babbbd;
     @media (max-width: 1028px) {
       border-bottom: 1px solid #babbbd;
@@ -71,7 +70,6 @@ const ProjectNav = styled.nav`
     }
   }
   > .project1 {
-    border-bottom: 1px solid #babbbd;
     border-right: 1px solid #babbbd;
     @media (max-width: 1028px) {
       border-bottom: 1px solid #babbbd;
@@ -79,7 +77,6 @@ const ProjectNav = styled.nav`
     }
   }
   > .project2 {
-    border-bottom: 1px solid #babbbd;
     border-right: 1px solid #babbbd;
     @media (max-width: 1028px) {
       border-bottom: 1px solid #babbbd;
@@ -90,31 +87,12 @@ const ProjectNav = styled.nav`
     }
   }
   > .project3 {
-    border-bottom: 1px solid #babbbd;
     @media (max-width: 1028px) {
       border-bottom: 1px solid #babbbd;
     }
   }
   > .project4 {
-    border-right: 1px solid #babbbd;
-    @media (max-width: 1028px) {
-      border-right: 1px solid #babbbd;
-      border-bottom: 1px solid #babbbd;
-    }
-    @media (max-width: 540px) {
-      border-right: none;
-    }
-  }
-  > .project5 {
-    border-right: 1px solid #babbbd;
-    @media (max-width: 1028px) {
-      border-bottom: 1px solid #babbbd;
-      border-right: none;
-    }
-  }
-
-  > .project6 {
-    border-right: 1px solid #babbbd;
+    border-left: 1px solid #babbbd;
     @media (max-width: 1028px) {
       border-right: 1px solid #babbbd;
     }
