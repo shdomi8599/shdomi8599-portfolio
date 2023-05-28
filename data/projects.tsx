@@ -31,28 +31,32 @@ export const navProject = [
 export const projects: ProjectList[] = [
   [
     <div key={"사이드 퀘스트"}>
-      <b>처음으로 팀장을 맡게되어 팀원들을 이끌게 된 프로젝트입니다.</b> 우리
-      팀이 만들어야할 프로젝트에 대한 사전 정보들을 통해 미리 계획을짜고
-      팀원들과 맞춰가는 식으로 기획하고 수행했고,{" "}
-      <FocusSpan
-        content="효율적으로 Git을 사용할 수 있도록 Git
-        Flow전략, 프로젝트 이슈 및 PR을 통한 코드리뷰 등의 방법들을 적극 활용하며
-        프로젝트를 진행하였습니다."
-      />
+      <b>
+        사이드 퀘스트는 다양한 직군의 사람들이 모여 사이드 프로젝트를 진행하고
+        개발 중, 일어나는 문제들에 대해 소통하는 커뮤니티입니다.
+      </b>{" "}
+      프로젝트의 특성상 많은 이미지와 데이터들이 쌓일 수 밖에 없는 구조여서,
+      앞으로 일어날 성능적인 이슈들에 대비해 우리팀이 사용할 스택들을 미리
+      정하여 프로젝트를 시작했고,
+      <FocusSpan content="사용자의 입장에서 끈임없이 고민하며, UX를 극대화하려고 노력하였습니다." />
       <p />
       <b>
-        처음 계획한 기능들을 정해진 기간내에 모두 구현하진 못했지만 프론트와
-        백엔드 둘 다{" "}
-        <FocusSpan content="AWS의 EC2를 활용하여 성공적으로 배포" />
-        하였습니다.
+        UX를 극대화 하기 위해 제가 한 노력은, 모든 API 서버 데이터들을 React
+        Query 라이브러리를 통해 캐싱하여 로딩을 최소화하고, 스켈레톤 UI를 통해
+        레이아웃 재배치를 막았습니다. 그리고 각 데이터마다 필터링을 구현하여
+        사용자가 원하는 데이터만 골라볼 수 있도록 하고, 프로젝트의 특성상 많은
+        이미지들이 사용되는 구조여서, 클라이언트에서 관리되는 이미지들은 최대한
+        스트라이프화 시켜서 관리하였습니다.{" "}
       </b>{" "}
+      <p />
+      <FocusSpan content="프로젝트 기간 중에는 팀장으로서 책임감을 갖고 다른 사람들이 힘들어하는 부분들을 도맡아 진행하였고, 프로젝트 기간이 끝난 후에도, 미흡한 부분들을 끝까지 해결하고 리팩토링을 통해 성능을 높이려는 노력을 많이 하였습니다." />
     </div>,
     [
       { name: "배포링크", href: "https://sidequest.co.kr" },
       {
         name: "구현한 기능",
         content:
-          "CRUD(프로젝트 모집, 커뮤니티, 답글, 댓글, 쪽지), 이미지 스프라이트, 반응형 웹, 좋아요 기능, 서버 데이터 캐싱, 스켈레톤UI, 이미지 S3, SNS 로그인, JWT, 메일 봇, 마크다운에디터, 페이지네이션, 무한스크롤, 게시글 검색 및 필터, 유저 랭킹 시스템, EC2 배포, Https 적용",
+          "CRUD(프로젝트 모집, 커뮤니티, 답글, 댓글, 쪽지), 이미지 스프라이트, 반응형 웹, 좋아요 기능, 서버 데이터 캐싱, 스켈레톤UI, 이미지 S3, SNS 로그인, JWT, 메일 봇, 마크다운에디터, 페이지네이션, 유저 조회, 무한스크롤, 게시글 검색 및 필터, 유저 랭킹 시스템, EC2 배포, Https 적용",
       },
       {
         name: "제가 구현한 부분",
@@ -69,12 +73,12 @@ export const projects: ProjectList[] = [
           "Next.js, Typescript, React-Query, Recoil, Axios, Styled-Components, Prettier, MSW, EC2",
       },
       {
-        name: "백엔드 기술 스택", 
+        name: "백엔드 기술 스택",
         content: "Spring Boot, Mysql, Swagger, Docker, S3, EC2, RDS",
       },
       {
-        name: "팀원",
-        content: "프론트엔드 4명, 백엔드 3명",
+        name: "포지션",
+        content: "프론트엔드 팀장",
       },
     ],
     [
@@ -131,8 +135,8 @@ export const projects: ProjectList[] = [
         content: "Spring Boot, H2, Mysql, S3, EC2, RDS",
       },
       {
-        name: "팀원",
-        content: "프론트엔드 3명, 백엔드 2명",
+        name: "포지션",
+        content: "프론트엔드 팀장",
       },
     ],
     [
@@ -217,7 +221,6 @@ export const projects: ProjectList[] = [
         content: "React, Recoil, Axios, Styled-Components, Bootstrap",
       },
       { name: "백엔드 기술 스택", content: "Spring Boot, MySQL" },
-      { name: "팀원", content: "프론트엔드 1명, 백엔드 2명" },
     ],
     [
       "/mash/g1.",

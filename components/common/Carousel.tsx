@@ -19,8 +19,6 @@ const Carousel = ({ img, name }: CarouselProps) => {
   const slider = useRef<Slider>(null);
   const target = useRef<HTMLDivElement>(null);
   const navHeight = useRecoilValue(navHeightState);
-
-  console.log(name);
   /**
    * 슬라이드 play
    */
