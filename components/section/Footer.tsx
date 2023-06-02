@@ -1,4 +1,31 @@
 import styled from "styled-components";
+
+const Footer = () => {
+  return (
+    <FooterBox>
+      <div>
+        <div>
+          <a
+            href="https://github.com/shdomi8599"
+            target="_blank"
+            aria-label="github"
+          ></a>
+        </div>
+        <div>
+          <a
+            href="https://web-beginner.tistory.com/"
+            target="_blank"
+            aria-label="tistory"
+          ></a>
+        </div>
+      </div>
+      <div>© 2023. Shin Dong Min. All rights reserved.</div>
+    </FooterBox>
+  );
+};
+
+export default Footer;
+
 const FooterBox = styled.footer`
   width: 100%;
   padding: 40px calc((100% - 1100px) / 2);
@@ -51,29 +78,3 @@ const FooterBox = styled.footer`
     font-family: bold;
   }
 `;
-
-const Footer = () => {
-  return (
-    <FooterBox>
-      <div>
-        <div>
-          <a
-            href="https://github.com/shdomi8599"
-            target="_blank"
-            aria-label="github"
-          ></a>
-        </div>
-        <div>
-          <a
-            href="https://web-beginner.tistory.com/"
-            target="_blank"
-            aria-label="tistory"
-          ></a>
-        </div>
-      </div>
-      <div>© 2023. Shin Dong Min. All rights reserved.</div>
-    </FooterBox>
-  );
-};
-
-export default Footer;

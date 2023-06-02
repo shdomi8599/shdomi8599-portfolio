@@ -4,12 +4,109 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
 import { navHeightState, selectNavState } from "@/recoil/atom";
-import useOffResize from "@/hooks/useOffResize";
+import useOffResize from "@/function/hooks/useOffResize";
 
 type HeaderBoxProps = {
   togle: boolean;
   isScrolled: boolean;
 };
+
+const Header = () => {
+  //네비를 통한 이동 이벤트 상태
+  const setSelectNav = useSetRecoilState(selectNavState);
+
+  /**
+   * 선택된 네비 이름의 상태를 변경해주는 함수
+   * @param name li 이름
+   */
+  const moveSelect = (name: string) => {
+    setSelectNav(name);
+    setTogle(false);
+  };
+
+  //토글 상태
+  const [togle, setTogle] = useState(false);
+
+  //토글 핸들러
+  const togleHandler = () => {
+    setTogle(!togle);
+  };
+
+  //커스텀 훅을 활용해서 resize off 이벤트
+  useOffResize(768, "up", setTogle);
+
+  //스크롤 높이 상태
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  //스크롤 높이 상태 핸들러
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      setSelectNav("");
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  //스크롤이 20이상 내려오면 네비바의 배경을 입혀주기 위한 이펙트
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    if (window.scrollY > 10) {
+      setIsScrolled(true);
+    }
+  }, []);
+
+  //네비 데이터
+  const navArr = ["Profile", "Skills", "Projects", "Contact"];
+  const navData = (
+    <ul>
+      {navArr.map((el) => (
+        <li key={el} onClick={() => moveSelect(el)}>
+          {el}
+        </li>
+      ))}
+    </ul>
+  );
+
+  //네비의 높이를 셋팅하기 위한 이펙트
+  const navHeight = useSetRecoilState(navHeightState);
+  const target = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (target.current) navHeight(target.current?.offsetHeight);
+  }, [isScrolled, navHeight]);
+
+  //최상단으로 이동하고 select 초기화
+  const moveTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    setSelectNav("");
+    setTogle(false);
+  };
+
+  return (
+    <HeaderBox togle={togle} isScrolled={isScrolled} ref={target}>
+      <div>
+        <div>
+          <span onClick={moveTop}>Portfolio</span>
+        </div>
+        <div>
+          <div>
+            <div className="togle" onClick={togleHandler}>
+              <FontAwesomeIcon icon={faBars} />
+            </div>
+          </div>
+          <nav>{navData}</nav>
+        </div>
+      </div>
+      {<nav>{navData}</nav>}
+    </HeaderBox>
+  );
+};
+
+export default Header;
 
 const HeaderBox = styled.header<HeaderBoxProps>`
   width: 100%;
@@ -162,100 +259,3 @@ const HeaderBox = styled.header<HeaderBoxProps>`
     }
   }
 `;
-
-const Header = () => {
-  //네비를 통한 이동 이벤트 상태
-  const setSelectNav = useSetRecoilState(selectNavState);
-
-  /**
-   * 선택된 네비 이름의 상태를 변경해주는 함수
-   * @param name li 이름
-   */
-  const moveSelect = (name: string) => {
-    setSelectNav(name);
-    setTogle(false);
-  };
-
-  //토글 상태
-  const [togle, setTogle] = useState(false);
-
-  //토글 핸들러
-  const togleHandler = () => {
-    setTogle(!togle);
-  };
-
-  //커스텀 훅을 활용해서 resize off 이벤트
-  useOffResize(768, "up", setTogle);
-
-  //스크롤 높이 상태
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  //스크롤 높이 상태 핸들러
-  const handleScroll = () => {
-    if (window.scrollY > 10) {
-      setSelectNav("");
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
-
-  //스크롤이 20이상 내려오면 네비바의 배경을 입혀주기 위한 이펙트
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    if (window.scrollY > 10) {
-      setIsScrolled(true);
-    }
-  }, []);
-
-  //네비 데이터
-  const navArr = ["Profile", "Skills", "Projects", "Contact"];
-  const navData = (
-    <ul>
-      {navArr.map((el) => (
-        <li key={el} onClick={() => moveSelect(el)}>
-          {el}
-        </li>
-      ))}
-    </ul>
-  );
-
-  //네비의 높이를 셋팅하기 위한 이펙트
-  const navHeight = useSetRecoilState(navHeightState);
-  const target = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (target.current) navHeight(target.current?.offsetHeight);
-  }, [isScrolled, navHeight]);
-
-  //최상단으로 이동하고 select 초기화
-  const moveTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-    setSelectNav("");
-    setTogle(false);
-  };
-
-  return (
-    <HeaderBox togle={togle} isScrolled={isScrolled} ref={target}>
-      <div>
-        <div>
-          <span onClick={moveTop}>Portfolio</span>
-        </div>
-        <div>
-          <div>
-            <div className="togle" onClick={togleHandler}>
-              <FontAwesomeIcon icon={faBars} />
-            </div>
-          </div>
-          <nav>{navData}</nav>
-        </div>
-      </div>
-      {<nav>{navData}</nav>}
-    </HeaderBox>
-  );
-};
-
-export default Header;

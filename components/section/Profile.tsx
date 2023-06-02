@@ -1,15 +1,39 @@
 import ArticleBox from "@/components/common/ArticleBox";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAddressCard,
-  faCalendar,
-  faLocationCrosshairs,
-  faPhone,
-  faEnvelope,
-  faSchool,
-} from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import Row from "../common/Row";
+import { PROFILE_DATA } from "@/data/profile";
+
+const Profile = () => {
+  return (
+    <ArticleBox name="Profile">
+      <Row>
+        {PROFILE_DATA.map((el) => (
+          <Col key={el.name}>
+            <div>{el.icon}</div>
+            <div>
+              <div>{el.name}</div>
+              <div>
+                {el.content === "shdomi8599@gmail.com" ? (
+                  <a
+                    target="_blank"
+                    href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
+                    aria-label="gmail"
+                  >
+                    {el.content}
+                  </a>
+                ) : (
+                  el.content
+                )}
+              </div>
+            </div>
+          </Col>
+        ))}
+      </Row>
+    </ArticleBox>
+  );
+};
+
+export default Profile;
 
 const Col = styled.div`
   display: flex;
@@ -52,68 +76,3 @@ const Col = styled.div`
     }
   }
 `;
-
-const Profile = () => {
-  const profileArr = [
-    {
-      icon: <FontAwesomeIcon icon={faAddressCard} />,
-      name: "NAME",
-      content: "신동민",
-    },
-    {
-      icon: <FontAwesomeIcon icon={faCalendar} />,
-      name: "BIRTH",
-      content: "93.07.28",
-    },
-    {
-      icon: <FontAwesomeIcon icon={faLocationCrosshairs} />,
-      name: "ADDRESS",
-      content: "경기도 군포시",
-    },
-    {
-      icon: <FontAwesomeIcon icon={faPhone} />,
-      name: "PHONE",
-      content: "010-5715-8599",
-    },
-    {
-      icon: <FontAwesomeIcon icon={faEnvelope} />,
-      name: "EMAIL",
-      content: "shdomi8599@gmail.com",
-    },
-    {
-      icon: <FontAwesomeIcon icon={faSchool} />,
-      name: "BootCamp",
-      content: "코드스테이츠 43기",
-    },
-  ];
-
-  return (
-    <ArticleBox name="Profile">
-      <Row>
-        {profileArr.map((el) => (
-          <Col key={el.name}>
-            <div>{el.icon}</div>
-            <div>
-              <div>{el.name}</div>
-              <div>
-                {el.content === "shdomi8599@gmail.com" ? (
-                  <a
-                    target="_blank"
-                    href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
-                    aria-label="gmail"
-                  >
-                    {el.content}
-                  </a>
-                ) : (
-                  el.content
-                )}
-              </div>
-            </div>
-          </Col>
-        ))}
-      </Row>
-    </ArticleBox>
-  );
-};
-
-export default Profile;

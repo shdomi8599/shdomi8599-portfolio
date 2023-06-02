@@ -2,21 +2,19 @@ import Intro from "@/components/section/Intro";
 import Header from "@/components/section/Header";
 import Profile from "@/components/section/Profile";
 import styled from "styled-components";
-import Skills from "@/components/section/Skills";
+import Skills from "@/components/section/Skill";
 import Projects from "@/components/section/Projects";
 import Contact from "@/components/section/Contact";
 import Footer from "@/components/section/Footer";
 import Head from "next/head";
+import { navProject, projects } from "@/data/projects";
+import { NavProject } from "@/types/project";
 
-const Main = styled.main`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-`;
+type Props = {
+  navProjectData: NavProject[];
+};
 
-export default function Home() {
+export default function Home({ navProjectData }: Props) {
   return (
     <>
       <div>
@@ -29,10 +27,25 @@ export default function Home() {
         <Intro />
         <Profile />
         <Skills />
-        <Projects />
+        <Projects navProjectData={navProjectData} />
         <Contact />
         <Footer />
       </Main>
     </>
   );
 }
+
+export async function getStaticProps() {
+  const navProjectData = navProject;
+  return {
+    props: { navProjectData },
+  };
+}
+
+const Main = styled.main`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+`;

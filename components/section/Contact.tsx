@@ -10,6 +10,126 @@ type ContactBoxProps = {
   imgHeight?: number;
 };
 
+const Contact = () => {
+  const [form, onChange, reset] = useInputs({
+    from_name: "",
+    phone: "",
+    text: "",
+  });
+
+  //메일 메세지 상태
+  const [message, setMessage] = useState("");
+
+  /**
+   * 메일을 보내는 이벤트
+   */
+  const formRef = useRef<HTMLFormElement>(null);
+  const sendMail = (e: FormEvent) => {
+    e.preventDefault();
+    if (form.from_name === "") {
+      return setMessage("이름을 작성해주세요.");
+    }
+    if (!validationPhone.test(form.phone)) {
+      return setMessage("연락처를 확인해주세요.");
+    }
+    if (form.text === "") {
+      return setMessage("내용을 작성해주세요.");
+    }
+    emailjs
+      .sendForm(
+        "service_5nsvxgn",
+        "template_yaafa1f",
+        formRef.current!,
+        "2CaRWheYoSv_3pGdY"
+      )
+      .then(() => setMessage("메일이 발송되었습니다."))
+      .then(() => reset())
+      .catch(() => setMessage("잠시 후에 다시 시도해주세요."));
+  };
+
+  //메세지를 띄우고 2초뒤 없애주는 이펙트
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMessage("");
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [message]);
+
+  //두 개의 이미지의 높이를 맞춰주기 위한 ref
+  const target = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (target.current) setImgHeight(target.current?.height);
+  }, []);
+  const [imgHeight, setImgHeight] = useState(target.current?.height);
+
+  return (
+    <ArticleBox name={"Contact"}>
+      <ContactBox imgHeight={imgHeight}>
+        <Row>
+          <div>
+            <a
+              href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
+              target="_blank"
+              aria-label="gmail"
+            ></a>
+            <a
+              href="https://open.kakao.com/o/sKDqdJcf"
+              target="_blank"
+              aria-label="kakaotalk"
+            ></a>
+          </div>
+          <div>
+            <form onSubmit={sendMail} ref={formRef}>
+              <div>간편 메일</div>
+              <div className={message[0] === "메" ? "text-green" : "text-red"}>
+                {message}
+              </div>
+              <div>
+                <div>
+                  <label htmlFor="from_name">이름</label>
+                  <input
+                    id="from_name"
+                    onChange={onChange}
+                    value={form["from_name"]}
+                    name="from_name"
+                    type="text"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone">연락처</label>
+                  <input
+                    id="phone"
+                    onChange={onChange}
+                    value={form.phone}
+                    name="phone"
+                    type="text"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="text">내용</label>
+                  <textarea
+                    id="text"
+                    spellCheck="false"
+                    onChange={onChange}
+                    value={form.text}
+                    name="text"
+                    rows={5}
+                  ></textarea>
+                </div>
+              </div>
+              <div>
+                <button>보내기</button>
+              </div>
+            </form>
+          </div>
+        </Row>
+      </ContactBox>
+    </ArticleBox>
+  );
+};
+
+export default Contact;
+
 const ContactBox = styled.div<ContactBoxProps>`
   width: 100%;
   display: flex;
@@ -138,123 +258,3 @@ const ContactBox = styled.div<ContactBoxProps>`
     }
   }
 `;
-
-const Contact = () => {
-  const [form, onChange, reset] = useInputs({
-    from_name: "",
-    phone: "",
-    text: "",
-  });
-
-  //메일 메세지 상태
-  const [message, setMessage] = useState("");
-
-  /**
-   * 메일을 보내는 이벤트
-   */
-  const formRef = useRef<HTMLFormElement>(null);
-  const sendMail = (e: FormEvent) => {
-    e.preventDefault();
-    if (form.from_name === "") {
-      return setMessage("이름을 작성해주세요.");
-    }
-    if (!validationPhone.test(form.phone)) {
-      return setMessage("연락처를 확인해주세요.");
-    }
-    if (form.text === "") {
-      return setMessage("내용을 작성해주세요.");
-    }
-    emailjs
-      .sendForm(
-        "service_5nsvxgn",
-        "template_yaafa1f",
-        formRef.current!,
-        "2CaRWheYoSv_3pGdY"
-      )
-      .then(() => setMessage("메일이 발송되었습니다."))
-      .then(() => reset())
-      .catch(() => setMessage("잠시 후에 다시 시도해주세요."));
-  };
-
-  //메세지를 띄우고 2초뒤 없애주는 이펙트
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMessage("");
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [message]);
-
-  //두 개의 이미지의 높이를 맞춰주기 위한 ref
-  const target = useRef<HTMLImageElement>(null);
-  useEffect(() => {
-    if (target.current) setImgHeight(target.current?.height);
-  }, []);
-  const [imgHeight, setImgHeight] = useState(target.current?.height);
-
-  return (
-    <ArticleBox name={"Contact"}>
-      <ContactBox imgHeight={imgHeight}>
-        <Row>
-          <div>
-            <a
-              href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shdomi8599@gmail.com"
-              target="_blank"
-              aria-label="gmail"
-            ></a>
-            <a
-              href="https://open.kakao.com/o/sKDqdJcf"
-              target="_blank"
-              aria-label="kakaotalk"
-            ></a>
-          </div>
-          <div>
-            <form onSubmit={sendMail} ref={formRef}>
-              <div>간편 메일</div>
-              <div className={message[0] === "메" ? "text-green" : "text-red"}>
-                {message}
-              </div>
-              <div>
-                <div>
-                  <label htmlFor="from_name">이름</label>
-                  <input
-                    id="from_name"
-                    onChange={onChange}
-                    value={form["from_name"]}
-                    name="from_name"
-                    type="text"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone">연락처</label>
-                  <input
-                    id="phone"
-                    onChange={onChange}
-                    value={form.phone}
-                    name="phone"
-                    type="text"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="text">내용</label>
-                  <textarea
-                    id="text"
-                    spellCheck="false"
-                    onChange={onChange}
-                    value={form.text}
-                    name="text"
-                    rows={5}
-                  ></textarea>
-                </div>
-              </div>
-              <div>
-                <button>보내기</button>
-              </div>
-            </form>
-          </div>
-        </Row>
-      </ContactBox>
-    </ArticleBox>
-  );
-};
-
-export default Contact;

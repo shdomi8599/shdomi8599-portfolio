@@ -1,12 +1,4 @@
-export type Skills = {
-  type: string;
-  name: string;
-  value: number;
-  class: string;
-  content: string;
-}[];
-
-export const FRONT:Skills = [
+export const FRONT = [
   {
     type: "front",
     name: "Recoil",
@@ -72,7 +64,7 @@ export const FRONT:Skills = [
   },
 ];
 
-export const BACK:Skills = [
+export const BACK = [
   {
     type: "back",
     name: "Express",
@@ -89,7 +81,7 @@ export const BACK:Skills = [
   },
 ];
 
-export const ETC:Skills = [
+export const ETC = [
   {
     type: "etc",
     name: "Figma",

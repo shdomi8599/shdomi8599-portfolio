@@ -1,25 +1,113 @@
-import { navProject, projects } from "@/data/projects";
+import { projects } from "@/data/projects";
 import Carousel from "../common/Carousel";
 import Description from "./Description";
 import styled from "styled-components";
-import React, {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   pickState,
   projectDisplayState,
   projectHeightState,
 } from "@/recoil/atom";
+import { NavProject } from "@/types/project";
 
 type ContentProps = {
   height: number;
   projectDisplay: boolean;
 };
+
+const ProjectsContent = ({
+  idx,
+  setLeft,
+  navProjectData,
+}: {
+  idx: number;
+  setLeft: Dispatch<SetStateAction<number>>;
+  navProjectData: NavProject[];
+}) => {
+  const target = useRef<HTMLDivElement>(null);
+  const pick = useRecoilValue(pickState);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useRecoilState(projectHeightState);
+  const projectDisplay = useRecoilValue(projectDisplayState);
+
+  //화면의 크기가 변하면 left값을 다시 셋팅
+  useEffect(() => {
+    const leftHandler = () => {
+      if (target.current && pick === idx) {
+        setLeft(target.current.offsetLeft);
+      }
+    };
+    leftHandler();
+    window.addEventListener("resize", leftHandler);
+  }, [idx, pick, setLeft, height]);
+
+  //높이 계산식
+  const top = useRef<HTMLDivElement>(null);
+  const bottom = useRef<HTMLDivElement>(null);
+
+  //넓이, pick이 변하면 높이 다시 조정
+  useEffect(() => {
+    if (target.current && pick === idx) {
+      const topHeight = top.current?.offsetHeight;
+      const bottomHeight = bottom.current?.offsetHeight;
+      if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
+    }
+  }, [width, pick, idx, setHeight]);
+
+  //넓이의 변화를 디바운싱으로 1번만 실행되도록 해주는 이펙트와 함수
+  let timer: number;
+  const widthResize = () => {
+    clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      setWidth(window.innerWidth);
+    }, 300);
+  };
+
+  //캐러셀로 인해 틀어지는 0번 인덱스가 의도적 지연을 통해 제대로 된 높이를 갖도록하고,
+  // resize가 일어날때 넓이를 셋팅해주는 함수 추가
+  useEffect(() => {
+    setTimeout(() => {
+      if (target.current && pick === idx) {
+        const topHeight = top.current?.offsetHeight;
+        const bottomHeight = bottom.current?.offsetHeight;
+        if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
+      }
+    }, 3000);
+    window.addEventListener("resize", widthResize);
+  }, []);
+
+  return (
+    <Content projectDisplay={projectDisplay} ref={target} height={height}>
+      <div ref={top}>
+        <div>{`< 개발 기간 : ${navProjectData[idx].period}일 >`}</div>
+        <div>{navProjectData[idx].categori}</div>
+        <div>{navProjectData[idx].name}</div>
+      </div>
+      <div ref={bottom}>
+        <div>
+          <div>
+            <Carousel name={navProjectData[idx].name} img={projects[idx][2]} />
+          </div>
+        </div>
+        <div>
+          {projects[idx][0]}
+          {projects[idx][1].map((data) => (
+            <Description
+              projectIdx={idx}
+              key={data.name}
+              name={data.name}
+              content={data.content}
+              href={data.href}
+            />
+          ))}
+        </div>
+      </div>
+    </Content>
+  );
+};
+
+export default ProjectsContent;
 
 const Content = styled.div<ContentProps>`
   margin-top: 80px;
@@ -121,94 +209,3 @@ const Content = styled.div<ContentProps>`
     }
   }
 `;
-
-const ProjectsContent = ({
-  idx,
-  setLeft,
-}: {
-  idx: number;
-  setLeft: Dispatch<SetStateAction<number>>;
-}) => {
-  const target = useRef<HTMLDivElement>(null);
-  const pick = useRecoilValue(pickState);
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useRecoilState(projectHeightState);
-  const projectDisplay = useRecoilValue(projectDisplayState);
-
-  //화면의 크기가 변하면 left값을 다시 셋팅
-  useEffect(() => {
-    const leftHandler = () => {
-      if (target.current && pick === idx) {
-        setLeft(target.current.offsetLeft);
-      }
-    };
-    leftHandler();
-    window.addEventListener("resize", leftHandler);
-  }, [idx, pick, setLeft, height]);
-
-  //높이 계산식
-  const top = useRef<HTMLDivElement>(null);
-  const bottom = useRef<HTMLDivElement>(null);
-
-  //넓이, pick이 변하면 높이 다시 조정
-  useEffect(() => {
-    if (target.current && pick === idx) {
-      const topHeight = top.current?.offsetHeight;
-      const bottomHeight = bottom.current?.offsetHeight;
-      if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
-    }
-  }, [width, pick, idx, setHeight]);
-
-  //넓이의 변화를 디바운싱으로 1번만 실행되도록 해주는 이펙트와 함수
-  let timer: number;
-  const widthResize = () => {
-    clearTimeout(timer);
-    timer = window.setTimeout(() => {
-      setWidth(window.innerWidth);
-    }, 300);
-  };
-
-  //캐러셀로 인해 틀어지는 0번 인덱스가 의도적 지연을 통해 제대로 된 높이를 갖도록하고,
-  // resize가 일어날때 넓이를 셋팅해주는 함수 추가
-  useEffect(() => {
-    setTimeout(() => {
-      if (target.current && pick === idx) {
-        const topHeight = top.current?.offsetHeight;
-        const bottomHeight = bottom.current?.offsetHeight;
-        if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
-      }
-    }, 3000);
-    window.addEventListener("resize", widthResize);
-  }, []);
-
-  return (
-    <Content projectDisplay={projectDisplay} ref={target} height={height}>
-      <div ref={top}>
-        <div>{`< 개발 기간 : ${navProject[idx].period}일 >`}</div>
-        <div>{navProject[idx].categori}</div>
-        <div>{navProject[idx].name}</div>
-      </div>
-      <div ref={bottom}>
-        <div>
-          <div>
-            <Carousel name={navProject[idx].name} img={projects[idx][2]} />
-          </div>
-        </div>
-        <div>
-          {projects[idx][0]}
-          {projects[idx][1].map((data) => (
-            <Description
-              projectIdx={idx}
-              key={data.name}
-              name={data.name}
-              content={data.content}
-              href={data.href}
-            />
-          ))}
-        </div>
-      </div>
-    </Content>
-  );
-};
-
-export default React.memo(ProjectsContent);

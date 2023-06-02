@@ -6,10 +6,6 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { navHeightState, pickState } from "@/recoil/atom";
 
-const HideDiv = styled.div`
-  display: hidden;
-`;
-
 type CarouselProps = {
   img: string[];
   name: string;
@@ -111,3 +107,7 @@ const Carousel = ({ img, name }: CarouselProps) => {
   );
 };
 export default Carousel;
+
+const HideDiv = styled.div`
+  display: hidden;
+`;

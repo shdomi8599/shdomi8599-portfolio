@@ -1,10 +1,37 @@
 import styled from "styled-components";
 import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { gitDataState, selectNavState } from "@/recoil/atom";
-import { useEffect } from "react";
-import axios from "axios";
+import { useSetRecoilState } from "recoil";
+import { selectNavState } from "@/recoil/atom";
+
+const Intro = () => {
+  const setSelectNav = useSetRecoilState(selectNavState);
+
+  return (
+    <IntroBox>
+      <div>
+        <div>신 동 민</div>
+        <div>프론트엔드 포트폴리오</div>
+        <hr />
+        <div>
+          안녕하세요.
+          <>
+            <br /> 모든 사람에게 실력 있는 개발자로 인정받기 위해 <br />
+            끊임 없이 노력하는 프론트엔드 개발자입니다.
+          </>
+        </div>
+        <div>
+          <button onClick={() => setSelectNav("Profile")}>
+            <span>자세히 보기</span>
+            <FontAwesomeIcon icon={faCircleArrowDown} />
+          </button>
+          <div>※ 이 포트폴리오는 템플릿이 아닙니다.</div>
+        </div>
+      </div>
+    </IntroBox>
+  );
+};
+export default Intro;
 
 const IntroBox = styled.article`
   width: 100%;
@@ -100,40 +127,3 @@ const IntroBox = styled.article`
     }
   }
 `;
-
-const Intro = () => {
-  const setSelectNav = useSetRecoilState(selectNavState);
-
-  const [git, setGit] = useRecoilState(gitDataState);
-  useEffect(() => {
-    axios.get("https://api.github.com/users/shdomi8599").then((res) => {
-      setGit(res.data);
-    });
-  }, [setGit]);
-  return (
-    <IntroBox>
-      <div>
-        <div>신 동 민</div>
-        <div>프론트엔드 포트폴리오</div>
-        <hr />
-        <div>
-          안녕하세요.
-          {git.bio && (
-            <>
-              <br /> {git.bio.slice(0, 27)} <br />
-              {git.bio.slice(27)}
-            </>
-          )}
-        </div>
-        <div>
-          <button onClick={() => setSelectNav("Profile")}>
-            <span>자세히 보기</span>
-            <FontAwesomeIcon icon={faCircleArrowDown} />
-          </button>
-          <div>※ 이 포트폴리오는 템플릿이 아닙니다.</div>
-        </div>
-      </div>
-    </IntroBox>
-  );
-};
-export default Intro;

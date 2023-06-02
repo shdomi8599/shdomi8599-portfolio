@@ -6,3 +6,10 @@ export interface Project {
 }
 
 export type ProjectList = [JSX.Element, Project[], string[]];
+
+export type NavProject = {
+  categori: string;
+  name: string;
+  create: string;
+  period: number;
+};

@@ -3,21 +3,6 @@ import { useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 
-const Article = styled.article`
-  width: 100%;
-  padding: 80px calc((100% - 1100px) / 2);
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  border-bottom: 1px solid #b7c5c5;
-`;
-
-const Title = styled.div`
-  font-size: 3rem;
-  font-weight: bold;
-`;
-
 type ArticleBoxProps = {
   children: JSX.Element | JSX.Element[];
   name?: string;
@@ -61,7 +46,6 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
     window.addEventListener("resize", paddingHandler);
   }, []);
 
-
   return (
     <Article ref={target}>
       {name && <Title>{name}</Title>}
@@ -71,3 +55,18 @@ const ArticleBox = ({ children, name }: ArticleBoxProps) => {
 };
 
 export default ArticleBox;
+
+const Article = styled.article`
+  width: 100%;
+  padding: 80px calc((100% - 1100px) / 2);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid #b7c5c5;
+`;
+
+const Title = styled.div`
+  font-size: 3rem;
+  font-weight: bold;
+`;

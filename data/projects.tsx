@@ -1,5 +1,4 @@
 import FocusSpan from "@/components/common/FocusSpan";
-import LinkSpan from "@/components/common/LinkSpan";
 import { ProjectList } from "@/types/project";
 
 export const navProject = [
@@ -13,29 +12,7 @@ export const navProject = [
     create: "2023.03",
     period: 24,
   },
-  // { categori: "SOLO", name: "모두시스템 개편", create: "2023.02", period: 30 },
-  // {
-  //   categori: "SOLO",
-  //   name: "LOL 나만의 피드백",
-  //   create: "2023.01",
-  //   period: 10,
-  // },
-  // {
-  //   categori: "SOLO",
-  //   name: "실시간 코인 가격",
-  //   create: "2022.12",
-  //   period: 18,
-  // },
 ];
-
-// 모든 API 서버 데이터들을 React Query 라이브러리를 통해 캐싱하여 로딩을
-//         최소화하고, Refetch를 적극활용하여 양방향 통신을 하고 있는 듯한 느낌을
-//         주려고 노력하였습니다. 그리고 스켈레톤 UI를 통해 레이아웃 재배치를
-//         방지하여 사용자가 웹 페이지의 로딩 상태를 직접 확인하여 기다리는
-//         동안에도 시각적인 피드백을 제공했고, 각 데이터마다 필터링을 구현하여
-//         사용자가 원하는 데이터만 골라볼 수 있도록 하고, 프로젝트의 특성상 많은
-//         이미지들이 사용되는 구조여서, 클라이언트에서 관리되는 이미지들은 최대한
-//         스트라이프화 시켜서 관리하였습니다.
 
 export const projects: ProjectList[] = [
   [
@@ -130,7 +107,6 @@ export const projects: ProjectList[] = [
       </b>{" "}
     </div>,
     [
-      // { name: "배포링크", href: "https://stackoverflo.site/" },
       {
         name: "구현한 기능",
         content:
@@ -301,157 +277,4 @@ export const projects: ProjectList[] = [
       "/TODO/t8.",
     ],
   ],
-  // [
-  //   <div key={"모두시스템 개편"}>
-  //     <b>
-  //       웹 공부를 시작하고나서, 우연히 아버지가 운영하시는 사업 사이트를
-  //       들어가봤는데, 사이트 곳곳에 Adobe Flash Player가 떠다니는 것을 보고
-  //       경악을 금치 못해서 시작하게 된 프로젝트입니다.
-  //     </b>{" "}
-  //     현재 운영 중인{" "}
-  //     <LinkSpan
-  //       src="http://modoosystem.com/index.php"
-  //       content="모두시스템 사이트"
-  //     />
-  //     는 약 12년 전에 개발되었다고 하셨는데, 오래된 만큼 사이트의 디자인이나
-  //     페이지 구성, 상담 신청 등의 기능들이 너무 과거에 멈춰있다는 생각이
-  //     들었습니다. 그래서{" "}
-  //     <FocusSpan
-  //       content="포토샵과 피그마 같은 디자인 툴을 사용해서 로고 및 조직도와 같은 필요한
-  //       이미지도 새롭게 제작"
-  //     />
-  //     하고 사이트를 개편하였습니다.
-  //     <p />
-  //     <b>
-  //       클라이언트 개발 후, 정식으로 사이트를 개편하기 위해 Express를 활용해서
-  //       서버도 만들었지만, DB에 대한 지식이 부족한 상태였고, 시간이 지날수록
-  //       과거에 부족했던 점들이 너무나도 많이 보이게 되어 Next.js를 활용해서
-  //       새롭게 개발할 예정입니다.
-  //     </b>
-  //   </div>,
-  //   [
-  //     {
-  //       name: "구현한 기능",
-  //       content:
-  //         "메인 카테고리 캐러셀, 상담신청 이메일 연동, 게시판 CRUD, 게시글 검색, 카카오 맵",
-  //     },
-  //     {
-  //       name: "자세히 보기",
-  //       href: [
-  //         "https://github.com/shdomi8599/modoosystem-full",
-  //         "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EB%AA%A8%EB%91%90%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%ED%8E%B8",
-  //       ],
-  //     },
-  //     {
-  //       name: "프론트엔드 기술 스택",
-  //       content: "React, Typescript, Axios",
-  //     },
-  //     { name: "백엔드 기술 스택", content: "Node, Express" },
-  //     { name: "디자인", content: "figma, Photoshop" },
-  //   ],
-  //   [
-  //     "/modusystem/m1.",
-  //     "/modusystem/m2.",
-  //     "/modusystem/m3.",
-  //     "/modusystem/m4.",
-  //     "/modusystem/m5.",
-  //     "/modusystem/m6.",
-  //     "/modusystem/m7.",
-  //     "/modusystem/m8.",
-  //   ],
-  // ],
-  // [
-  //   <div key={"LOL 나만의 피드백"}>
-  //     <b>처음으로 React를 활용하여 개발한 프로젝트입니다.</b> React에 대해
-  //     학습하기 전까지는 &apos;JS와 달라봐야 얼마나 다르겠어&apos; 라는 생각을
-  //     가지고 있었는데, 그 생각이 완전히 잘못되었다는 것을 알게 해준
-  //     프로젝트입니다.
-  //     <p />
-  //     현재는 코딩에 밀려서 재미가 없어진{" "}
-  //     <FocusSpan
-  //       content="리그 오브 레전드 게임의 API를 활용하여
-  //     사용자만의 챔피언 별 피드백을 저장하고, 다른 유저들과 공유"
-  //     />
-  //     할 수 있도록 만든 프로젝트입니다.
-  //     <p />
-  //     <b>
-  //       프로젝트 초반에는 React를 왜 사용해야 하는지에 대한 이유를 깨닫지
-  //       못했지만, 사용에 익숙해짐에 따라 React의 위대함을 깨닫게 해준
-  //       프로젝트입니다.
-  //     </b>
-  //   </div>,
-  //   [
-  //     {
-  //       name: "구현한 기능",
-  //       content:
-  //         "회원기능, 실시간 유효성 검사, 피드백 CRUD, 피드백 추천, 피드백 공유",
-  //     },
-  //     {
-  //       name: "자세히 보기",
-  //       href: [
-  //         "https://github.com/shdomi8599/side-project-lol-feedback",
-  //         "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/LOL%20%EB%82%98%EB%A7%8C%EC%9D%98%20%ED%94%BC%EB%93%9C%EB%B0%B1",
-  //       ],
-  //     },
-  //     {
-  //       name: "프론트엔드 기술 스택",
-  //       content: "React",
-  //     },
-  //   ],
-  //   [
-  //     "/LOLfeedback/l4.",
-  //     "/LOLfeedback/l6.",
-  //     "/LOLfeedback/l5.",
-  //     "/LOLfeedback/l3.",
-  //     "/LOLfeedback/l2.",
-  //     "/LOLfeedback/l1.",
-  //   ],
-  // ],
-  // [
-  //   <div key={"실시간 코인 가격"}>
-  //     <b>
-  //       대학교를 자퇴하고 사업자를 내서 코인 관련 사업을 했을 만큼 코인에 관심이
-  //       많았기 때문에, 코인 유저로서 불편한 점을 보완하기 위해 시작한
-  //       프로젝트입니다.
-  //     </b>
-  //     <p />
-  //     <FocusSpan
-  //       content="국내 4대 코인 거래소의 API 데이터를 활용해 원하는 코인의 가격을 실시간으로
-  //     검색하고, 거래소 간의 코인 가격을 한 눈에 쉽게 비교"
-  //     />
-  //     할 수 있도록 개발하였습니다.
-  //     <p />
-  //     <b>
-  //       이 프로젝트를 통해 Node를 활용한 서버에 대해 알게 되었고,
-  //       자바스크립트만으로 가져올 수 없는 데이터를 프록시 서버를 통해 CORS
-  //       문제를 해결하는 방법을 알게 되었습니다. 그리고 여러 API를 활용하면서
-  //       자바스크립트의 비동기를 이해하는데 큰 도움이 되었습니다.
-  //     </b>
-  //   </div>,
-  //   [
-  //     {
-  //       name: "구현한 기능",
-  //       content:
-  //         "코인 검색/필터링, 회원기능, 게시판 CRUD, 프록시 서버를 통해 CORS 우회",
-  //     },
-  //     {
-  //       name: "자세히 보기",
-  //       href: [
-  //         "https://github.com/shdomi8599/CoinPriceComparison",
-  //         "https://web-beginner.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%8B%A4%EC%8B%9C%EA%B0%84%20%EC%BD%94%EC%9D%B8%20%EA%B0%80%EA%B2%A9%20%EB%B9%84%EA%B5%90",
-  //       ],
-  //     },
-  //     {
-  //       name: "프론트엔드 기술 스택",
-  //       content: "JavaScript",
-  //     },
-  //     { name: "백엔드 기술 스택", content: "Node, EJS" },
-  //   ],
-  //   [
-  //     "/CoinPriceComparison/c3.",
-  //     "/CoinPriceComparison/c2.",
-  //     "/CoinPriceComparison/c4.",
-  //     "/CoinPriceComparison/c1.",
-  //   ],
-  // ],
 ];
