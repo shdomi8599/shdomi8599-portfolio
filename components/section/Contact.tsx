@@ -2,7 +2,7 @@ import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
-import useInputs from "@/function/hooks/useInput";
+import { useInputs } from "@/function/hooks/useInput";
 import { validationPhone } from "@/function/utility/validation";
 
 import ArticleBox from "../common/ArticleBox";
@@ -26,17 +26,22 @@ const Contact = () => {
    * 메일을 보내는 이벤트
    */
   const formRef = useRef<HTMLFormElement>(null);
+
   const sendMail = (e: FormEvent) => {
     e.preventDefault();
+
     if (form.from_name === "") {
       return setMessage("이름을 작성해주세요.");
     }
+
     if (!validationPhone.test(form.phone)) {
       return setMessage("연락처를 확인해주세요.");
     }
+
     if (form.text === "") {
       return setMessage("내용을 작성해주세요.");
     }
+
     emailjs
       .sendForm(
         "service_5nsvxgn",
@@ -54,14 +59,17 @@ const Contact = () => {
     const timer = setTimeout(() => {
       setMessage("");
     }, 2000);
+
     return () => clearTimeout(timer);
   }, [message]);
 
   //두 개의 이미지의 높이를 맞춰주기 위한 ref
   const target = useRef<HTMLImageElement>(null);
+
   useEffect(() => {
     if (target.current) setImgHeight(target.current?.height);
   }, []);
+
   const [imgHeight, setImgHeight] = useState(target.current?.height);
 
   return (

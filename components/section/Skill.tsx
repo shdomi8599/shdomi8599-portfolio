@@ -12,39 +12,50 @@ import ArticleBox from "../common/ArticleBox";
 const Skill = () => {
   // 제일 넓이가 큰 것에 맞춰서 넓이를 설정해주기 위한 작업
   const target = useRef<HTMLDivElement>(null);
+
   const [width, setWidth] = useState(0);
+
+  const checkWidth = () => {
+    if (window.innerWidth < 1086) {
+      if (target.current) setWidth(target.current?.offsetWidth);
+    }
+  };
+
   useEffect(() => {
     if (target.current) setWidth(target.current?.offsetWidth);
-    const checkWidth = () => {
-      if (window.innerWidth < 1086) {
-        if (target.current) setWidth(target.current?.offsetWidth);
-      }
-    };
+
     window.addEventListener("resize", checkWidth);
   }, []);
 
   const [frontend, setFrontend] = useState(false);
+
   const moveFront = () => {
     setModal(false);
     setBackend(false);
     setEtc(false);
     setFrontend(!frontend);
   };
+
   const [backend, setBackend] = useState(false);
+
   const moveBackend = () => {
     setModal(false);
     setFrontend(false);
     setEtc(false);
     setBackend(!backend);
   };
+
   const [etc, setEtc] = useState(false);
+  
   const moveEtc = () => {
     setModal(false);
     setFrontend(false);
     setBackend(false);
     setEtc(!etc);
   };
+
   const [modal, setModal] = useState(false);
+
   const onModal = (
     data: {
       name: string;
@@ -56,22 +67,27 @@ const Skill = () => {
     setModalVal({ name: data.name, content: data.content, type });
     setModal(true);
   };
+
   const offModal = () => {
     setModal(false);
   };
+
   const [modalVal, setModalVal] = useState({
     name: "",
     content: "",
     type: "",
   });
+
   const skills: [string, Skills, () => void][] = [
     ["Frontend", FRONT, moveFront],
     ["Backend", BACK, moveBackend],
     ["Etc", ETC, moveEtc],
   ];
+
   useEffect(() => {
     setFrontend(true);
   }, []);
+
   return (
     <ArticleBox name="Skills">
       <Container>

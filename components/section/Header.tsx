@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { navHeightState, selectNavState } from "@/recoil/atom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-
-import useOffResize from "@/function/hooks/useOffResize";
+import { useOffResize } from "@/function/hooks/useOffResize";
 
 type HeaderBoxProps = {
   togle: boolean;
@@ -23,6 +22,7 @@ const Header = () => {
    */
   const moveSelect = (name: string) => {
     setSelectNav(name);
+
     setTogle(false);
   };
 
@@ -44,6 +44,7 @@ const Header = () => {
   const handleScroll = () => {
     if (window.scrollY > 10) {
       setSelectNav("");
+
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -59,7 +60,10 @@ const Header = () => {
   }, []);
 
   //네비 데이터
-  const navArr = ["Profile", "Skills", "Projects", "Contact"];
+  const navArr = useMemo(
+    () => ["Profile", "Skills", "Projects", "Contact"],
+    []
+  );
   const navData = (
     <ul>
       {navArr.map((el) => (
@@ -72,7 +76,9 @@ const Header = () => {
 
   //네비의 높이를 셋팅하기 위한 이펙트
   const navHeight = useSetRecoilState(navHeightState);
+
   const target = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (target.current) navHeight(target.current?.offsetHeight);
   }, [isScrolled, navHeight]);
@@ -84,7 +90,9 @@ const Header = () => {
       left: 0,
       behavior: "smooth",
     });
+
     setSelectNav("");
+
     setTogle(false);
   };
 

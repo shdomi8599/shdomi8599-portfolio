@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 
-const useOffResize = (
+export const useOffResize = (
   size: number,
   set: string,
   setEvent: Dispatch<SetStateAction<boolean>>
@@ -32,5 +32,3 @@ const useOffResize = (
     };
   }, []);
 };
-
-export default useOffResize;

@@ -15,8 +15,11 @@ import ArticleBox from "../common/ArticleBox";
 
 const Projects = () => {
   const container = useRef<HTMLDivElement>(null);
+
   const navHeight = useRecoilValue(navHeightState);
+
   const padding = useRecoilValue(paddingState);
+
   const [projectDisplay, setProjectDisplay] =
     useRecoilState(projectDisplayState);
 
@@ -31,6 +34,7 @@ const Projects = () => {
    */
   const displayHandler = () => {
     setProjectDisplay(!projectDisplay);
+
     setPick(0);
   };
 
@@ -40,7 +44,9 @@ const Projects = () => {
    */
   const pickHandler = (idx: number) => {
     setPick(idx);
+
     setCheck(!check);
+
     if (container.current) {
       window.scrollTo({
         top: container.current.offsetTop - navHeight,

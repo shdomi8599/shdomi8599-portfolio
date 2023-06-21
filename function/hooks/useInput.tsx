@@ -10,7 +10,7 @@ type UseInputsReturn = [
   () => void
 ];
 
-const useInputs = (initialForm: Form): UseInputsReturn => {
+export const useInputs = (initialForm: Form): UseInputsReturn => {
   const [form, setForm] = useState<Form>(initialForm);
 
   const onChange = useCallback(
@@ -25,5 +25,3 @@ const useInputs = (initialForm: Form): UseInputsReturn => {
 
   return [form, onChange, reset];
 };
-
-export default useInputs;

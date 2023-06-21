@@ -23,31 +23,40 @@ const ProjectsContent = ({
   navProjectData: NavProject[];
 }) => {
   const target = useRef<HTMLDivElement>(null);
+
   const pick = useRecoilValue(pickState);
+
   const [width, setWidth] = useState(0);
+
   const [height, setHeight] = useRecoilState(projectHeightState);
+
   const projectDisplay = useRecoilValue(projectDisplayState);
+
+  const leftHandler = () => {
+    if (target.current && pick === idx) {
+      setLeft(target.current.offsetLeft);
+    }
+  };
 
   //화면의 크기가 변하면 left값을 다시 셋팅
   useEffect(() => {
-    const leftHandler = () => {
-      if (target.current && pick === idx) {
-        setLeft(target.current.offsetLeft);
-      }
-    };
     leftHandler();
+
     window.addEventListener("resize", leftHandler);
   }, [idx, pick, setLeft, height]);
 
   //높이 계산식
   const top = useRef<HTMLDivElement>(null);
+
   const bottom = useRef<HTMLDivElement>(null);
 
   //넓이, pick이 변하면 높이 다시 조정
   useEffect(() => {
     if (target.current && pick === idx) {
       const topHeight = top.current?.offsetHeight;
+
       const bottomHeight = bottom.current?.offsetHeight;
+
       if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
     }
   }, [width, pick, idx, setHeight]);
@@ -56,6 +65,7 @@ const ProjectsContent = ({
   let timer: number;
   const widthResize = () => {
     clearTimeout(timer);
+
     timer = window.setTimeout(() => {
       setWidth(window.innerWidth);
     }, 300);
@@ -67,7 +77,9 @@ const ProjectsContent = ({
     setTimeout(() => {
       if (target.current && pick === idx) {
         const topHeight = top.current?.offsetHeight;
+
         const bottomHeight = bottom.current?.offsetHeight;
+
         if (topHeight && bottomHeight) setHeight(topHeight + bottomHeight);
       }
     }, 3000);

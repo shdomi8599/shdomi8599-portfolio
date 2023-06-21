@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 
 import { navHeightState, pickState } from "@/recoil/atom";
+import { CAROUSEL_SETTINGS } from "@/constants/common";
 
 type CarouselProps = {
   img: string[];
@@ -30,14 +31,6 @@ const Carousel = ({ img, name }: CarouselProps) => {
     }
   };
 
-  //스크롤 위치가 슬릭에 들어오면 play
-  useEffect(() => {
-    window.addEventListener("scroll", play);
-    return () => {
-      window.removeEventListener("scroll", play);
-    };
-  }, []);
-
   /**
    * 슬라이드 pause
    */
@@ -51,6 +44,14 @@ const Carousel = ({ img, name }: CarouselProps) => {
     }
   };
 
+  //스크롤 위치가 슬릭에 들어오면 play
+  useEffect(() => {
+    window.addEventListener("scroll", play);
+    return () => {
+      window.removeEventListener("scroll", play);
+    };
+  }, []);
+
   //스크롤 위치가 슬릭을 벗어나면 pause
   useEffect(() => {
     window.addEventListener("scroll", pause);
@@ -58,17 +59,6 @@ const Carousel = ({ img, name }: CarouselProps) => {
       window.removeEventListener("scroll", pause);
     };
   }, []);
-
-  //캐러셀 옵션
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrow: true,
-    autoplay: false,
-  };
 
   //선택된 프로젝트의 변화가 감지되면 슬릭을 0번째 이미지로 돌려주는 이펙트
   const pick = useRecoilValue(pickState);
@@ -81,7 +71,7 @@ const Carousel = ({ img, name }: CarouselProps) => {
       {name === "사이드 퀘스트" ? (
         <>
           <HideDiv onClick={play} ref={target}></HideDiv>
-          <Slider ref={slider} {...settings}>
+          <Slider ref={slider} {...CAROUSEL_SETTINGS}>
             {img.map((x, i) => (
               <div onClick={play} key={i}>
                 <img className="gif-img" src={`${x}gif`} alt={name + (i + 1)} />
@@ -92,7 +82,7 @@ const Carousel = ({ img, name }: CarouselProps) => {
       ) : (
         <>
           <HideDiv onClick={play} ref={target}></HideDiv>
-          <Slider ref={slider} {...settings}>
+          <Slider ref={slider} {...CAROUSEL_SETTINGS}>
             {img.map((x, i) => (
               <div onClick={play} key={i}>
                 <picture>
