@@ -1,10 +1,10 @@
 import "react-circular-progressbar/dist/styles.css";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 
-import { Skills } from "@/types/skill";
+import { SkillSet } from "@/types/skill";
 import { BACK, ETC, FRONT } from "@/constants/skills";
 
 import ArticleBox from "../common/ArticleBox";
@@ -46,7 +46,7 @@ const Skill = () => {
   };
 
   const [etc, setEtc] = useState(false);
-  
+
   const moveEtc = () => {
     setModal(false);
     setFrontend(false);
@@ -78,7 +78,7 @@ const Skill = () => {
     type: "",
   });
 
-  const skills: [string, Skills, () => void][] = [
+  const skills: SkillSet[] = [
     ["Frontend", FRONT, moveFront],
     ["Backend", BACK, moveBackend],
     ["Etc", ETC, moveEtc],
@@ -191,11 +191,13 @@ const Card = styled.div<CardProps>`
     height: 952px;
     background: url("stacks.png") -10px -10px;
   }
+
   .backend {
     width: 250px;
     height: 221px;
     background: url("stacks.png") -280px -551px;
   }
+
   .experienced {
     width: 250px;
     height: 521px;
@@ -220,18 +222,23 @@ const MainBox = styled.div<MainBoxProps>`
   align-items: center;
   position: relative;
   transition: 1.2s;
+
   height: ${(props) =>
     props.frontend || props.etc ? "950px" : props.backend ? "600px" : "280px"};
+
   .CircularProgressbar .CircularProgressbar-text {
     fill: #636363;
     font-size: 1rem;
   }
+
   .CircularProgressbar .CircularProgressbar-path {
     stroke: #5b6a70;
   }
+
   .skills {
     z-index: 4;
   }
+
   .card {
     display: ${(props) => (props.modal ? "" : "none")};
     position: absolute;
@@ -242,6 +249,7 @@ const MainBox = styled.div<MainBoxProps>`
     box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.05),
       0 2px 8px hsla(0, 0%, 0%, 0.05);
     padding: 20px;
+
     > div:first-child {
       display: flex;
       justify-content: end;
@@ -253,11 +261,13 @@ const MainBox = styled.div<MainBoxProps>`
         cursor: pointer;
       }
     }
+
     > div:nth-child(2) {
       border-bottom: 1px solid #d1d2d3;
       padding-bottom: 10px;
       font-weight: 900;
     }
+
     > div:last-child {
       padding-top: 10px;
     }
@@ -275,6 +285,7 @@ const MainBox = styled.div<MainBoxProps>`
     display: flex;
     justify-content: center;
     align-items: center;
+
     img {
       display: inline;
       width: 50%;
@@ -282,6 +293,7 @@ const MainBox = styled.div<MainBoxProps>`
       z-index: 3;
       cursor: pointer;
     }
+
     svg {
       position: absolute;
     }
@@ -297,6 +309,7 @@ const MainBox = styled.div<MainBoxProps>`
     display: flex;
     justify-content: center;
     align-items: center;
+
     .circle:nth-child(1) {
       transform: ${(props) =>
         props.frontend ? " translate(240px) " : "translate(0px) "};
@@ -350,12 +363,14 @@ const MainBox = styled.div<MainBoxProps>`
           ? "rotate(280deg) translate(240px) rotate(-280deg)"
           : "rotate(0deg) translate(0px) rotate(-0deg)"};
     }
+
     .circle:nth-child(9) {
       transform: ${(props) =>
         props.frontend
           ? "rotate(320deg) translate(240px) rotate(-320deg)"
           : "rotate(0deg) translate(0px) rotate(-0deg)"};
     }
+
     .circle:nth-child(10) {
       cursor: pointer;
       z-index: 2;

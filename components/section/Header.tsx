@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { navHeightState, selectNavState } from "@/recoil/atom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useOffResize } from "@/function/hooks/useOffResize";
+import { useOffResize } from "@/hooks/useOffResize";
 
 type HeaderBoxProps = {
   togle: boolean;

@@ -2,8 +2,8 @@ import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
-import { useInputs } from "@/function/hooks/useInput";
-import { validationPhone } from "@/function/utility/validation";
+import { validationPhone } from "@/util/validation";
+import { useInputs } from "@/hooks/useInput";
 
 import ArticleBox from "../common/ArticleBox";
 import Row from "../common/Row";

@@ -5,3 +5,5 @@ export type Skills = {
   class: string;
   content: string;
 }[];
+
+export type SkillSet = [string, Skills, () => void];
