@@ -1,10 +1,12 @@
-import useInputs from "@/function/hooks/useInput";
 import emailjs from "@emailjs/browser";
-import { FormEvent, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { FormEvent, useEffect, useRef, useState } from "react";
+
+import useInputs from "@/function/hooks/useInput";
+import { validationPhone } from "@/function/utility/validation";
+
 import ArticleBox from "../common/ArticleBox";
 import Row from "../common/Row";
-import { validationPhone } from "@/function/utility/validation";
 
 type ContactBoxProps = {
   imgHeight?: number;

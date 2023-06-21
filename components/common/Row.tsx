@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-type RowProps = {
+type Props = {
   children: JSX.Element[];
 };
 
-const Row = ({ children }: RowProps) => {
+const Row = ({ children }: Props) => {
   return <RowBox>{children}</RowBox>;
 };
 

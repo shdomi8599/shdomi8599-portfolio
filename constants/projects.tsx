@@ -1,7 +1,7 @@
 import FocusSpan from "@/components/common/FocusSpan";
 import { ProjectList } from "@/types/project";
 
-export const navProject = [
+export const NAV_PROJECTS = [
   { categori: "TEAM", name: "사이드 퀘스트", create: "2023.05", period: 37 },
   { categori: "TEAM", name: "스택 오버 플로우", create: "2023.04", period: 14 },
   { categori: "SOLO", name: "포트폴리오", create: "2023.04", period: 7 },
@@ -14,7 +14,7 @@ export const navProject = [
   },
 ];
 
-export const projects: ProjectList[] = [
+export const PROJECTS: ProjectList[] = [
   [
     <div key={"사이드 퀘스트"}>
       <b>

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { useSetRecoilState } from "recoil";
+
 import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSetRecoilState } from "recoil";
 import { selectNavState } from "@/recoil/atom";
 
 const Intro = () => {

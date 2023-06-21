@@ -1,8 +1,10 @@
-import { Project } from "@/types/project";
 import styled, { keyframes } from "styled-components";
 
+import { Project } from "@/types/project";
+import { useMemo } from "react";
+
 const Description = ({ name, content, href }: Project) => {
-  const hrefData = ["github", "tistory", "android"];
+  const hrefData = useMemo(() => ["github", "tistory", "android"], []);
 
   return (
     <DescriptionBox>

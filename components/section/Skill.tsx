@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
-import ArticleBox from "../common/ArticleBox";
-import { BACK, ETC, FRONT } from "@/data/skills";
-import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+
+import styled from "styled-components";
+import { useEffect, useRef, useState } from "react";
+import { CircularProgressbar } from "react-circular-progressbar";
+
 import { Skills } from "@/types/skill";
+import { BACK, ETC, FRONT } from "@/constants/skills";
+
+import ArticleBox from "../common/ArticleBox";
 
 const Skill = () => {
   // 제일 넓이가 큰 것에 맞춰서 넓이를 설정해주기 위한 작업

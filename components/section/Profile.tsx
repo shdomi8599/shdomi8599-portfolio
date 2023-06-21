@@ -1,7 +1,9 @@
-import ArticleBox from "@/components/common/ArticleBox";
 import styled from "styled-components";
+
+import { PROFILE_DATA } from "@/constants/profile";
+
+import ArticleBox from "@/components/common/ArticleBox";
 import Row from "../common/Row";
-import { PROFILE_DATA } from "@/data/profile";
 
 const Profile = () => {
   return (

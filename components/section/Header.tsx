@@ -1,9 +1,11 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
+import { useEffect, useRef, useState } from "react";
+
 import { navHeightState, selectNavState } from "@/recoil/atom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+
 import useOffResize from "@/function/hooks/useOffResize";
 
 type HeaderBoxProps = {

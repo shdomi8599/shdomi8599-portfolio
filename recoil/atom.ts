@@ -1,6 +1,5 @@
-import { atom } from "recoil";
-import { RecoilEnv } from "recoil";
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
+import { atom, RecoilEnv } from "recoil";
 
 //선택된 네비 상태
 export const selectNavState = atom({
@@ -12,12 +11,6 @@ export const selectNavState = atom({
 export const navHeightState = atom({
   key: "navHeightState",
   default: 0,
-});
-
-//깃허브 데이터
-export const gitDataState = atom<{ [key: string]: string }>({
-  key: "gitDataState",
-  default: {},
 });
 
 //선택된 프로젝트 인덱스

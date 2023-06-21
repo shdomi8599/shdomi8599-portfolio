@@ -1,7 +1,8 @@
-import { navHeightState, paddingState, selectNavState } from "@/recoil/atom";
-import { useEffect, useRef } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { useEffect, useRef } from "react";
+
+import { navHeightState, paddingState, selectNavState } from "@/recoil/atom";
 
 type ArticleBoxProps = {
   children: JSX.Element | JSX.Element[];

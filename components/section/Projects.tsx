@@ -1,21 +1,19 @@
-import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import ArticleBox from "../common/ArticleBox";
+import { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
+
 import {
   navHeightState,
   paddingState,
   pickState,
   projectDisplayState,
 } from "@/recoil/atom";
+import { NAV_PROJECTS } from "@/constants/projects";
+
 import ProjectsContent from "../projects/ProjectsContent";
-import { NavProject } from "@/types/project";
+import ArticleBox from "../common/ArticleBox";
 
-type Props = {
-  navProjectData: NavProject[];
-};
-
-const Projects = ({ navProjectData }: Props) => {
+const Projects = () => {
   const container = useRef<HTMLDivElement>(null);
   const navHeight = useRecoilValue(navHeightState);
   const padding = useRecoilValue(paddingState);
@@ -79,7 +77,7 @@ const Projects = ({ navProjectData }: Props) => {
         <>
           {!projectDisplay && (
             <ProjectNav>
-              {navProjectData.map((el, i) => (
+              {NAV_PROJECTS.map((el, i) => (
                 <div
                   key={el.name}
                   className={i === pick ? `project${i} active` : `project${i}`}
@@ -94,9 +92,9 @@ const Projects = ({ navProjectData }: Props) => {
           )}
         </>
         <ProjectsContainer ref={container} projectDisplay={projectDisplay}>
-          {navProjectData.map((num, idx) => (
+          {NAV_PROJECTS.map((num, idx) => (
             <ProjectsContent
-            navProjectData={navProjectData}
+              navProjectData={NAV_PROJECTS}
               key={`${num.name + idx}`}
               idx={idx}
               setLeft={setLeft}

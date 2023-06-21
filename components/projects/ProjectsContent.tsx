@@ -1,20 +1,17 @@
-import { projects } from "@/data/projects";
-import Carousel from "../common/Carousel";
-import Description from "./Description";
 import styled from "styled-components";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
+
 import {
   pickState,
   projectDisplayState,
   projectHeightState,
 } from "@/recoil/atom";
 import { NavProject } from "@/types/project";
+import { PROJECTS } from "@/constants/projects";
 
-type ContentProps = {
-  height: number;
-  projectDisplay: boolean;
-};
+import Carousel from "../common/Carousel";
+import Description from "./Description";
 
 const ProjectsContent = ({
   idx,
@@ -87,12 +84,12 @@ const ProjectsContent = ({
       <div ref={bottom}>
         <div>
           <div>
-            <Carousel name={navProjectData[idx].name} img={projects[idx][2]} />
+            <Carousel name={navProjectData[idx].name} img={PROJECTS[idx][2]} />
           </div>
         </div>
         <div>
-          {projects[idx][0]}
-          {projects[idx][1].map((data) => (
+          {PROJECTS[idx][0]}
+          {PROJECTS[idx][1].map((data) => (
             <Description
               projectIdx={idx}
               key={data.name}
@@ -108,6 +105,11 @@ const ProjectsContent = ({
 };
 
 export default ProjectsContent;
+
+type ContentProps = {
+  height: number;
+  projectDisplay: boolean;
+};
 
 const Content = styled.div<ContentProps>`
   margin-top: 80px;
