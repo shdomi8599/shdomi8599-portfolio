@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useSetRecoilState } from "recoil";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { navHeightState, selectNavState } from "@/recoil/atom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -51,7 +51,7 @@ const Header = () => {
     }
   };
 
-  //스크롤이 20이상 내려오면 네비바의 배경을 입혀주기 위한 이펙트
+  //스크롤이 10이상 내려오면 네비바의 배경을 입혀주기 위한 이펙트
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     if (window.scrollY > 10) {
@@ -60,10 +60,8 @@ const Header = () => {
   }, []);
 
   //네비 데이터
-  const navArr = useMemo(
-    () => ["Profile", "Skills", "Projects", "Contact"],
-    []
-  );
+  const navArr = ["Profile", "Skills", "Projects", "Contact"];
+
   const navData = (
     <ul>
       {navArr.map((el) => (
