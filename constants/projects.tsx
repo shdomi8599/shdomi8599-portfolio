@@ -14,6 +14,8 @@ export const NAV_PROJECTS = [
   },
 ];
 
+[{link:'',imgDatas:[]},{},{}]
+
 export const PROJECTS: ProjectList[] = [
   [
     <div key={"사이드 퀘스트"}>
